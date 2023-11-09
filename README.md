@@ -1,7 +1,7 @@
 # MIT Fest Web Docs
 
 ## Desain
-Figma: 
+Figma: -
 
 ## Techstack
 Teknologi yang digunakan
@@ -15,3 +15,11 @@ Teknologi yang digunakan
 - [NextAuth](https://next-auth.js.org/) - Library untuk sistem Authentication.
 
 Note: don't forget to use prettier when editing code.
+
+## Member
+### Developer
+- Kusindra Aji Rabbany (XI RPL 1)
+- Ahsan Awadullah Azizan (XI RPL 3)
+- Naufal Nabil Ramadhan (X RPL 8)
+### UI/UX Desain
+- Moch. Gilang Ramadhan (XI RPL 6)
