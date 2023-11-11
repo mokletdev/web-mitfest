@@ -8,24 +8,24 @@ async function connectAndQuery(queryFn: () => Promise<any>) {
   return queryFn();
 }
 
-export async function findUserByEmail(email: string) {
-  return connectAndQuery(() => User.findOne({ email }));
+export function findUserByEmail(email: string) {
+  return connectAndQuery(async () => await User.findOne({ email }));
 }
 
-export async function getAllUsers() {
-  return connectAndQuery(() => User.find({}));
+export function getAllUsers() {
+  return connectAndQuery(async () => await User.find({}));
 }
 
-export async function getAllAdmins() {
-  return connectAndQuery(() => User.find({ role: "Admin" }));
+export function getAllAdmins() {
+  return connectAndQuery(async () => await User.find({ role: "Admin" }));
 }
 
-export async function getAllParticipants() {
-  return connectAndQuery(() => User.find({ role: "User" }));
+export function getAllParticipants() {
+  return connectAndQuery(async () => await User.find({ role: "User" }));
 }
 
-export async function createUser(user: TUser) {
-  return connectAndQuery(() => User.create(user));
+export function createUser(user: TUser) {
+  return connectAndQuery(async () => await User.create(user));
 }
 
 type authenticate = {

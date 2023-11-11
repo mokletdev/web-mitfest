@@ -75,7 +75,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user }) {
       if (user.email) {
         let findUser = await findUserByEmail(user.email);
         if (!findUser) {
