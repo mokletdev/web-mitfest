@@ -21,5 +21,6 @@ Note: don't forget to use prettier when editing code.
 - Kusindra Aji Rabbany (XI RPL 1)
 - Ahsan Awadullah Azizan (XI RPL 3)
 - Naufal Nabil Ramadhan (X RPL 8)
+- Muhammad Zuhair Zuhdi (X RPL 6)
 ### UI/UX Desain
 - Moch. Gilang Ramadhan (XI RPL 6)
