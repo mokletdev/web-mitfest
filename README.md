@@ -1,9 +1,45 @@
-# MIT Fest Web Docs
+# MIT Fest Web - Docs
+
+## How to run
+
+```sh
+git clone https://github.com/milkyway-id/osis-moklet
+```
+
+```sh
+cd osis-moklet
+```
+
+```sh
+npm install
+```
+
+#### Run Development
+
+```sh
+npm run dev
+```
+
+#### Run Production
+
+```sh
+npm run build
+```
+
+```sh
+npm start
+```
+
+Note: for ENV please contact dev lead
 
 ## Desain
-Figma: -
+
+Figma File: https://www.figma.com/file/KVAWnXYeIYGh2HM0osQvRO/MITFest-?type=design&t=fWO941JFLjfYbXoQ-6
+
+Figma Team: https://www.figma.com/files/project/125931632/MIT-Fest-Web
 
 ## Techstack
+
 Teknologi yang digunakan
 
 - [Typescript](https://www.typescriptlang.org/docs/) - Bahasa yang digunakan pada projek ini.
@@ -17,10 +53,14 @@ Teknologi yang digunakan
 Note: don't forget to use prettier when editing code.
 
 ## Member
+
 ### Developer
+
 - Kusindra Aji Rabbany (XI RPL 1)
 - Ahsan Awadullah Azizan (XI RPL 3)
 - Naufal Nabil Ramadhan (X RPL 8)
 - Muhammad Zuhair Zuhdi (X RPL 6)
+
 ### UI/UX Desain
+
 - Moch. Gilang Ramadhan (XI RPL 6)
