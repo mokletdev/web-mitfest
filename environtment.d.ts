@@ -12,6 +12,8 @@ declare global {
         | "chacha20-poly1305";
       GOOGLE_CLIENT_ID: string;
       GOOGLE_CLIENT_SECRET: string;
+      GOOGLE_REDIRECT_URI: string;
+      GOOGLE_REFRESH_TOKEN: string;
       NEXTAUTH_SECRET: string;
       NEXTAUTH_URL: string;
       [key: string]: string | undefined;
