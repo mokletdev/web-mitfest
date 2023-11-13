@@ -58,6 +58,7 @@ type mailMetaData = {
 export const sendMailTo = async (metadata: mailMetaData) => {
   const options = {
     to: metadata.to,
+    from: "Moklet IT Fest 2023 <mit_fest@smktelkom-mlg.sch.id>",
     // cc: "cc@mail.com",
     // replyTo: 'amit@labnol.org',
     subject: metadata.subject,
