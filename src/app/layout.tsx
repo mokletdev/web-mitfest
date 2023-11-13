@@ -1,10 +1,10 @@
-import { NextAuthProvider } from "./components/SessionProvider";
 import "./globals.css";
+import { NextAuthProvider } from "./components/SessionProvider";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/ReactToastify.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
