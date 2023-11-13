@@ -2,6 +2,7 @@ import { connectMongo } from "../mongoose";
 import User from "@/models/User.model";
 import type { User as TUser } from "@/models/User.model";
 import { compareData } from "../encryption";
+import type { ObjectId } from "mongoose";
 
 async function connectAndQuery(queryFn: () => Promise<any>) {
   await connectMongo();
@@ -10,6 +11,10 @@ async function connectAndQuery(queryFn: () => Promise<any>) {
 
 export function findUserByEmail(email: string) {
   return connectAndQuery(async () => await User.findOne({ email }));
+}
+
+export function findUserById(id: ObjectId) {
+  return connectAndQuery(async () => await User.findById(id));
 }
 
 export function getAllUsers() {
