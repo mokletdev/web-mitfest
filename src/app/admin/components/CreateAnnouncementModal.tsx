@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { Types } from "mongoose";
+import { stringToObjectId } from "@/utils/mongoose";
 
 interface CreateAnnouncementModalProps {
   showModal: boolean;
@@ -52,7 +53,7 @@ export default function CreateAnnouncementModal({
                     content:
                       (document.getElementById("content") as HTMLInputElement)
                         .value || "",
-                    user_id: new Types.ObjectId(session?.user?.id),
+                    user_id: stringToObjectId(session?.user?.id!),
                   }).then(() => {
                     toast.update(toastId, {
                       render: "Sukses",
