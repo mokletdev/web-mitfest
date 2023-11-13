@@ -3,14 +3,6 @@
 ## How to run
 
 ```sh
-git clone https://github.com/milkyway-id/osis-moklet
-```
-
-```sh
-cd osis-moklet
-```
-
-```sh
 npm install
 ```
 
