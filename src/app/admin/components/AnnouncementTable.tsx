@@ -54,7 +54,7 @@ export default function AnnoouncementTable({
                   <td className="px-4 py-3">
                     <div className="flex items-center text-sm">
                       <div>
-                        <p className="font-semibold">{item.content}</p>
+                        <p className="font-semibold">{item.content.slice(0, 30) + "..."}</p>
                       </div>
                     </div>
                   </td>

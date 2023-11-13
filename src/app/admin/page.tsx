@@ -3,20 +3,20 @@ import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { getAllAnnounce } from "@/utils/queries/announcement.query";
 import AnnouncementTable from "./components/AnnouncementTable";
-import { getMobileLegendsCount } from "@/utils/queries/mobileLegend.query";
-import { getWebDesignsCount } from "@/utils/queries/webDesign.query";
-import { getBusinessPlansCount } from "@/utils/queries/businessPlan.query";
-import { getCyberSecuritiesCount } from "@/utils/queries/cyberSecurity.query";
-import { getCloudComputingsCount } from "@/utils/queries/cloudComputing.query";
+import { getRegistrationsCount } from "@/utils/queries/registration.query";
 
 export default async function Admin() {
   const announcements = JSON.parse(JSON.stringify(await getAllAnnounce()));
   const participantCount = {
-    mobileLegend: await getMobileLegendsCount(),
-    webDesign: await getWebDesignsCount(),
-    businessPlan: await getBusinessPlansCount(),
-    cyberSecurity: await getCyberSecuritiesCount(),
-    cloudComputing: await getCloudComputingsCount(),
+    mobileLegend: await getRegistrationsCount({ competition: "mobile_legend" }),
+    webDesign: await getRegistrationsCount({ competition: "web_design" }),
+    businessPlan: await getRegistrationsCount({ competition: "business_plan" }),
+    cyberSecurity: await getRegistrationsCount({
+      competition: "cyber_security",
+    }),
+    cloudComputing: await getRegistrationsCount({
+      competition: "cloud_computing",
+    }),
   };
 
   return (
