@@ -27,7 +27,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NextAuthProvider>
           <ToastContainer />
           <NextTopLoader color="#b52930" />
-          <Navbar></Navbar>
           {children}
         </NextAuthProvider>
       </body>
