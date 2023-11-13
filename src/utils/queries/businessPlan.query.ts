@@ -1,10 +1,5 @@
-import { connectMongo } from "../mongoose";
 import BusinessPlanModel from "@/models/Business_Plan.model";
-
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
-}
+import { connectAndQuery } from "../connectAndQuery";
 
 export function getAllBusinessPlans() {
   return connectAndQuery(async () => await BusinessPlanModel.find({}));

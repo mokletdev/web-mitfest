@@ -1,12 +1,7 @@
 import CloudComputingModel, {
   CloudComputing,
 } from "@/models/Cloud_Computing.model";
-import { connectMongo } from "../mongoose";
-
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
-}
+import { connectAndQuery } from "../connectAndQuery";
 
 export function getAllCloudComputings() {
   return connectAndQuery(async () => await CloudComputingModel.find({}));

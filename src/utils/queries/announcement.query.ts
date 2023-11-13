@@ -1,12 +1,7 @@
-import { connectMongo } from "../mongoose";
 import Announcement from "@/models/Announcement.model";
 import type { Announcement as TAnnouncement } from "@/models/Announcement.model";
 import { ObjectId, UpdateQuery } from "mongoose";
-
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
-}
+import { connectAndQuery } from "../connectAndQuery";
 
 export function findAnnounceByType(type: TAnnouncement["type"]) {
   return connectAndQuery(

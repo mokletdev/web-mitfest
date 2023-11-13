@@ -1,13 +1,8 @@
-import { connectMongo } from "../mongoose";
 import User from "@/models/User.model";
 import type { User as TUser } from "@/models/User.model";
 import { compareData } from "../encryption";
 import type { ObjectId } from "mongoose";
-
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
-}
+import { connectAndQuery } from "../connectAndQuery";
 
 export function findUserByEmail(email: string) {
   return connectAndQuery(async () => await User.findOne({ email }));
