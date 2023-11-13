@@ -6,7 +6,7 @@ import AnnouncementTable from "./components/AnnouncementTable";
 import { getRegistrationsCount } from "@/utils/queries/registration.query";
 
 export default async function Admin() {
-  const announcements = JSON.parse(JSON.stringify(await getAllAnnounce()));
+  const announcements = JSON.parse(JSON.stringify(await getAllAnnounce())).reverse();
   const participantCount = {
     mobileLegend: await getRegistrationsCount({ competition: "mobile_legend" }),
     webDesign: await getRegistrationsCount({ competition: "web_design" }),
