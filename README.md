@@ -3,14 +3,6 @@
 ## How to run
 
 ```sh
-git clone https://github.com/milkyway-id/osis-moklet
-```
-
-```sh
-cd osis-moklet
-```
-
-```sh
 npm install
 ```
 
@@ -37,6 +29,10 @@ Note: for ENV please contact dev lead
 Figma File: https://www.figma.com/file/KVAWnXYeIYGh2HM0osQvRO/MITFest-?type=design&t=fWO941JFLjfYbXoQ-6
 
 Figma Team: https://www.figma.com/files/project/125931632/MIT-Fest-Web
+
+## Projects
+
+Trello: https://trello.com/invite/b/6EbxTvRI/ATTI3b8f4323ce68d3fc926438820d8dd2eb3926F5B4/mit-fest-developers
 
 ## Techstack
 
