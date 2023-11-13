@@ -1,10 +1,5 @@
 import MobileLegendModel from "@/models/Mobile_Legend.model";
-import { connectMongo } from "../mongoose";
-
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
-}
+import { connectAndQuery } from "../connectAndQuery";
 
 export function getAllMobileLegends() {
   return connectAndQuery(async () => await MobileLegendModel.find({}));
