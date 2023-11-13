@@ -38,6 +38,10 @@ Figma File: https://www.figma.com/file/KVAWnXYeIYGh2HM0osQvRO/MITFest-?type=desi
 
 Figma Team: https://www.figma.com/files/project/125931632/MIT-Fest-Web
 
+## Projects
+
+Trello: https://trello.com/invite/b/6EbxTvRI/ATTI3b8f4323ce68d3fc926438820d8dd2eb3926F5B4/mit-fest-developers
+
 ## Techstack
 
 Teknologi yang digunakan
