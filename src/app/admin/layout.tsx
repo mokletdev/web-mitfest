@@ -21,7 +21,7 @@ export default function RootLayout({
     <>
       <Navbar nav={nav} setNav={setNav} name={session?.user?.name || ""} />
       <div>
-        <div className="w-full flex overflow-hidden bg-white pt-16 pb-6">
+        <div className="flex w-full overflow-hidden bg-white pb-6 pt-16">
           <Sidebar nav={nav} />
           <div
             className={`bg-gray-900 opacity-50 ${
@@ -31,12 +31,12 @@ export default function RootLayout({
           />
           <div
             id="main-content"
-            className="h-full w-full relative overflow-y-auto lg:ml-64"
+            className="relative h-full w-full overflow-y-auto lg:ml-64"
           >
-            <nav className="font-sans m-4 p-2 md:p-4 w-max bg-gray-200 rounded-lg capitalize">
+            <nav className="m-4 w-max rounded-lg bg-gray-200 p-2 font-sans capitalize md:p-4">
               <ol className="flex">
                 <li>
-                  <Link href="/" className="text-blue-700 font-bold">
+                  <Link href="/" className="font-bold text-blue-700">
                     home
                   </Link>
                 </li>
@@ -62,7 +62,7 @@ export default function RootLayout({
               </ol>
             </nav>
             <main>
-              <div className="pt-6 px-4">{children}</div>
+              <div className="px-4 pt-6">{children}</div>
             </main>
           </div>
         </div>

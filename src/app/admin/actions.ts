@@ -1,5 +1,6 @@
 "use server";
 import {
+  createAnnouncement,
   deleteAnnouncement,
   updateAnnouncement,
 } from "@/utils/queries/announcement.query";
@@ -8,7 +9,7 @@ import { ObjectId } from "mongoose";
 export async function updateAnnouncementAction(
   user_id: string | undefined,
   announceId: ObjectId,
-  content: string
+  content: string,
 ) {
   try {
     await updateAnnouncement(announceId, {
@@ -23,4 +24,10 @@ export async function deleteAnnouncementAction(announceId: ObjectId) {
   try {
     await deleteAnnouncement(announceId);
   } catch (err) {}
+}
+
+export async function createAnnouncementAction(announcement: any) {
+  try {
+    await createAnnouncement(announcement);
+  } catch (error) {}
 }
