@@ -51,15 +51,16 @@ export function Navbar({ nav, setNav, name }: navbarParam) {
             </button>
             <Link
               href="/"
-              className="text-xl font-bold flex items-center lg:ml-2.5"
+              className="flex items-center lg:ml-2.5 p-2 transition-all bg-red-500 hover:bg-red-600 rounded-md"
             >
-              <Image
+              {/* <Image
                 src="/assets/images/LogoOSIS.png"
                 alt="OSIS Logo"
                 width={146}
                 height={32}
                 className="mr-2"
-              />
+              /> */}
+              <h1 className="text-center text-base lg:text-xl font-bold text-white">MITFest Admin</h1>
             </Link>
           </div>
 
