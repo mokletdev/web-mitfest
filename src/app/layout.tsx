@@ -5,6 +5,7 @@ import { Roboto } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./components/navbar";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -18,11 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head></head>
@@ -30,6 +27,7 @@ export default function RootLayout({
         <NextAuthProvider>
           <ToastContainer />
           <NextTopLoader color="#b52930" />
+          <Navbar></Navbar>
           {children}
         </NextAuthProvider>
       </body>

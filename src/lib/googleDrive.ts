@@ -1,5 +1,4 @@
 import stream, { Readable } from "stream";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { google } = require("googleapis");
 
 /**
@@ -22,26 +21,11 @@ type SearchResultResponse = {
 export class GoogleDriveService {
   private driveClient;
 
-  public constructor(
-    clientId: string,
-    clientSecret: string,
-    redirectUri: string,
-    refreshToken: string
-  ) {
-    this.driveClient = this.createDriveClient(
-      clientId,
-      clientSecret,
-      redirectUri,
-      refreshToken
-    );
+  public constructor(clientId: string, clientSecret: string, redirectUri: string, refreshToken: string) {
+    this.driveClient = this.createDriveClient(clientId, clientSecret, redirectUri, refreshToken);
   }
 
-  createDriveClient(
-    clientId: string,
-    clientSecret: string,
-    redirectUri: string,
-    refreshToken: string
-  ) {
+  createDriveClient(clientId: string, clientSecret: string, redirectUri: string, refreshToken: string) {
     const client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
 
     client.setCredentials({ refresh_token: refreshToken });
@@ -80,12 +64,7 @@ export class GoogleDriveService {
     });
   }
 
-  saveFile(
-    fileName: string,
-    fileStream: Buffer,
-    fileMimeType: string | undefined,
-    folderId?: string
-  ) {
+  saveFile(fileName: string, fileStream: Buffer, fileMimeType: string | undefined, folderId?: string) {
     const newStream = new Readable({
       read() {
         this.push(fileStream);
@@ -115,25 +94,10 @@ type driveFile = {
   url: string;
 };
 
-export async function uploadFile(
-  filename: string,
-  mimeType: string | undefined,
-  stream: Buffer,
-  folderId: string
-): Promise<driveFile> {
-  const googleDriveService = new GoogleDriveService(
-    driveClientId,
-    driveClientSecret,
-    driveRedirectUri,
-    driveRefreshToken
-  );
+export async function uploadFile(filename: string, mimeType: string | undefined, stream: Buffer, folderId: string): Promise<driveFile> {
+  const googleDriveService = new GoogleDriveService(driveClientId, driveClientSecret, driveRedirectUri, driveRefreshToken);
 
-  const file = await googleDriveService.saveFile(
-    filename,
-    stream,
-    mimeType,
-    folderId
-  );
+  const file = await googleDriveService.saveFile(filename, stream, mimeType, folderId);
 
   const result = { url: `https://drive.google.com/open?id=${file.data.id}` };
   return result;
