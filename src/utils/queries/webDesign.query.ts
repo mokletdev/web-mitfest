@@ -1,10 +1,5 @@
 import WebDesignModel from "@/models/Web_Design.model";
-import { connectMongo } from "../mongoose";
-
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
-}
+import { connectAndQuery } from "../connectAndQuery";
 
 export function getAllWebDesigns() {
   return connectAndQuery(async () => await WebDesignModel.find({}));
