@@ -97,7 +97,15 @@ export default async function Admin() {
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <h1 className="text-xl font-bold">Pengumuman</h1>
+        <div className="flex justify-between">
+          <h1 className="text-xl font-bold">Pengumuman</h1>
+          <button
+            className="bg-emerald-500 text-white hover:bg-emerald-600 active:bg-emerald-700 font-bold uppercase text-sm px-3 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="button"
+          >
+            Add New
+          </button>
+        </div>
         <div className="w-full overflow-hidden rounded-lg shadow-xs">
           <div className="w-full overflow-x-auto">
             <AnnouncementTable announcements={announcements} />
