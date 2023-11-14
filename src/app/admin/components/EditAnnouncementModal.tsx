@@ -4,17 +4,18 @@ import { deleteAnnouncementAction, updateAnnouncementAction } from "../actions";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { announcements } from "@prisma/client";
 
 interface EditAnnouncementModalProps {
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
-  content: any;
+  announcement: announcements;
 }
 
 export default function EditAnnouncementModal({
   showModal,
   setShowModal,
-  content,
+  announcement,
 }: EditAnnouncementModalProps) {
   const router = useRouter();
   const { data: session } = useSession();
@@ -39,7 +40,7 @@ export default function EditAnnouncementModal({
             <div className="relative flex-auto p-6">
               <textarea
                 id="content"
-                defaultValue={content.content}
+                defaultValue={announcement.content}
                 className="text-blueGray-500 my-4 min-w-full border-2 p-2 text-lg leading-relaxed"
               ></textarea>
             </div>
@@ -49,7 +50,7 @@ export default function EditAnnouncementModal({
                 type="button"
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  deleteAnnouncementAction(content._id).then(() => {
+                  deleteAnnouncementAction(announcement.id).then(() => {
                     toast.update(toastId, {
                       render: "Sukses",
                       type: "success",
@@ -68,8 +69,8 @@ export default function EditAnnouncementModal({
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
                   updateAnnouncementAction(
-                    session?.user?.id,
-                    content._id,
+                    session?.user?.id as string,
+                    announcement.id,
                     (document.getElementById("content") as HTMLInputElement)
                       .value || "",
                   ).then(() => {

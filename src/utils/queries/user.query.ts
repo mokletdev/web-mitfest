@@ -1,39 +1,45 @@
-import User from "@/models/User.model";
-import type { User as TUser } from "@/models/User.model";
 import { compareData } from "../encryption";
-import type { ObjectId } from "mongoose";
-import { connectAndQuery } from "../connectAndQuery";
+import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
+import type { users } from "@prisma/client";
+import type { ObjectId } from "bson";
 
-export function findUserByEmail(email: string) {
-  return connectAndQuery(async () => await User.findOne({ email }));
+export async function findUserByEmail(email: string) {
+  const user = await prisma.users.findUnique({ where: { email } });
+  return user;
 }
 
-export function findUserById(id: ObjectId) {
-  return connectAndQuery(async () => await User.findById(id));
+export async function findUserById(id: ObjectId) {
+  const user = await prisma.users.findUnique({ where: { id: id.toString() } });
+  return user;
 }
 
-export function getAllUsers() {
-  return connectAndQuery(async () => await User.find({}));
+export async function getAllUsers() {
+  const users = await prisma.users.findMany({});
+  return users;
 }
 
-export function getAllAdmins() {
-  return connectAndQuery(async () => await User.find({ role: "Admin" }));
+export async function getAllAdmins() {
+  const admins = await prisma.users.findMany({ where: { role: "Admin" } });
+  return admins;
 }
 
-export function getAllParticipants() {
-  return connectAndQuery(async () => await User.find({ role: "User" }));
+export async function getAllParticipants() {
+  const participants = await prisma.users.findMany({ where: { role: "User" } });
+  return participants;
 }
 
-export function createUser(user: TUser) {
-  return connectAndQuery(async () => await User.create(user));
+export async function createUser(data: Prisma.usersCreateInput) {
+  const create = await prisma.users.create({ data });
+  return create;
 }
 
 type authenticate = {
   status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
-  user?: TUser;
+  user?: users;
 };
 
-export async function authenticate(email: string, password: string) {
+export async function authenticate(email: string, password?: string) {
   const findUser = await findUserByEmail(email);
   let res: authenticate = {
     status: "INVALID",
