@@ -43,7 +43,7 @@ Teknologi yang digunakan
 - [Next.js](https://nextjs.org/) - Framework utama yang digunakan untuk frontend dan backend.
 - [Tailwind CSS](https://tailwindcss.com/) - CSS Framework yang digunakan pada frontend.
 - [MongoDB](https://www.mongodb.com/) - Projek ini menggunakan database NoSQL yaitu MongoDB.
-- [Prisma](https://mongoosejs.com/) - Library ORM yang digunakan untuk mengintegrasikan MongoDB dengan projek ini.
+- [Prisma](https://prisma.io/) - Library ORM yang digunakan untuk mengintegrasikan MongoDB dengan projek ini.
 - [NextAuth](https://next-auth.js.org/) - Library untuk sistem Authentication.
 
 Note: don't forget to use prettier when editing code.
