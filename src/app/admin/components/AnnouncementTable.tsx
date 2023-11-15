@@ -5,13 +5,16 @@ import { Suspense, useState } from "react";
 import CreateAnnouncementModal from "./CreateAnnouncementModal";
 import { announcementWithUser } from "@/types/prismaRelations";
 import { announcements } from "@prisma/client";
+import { $Enums } from "@prisma/client";
 
 interface AnnoouncementTableProps {
   announcements: announcementWithUser[];
+  type: $Enums.AnnouncementType;
 }
 
 export default function AnnoouncementTable({
   announcements,
+  type,
 }: AnnoouncementTableProps) {
   const [showEditModal, setShowEditModal] = useState<boolean>(false);
   const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
@@ -104,6 +107,7 @@ export default function AnnoouncementTable({
         <CreateAnnouncementModal
           showModal={showCreateModal}
           setShowModal={setShowCreateModal}
+          type={type}
         />
       </table>
     </>

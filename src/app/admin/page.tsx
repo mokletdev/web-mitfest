@@ -129,7 +129,7 @@ export default async function Admin() {
         </div>
         <div className="shadow-xs w-full overflow-hidden rounded-lg">
           <div className="w-full overflow-x-auto">
-            <AnnouncementTable announcements={announcements} />
+            <AnnouncementTable announcements={announcements} type="all" />
           </div>
         </div>
       </div>
