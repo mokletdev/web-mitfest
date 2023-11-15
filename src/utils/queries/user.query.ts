@@ -39,7 +39,7 @@ type authenticate = {
   user?: users;
 };
 
-export async function authenticate(email: string, password?: string) {
+export async function authenticate(email: string, password: string) {
   const findUser = await findUserByEmail(email);
   let res: authenticate = {
     status: "INVALID",
@@ -47,18 +47,16 @@ export async function authenticate(email: string, password?: string) {
   };
 
   if (findUser) {
-    if (findUser) {
-      if (!password) res.status = "NO_PASSWORD";
+    if (!findUser.password) res.status = "NO_PASSWORD";
+    else {
+      const validateUser = compareData(password, findUser.password!);
+      if (!validateUser) res.status = "INVALID";
       else {
-        const validateUser = compareData(password, findUser.password!);
-        if (!validateUser) res.status = "INVALID";
-        else {
-          res.status = "SUCCESS";
-          res.user = findUser;
-        }
+        res.status = "SUCCESS";
+        res.user = findUser;
       }
-    } else res.status = "INVALID";
-  }
+    }
+  } else res.status = "INVALID";
   return res;
 }
 
