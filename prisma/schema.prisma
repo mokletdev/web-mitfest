@@ -43,17 +43,20 @@ enum ParticipantStatus {
 }
 
 model users {
-  id            String                     @id @default(auto()) @map("_id") @db.ObjectId
-  v             Int                        @map("__v")
-  email         String                     @unique
-  name          String
-  password      String?
-  role          Role                       @default(User)
-  is_verified   Boolean                    @default(false)
-  announcements announcements[]
-  registrations registrations?
-  competitions  competition_registrations?
-  admin_logs    admin_logs[]
+  id                      String                     @id @default(auto()) @map("_id") @db.ObjectId
+  v                       Int                        @map("__v")
+  email                   String                     @unique
+  name                    String
+  password                String?
+  role                    Role                       @default(User)
+  is_verified             Boolean                    @default(false)
+  announcements           announcements[]
+  competitions            competition_registrations?
+  admin_logs              admin_logs[]
+  updated_registrations   registrations[]            @relation("RegistrationUpdatedBy")
+  created_registrations   registrations?             @relation("RegistrationCreatedBy")
+  created_registration_id String?                    @unique @db.ObjectId
+  updated_registration_id String[]                   @db.ObjectId
 }
 
 model announcements {
@@ -75,21 +78,21 @@ type team_members {
 }
 
 model registrations {
-  id                String                     @id @default(auto()) @map("_id") @db.ObjectId
-  v                 Int                        @map("__v")
-  email             String                     @unique
-  team_name         String
-  leader_name       String
-  leader_wa_number  String
-  instance_name     String
-  team_members      team_members[]
-  transaction_proof String
-  competition       Competition
-  status            RegistrationStatus         @default(in_review)
-  is_verified       Boolean                    @default(false)
-  user              users                      @relation(fields: [user_id], references: [id])
-  user_id           String                     @unique @db.ObjectId
-  competitions      competition_registrations?
+  id                        String                     @id @default(auto()) @map("_id") @db.ObjectId
+  v                         Int                        @map("__v")
+  team_name                 String
+  leader_name               String
+  leader_wa_number          String
+  instance_name             String
+  team_members              team_members[]
+  transaction_proof         String
+  competition               Competition
+  status                    RegistrationStatus         @default(in_review)
+  updated_by                users?                     @relation("RegistrationUpdatedBy", fields: [updated_by_id], references: [id])
+  updated_by_id             String?                    @db.ObjectId
+  competition_registrations competition_registrations?
+  user                      users                      @relation("RegistrationCreatedBy", fields: [user_id], references: [id])
+  user_id                   String                     @unique @db.ObjectId
 }
 
 model competition_registrations {
