@@ -8,5 +8,5 @@ export function generateSecureToken() {
     Array.from(token).map((byte, index) => byte ^ hashKey[index]),
   );
 
-  return secureToken.toString();
+  return secureToken.toString("hex");
 }
