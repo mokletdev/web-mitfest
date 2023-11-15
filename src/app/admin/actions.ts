@@ -4,29 +4,34 @@ import {
   deleteAnnouncement,
   updateAnnouncement,
 } from "@/utils/queries/announcement.query";
-import { ObjectId } from "mongoose";
+import { $Enums } from "@prisma/client";
 
 export async function updateAnnouncementAction(
-  user_id: string | undefined,
-  announceId: ObjectId,
+  user_id: string,
+  announceId: string,
   content: string,
 ) {
   try {
     await updateAnnouncement(announceId, {
       content,
-      user_id,
       date: new Date(),
+      user_id,
     });
   } catch (err) {}
 }
 
-export async function deleteAnnouncementAction(announceId: ObjectId) {
+export async function deleteAnnouncementAction(announceId: string) {
   try {
     await deleteAnnouncement(announceId);
   } catch (err) {}
 }
 
-export async function createAnnouncementAction(announcement: any) {
+export async function createAnnouncementAction(announcement: {
+  content: string;
+  type?: $Enums.AnnouncementType;
+  user_id: string;
+  v: number;
+}) {
   try {
     await createAnnouncement(announcement);
   } catch (error) {}

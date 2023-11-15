@@ -1,12 +1,12 @@
-import { FaUser, FaPencilAlt } from "react-icons/fa";
-import React, { useState, Suspense } from "react";
+import { FaUser } from "react-icons/fa";
+import React from "react";
 import Link from "next/link";
 import { getAllAnnounce } from "@/utils/queries/announcement.query";
 import AnnouncementTable from "./components/AnnouncementTable";
 import { getRegistrationsCount } from "@/utils/queries/registration.query";
 
 export default async function Admin() {
-  const announcements = JSON.parse(JSON.stringify(await getAllAnnounce())).reverse();
+  const announcements = await getAllAnnounce();
   const participantCount = {
     mobileLegend: await getRegistrationsCount({ competition: "mobile_legend" }),
     webDesign: await getRegistrationsCount({ competition: "web_design" }),
