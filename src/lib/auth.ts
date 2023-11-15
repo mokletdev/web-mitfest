@@ -34,7 +34,7 @@ declare module "next-auth/jwt" {
 
 export const authOptions: AuthOptions = {
   pages: {
-    // signIn: "/auth/login",
+    signIn: "/auth/login",
   },
   session: {
     strategy: "jwt",
@@ -59,7 +59,7 @@ export const authOptions: AuthOptions = {
           credentials?.email || "",
           credentials?.password || "",
         );
-        if (findUser.status == "INVALID") return null;
+        if (findUser.status !== "SUCCESS") return null;
         const user = {
           id: String(findUser.user?.id),
           email: findUser.user?.email,
