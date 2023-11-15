@@ -55,8 +55,6 @@ model users {
   admin_logs              admin_logs[]
   updated_registrations   registrations[]            @relation("RegistrationUpdatedBy")
   created_registrations   registrations?             @relation("RegistrationCreatedBy")
-  created_registration_id String?                    @unique @db.ObjectId
-  updated_registration_id String[]                   @db.ObjectId
 }
 
 model announcements {
