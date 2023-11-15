@@ -2,11 +2,12 @@
 import { FaPencilAlt } from "react-icons/fa";
 import EditAnnouncementModal from "./EditAnnouncementModal";
 import { Suspense, useState } from "react";
-import type { Announcement } from "@/models/Announcement.model";
 import CreateAnnouncementModal from "./CreateAnnouncementModal";
+import { announcementWithUser } from "@/types/prismaRelations";
+import { announcements } from "@prisma/client";
 
 interface AnnoouncementTableProps {
-  announcements: Announcement[];
+  announcements: announcementWithUser[];
 }
 
 export default function AnnoouncementTable({
@@ -14,11 +15,18 @@ export default function AnnoouncementTable({
 }: AnnoouncementTableProps) {
   const [showEditModal, setShowEditModal] = useState<boolean>(false);
   const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
-  const [content, setContent] = useState<any>(null);
+  const [announcement, setAnnouncement] = useState<announcements>({
+    id: "",
+    content: "",
+    date: new Date(),
+    type: "all",
+    v: 0,
+    user_id: "",
+  });
 
-  function edit(selectedContent: string) {
+  function edit(selectedContent: announcements) {
     setShowEditModal(true);
-    setContent(selectedContent);
+    setAnnouncement(selectedContent);
   }
 
   function add() {
@@ -45,7 +53,7 @@ export default function AnnoouncementTable({
         </thead>
         <tbody className="divide-y bg-gray-200">
           <Suspense fallback={<div>Loading...</div>}>
-            {announcements.map((item: any, i: number) => {
+            {announcements.map((item, i) => {
               return (
                 <tr
                   key={i}
@@ -54,7 +62,9 @@ export default function AnnoouncementTable({
                   <td className="px-4 py-3">
                     <div className="flex items-center text-sm">
                       <div>
-                        <p className="font-semibold">{item.content.slice(0, 30) + "..."}</p>
+                        <p className="font-semibold">
+                          {item.content.slice(0, 30) + "..."}
+                        </p>
                       </div>
                     </div>
                   </td>
@@ -68,7 +78,7 @@ export default function AnnoouncementTable({
                     </div>
                   </td>
                   <td className="px-4 py-3 text-sm">
-                    {String(item.user_id.name)}
+                    {String(item.user.name)}
                   </td>
                   <td className="px-4 py-3 text-sm">
                     <button
@@ -87,7 +97,7 @@ export default function AnnoouncementTable({
         <EditAnnouncementModal
           showModal={showEditModal}
           setShowModal={setShowEditModal}
-          content={content}
+          announcement={announcement}
         />
         <CreateAnnouncementModal
           showModal={showCreateModal}

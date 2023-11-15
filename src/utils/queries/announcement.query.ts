@@ -1,33 +1,42 @@
-import Announcement from "@/models/Announcement.model";
-import type { Announcement as TAnnouncement } from "@/models/Announcement.model";
-import { ObjectId, UpdateQuery } from "mongoose";
-import { connectAndQuery } from "../connectAndQuery";
+import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
-export function findAnnounceByType(type: TAnnouncement["type"]) {
-  return connectAndQuery(
-    async () => await Announcement.find({ type }).populate("user_id")
-  );
-}
-
-export function getAllAnnounce() {
-  return connectAndQuery(
-    async () => await Announcement.find({}).populate("user_id")
-  );
-}
-
-export function updateAnnouncement(
-  id: string | ObjectId,
-  updateQuery: UpdateQuery<any>
+export async function findAnnounceByType(
+  type: Prisma.EnumAnnouncementTypeFilter,
 ) {
-  return connectAndQuery(
-    async () => await Announcement.findByIdAndUpdate(id, updateQuery)
-  );
+  const announcements = await prisma.announcements.findMany({
+    where: { type },
+    include: { user: true },
+  });
+  return announcements;
 }
 
-export function deleteAnnouncement(id: string | ObjectId) {
-  return connectAndQuery(async () => await Announcement.findByIdAndDelete(id));
+export async function getAllAnnounce() {
+  const announcements = await prisma.announcements.findMany({
+    include: { user: true },
+  });
+  return announcements;
 }
 
-export function createAnnouncement(announcement: TAnnouncement) {
-  return connectAndQuery(async () => await Announcement.create(announcement));
+export async function updateAnnouncement(
+  id: string,
+  data: Prisma.announcementsUncheckedUpdateInput,
+) {
+  const updateQuery = await prisma.announcements.update({
+    where: { id },
+    data,
+  });
+  return updateQuery;
+}
+
+export async function deleteAnnouncement(id: string) {
+  const deleteQuery = await prisma.announcements.delete({ where: { id } });
+  return deleteQuery;
+}
+
+export async function createAnnouncement(
+  data: Prisma.announcementsUncheckedCreateInput,
+) {
+  const createQuery = await prisma.announcements.create({ data });
+  return createQuery;
 }

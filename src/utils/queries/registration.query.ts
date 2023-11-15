@@ -1,18 +1,21 @@
-import RegistrationModel, { Registration } from "@/models/Registration.model";
-import { connectAndQuery } from "../connectAndQuery";
+import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
-export function getAllRegistrations() {
-  return connectAndQuery(async () => await RegistrationModel.find({}));
+export async function getAllRegistrations() {
+  const registrations = await prisma.registrations.findMany({});
+  return registrations;
 }
 
-export function getRegistrationsCount(filter: any) {
-  return connectAndQuery(
-    async () => await RegistrationModel.countDocuments(filter),
-  );
+export async function getRegistrationsCount(
+  where: Prisma.registrationsWhereInput,
+) {
+  const count = await prisma.registrations.count({ where });
+  return count;
 }
 
-export function createRegistration(registration: any) {
-  return connectAndQuery(
-    async () => await RegistrationModel.create(registration),
-  );
+export async function createRegistration(
+  data: Prisma.registrationsCreateInput,
+) {
+  const create = await prisma.registrations.create({ data });
+  return create;
 }

@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_URI")
+}
+
+enum Role {
+  SuperAdmin
+  Admin
+  User
+}
+
+enum AnnouncementType {
+  all
+  cyber_security
+  cloud_computing
+  web_design
+  bussines_plan
+  mobile_legend
+}
+
+enum Competition {
+  cyber_security
+  cloud_computing
+  web_design
+  business_plan
+  mobile_legend
+}
+
+enum RegistrationStatus {
+  in_review
+  approved
+  rejected
+}
+
+enum ParticipantStatus {
+  participant
+  semifinalist
+  finalist
+}
+
+model users {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  v             Int             @map("__v")
+  email         String          @unique
+  name          String
+  password      String?
+  role          Role            @default(User)
+  is_verified   Boolean         @default(false)
+  announcements announcements[]
+  registrations registrations?
+  competitions  competitions?
+  admin_logs    admin_logs[]
+}
+
+model announcements {
+  id      String           @id @default(auto()) @map("_id") @db.ObjectId
+  v       Int              @map("__v")
+  content String
+  date    DateTime         @default(now()) @db.Date
+  type    AnnouncementType @default(all)
+  user    users            @relation(fields: [user_id], references: [id])
+  user_id String           @unique @db.ObjectId
+}
+
+type team_members {
+  name         String
+  photo        String
+  student_card String
+  twibbon_link String
+  id_ml        String?
+}
+
+model registrations {
+  id                String             @id @default(auto()) @map("_id") @db.ObjectId
+  v                 Int                @map("__v")
+  email             String             @unique
+  team_name         String
+  leader_name       String
+  leader_wa_number  String
+  instance_name     String
+  team_members      team_members[]
+  transaction_proof String
+  competition       Competition
+  status            RegistrationStatus @default(in_review)
+  is_verified       Boolean            @default(false)
+  user              users              @relation(fields: [user_id], references: [id])
+  user_id           String             @unique @db.ObjectId
+  competitions      competitions?
+}
+
+model competitions {
+  id               String            @id @default(auto()) @map("_id") @db.ObjectId
+  firstSubmission  String?
+  secondSubmission String?
+  status           ParticipantStatus @default(participant)
+  type             Competition
+  registration     registrations     @relation(fields: [registrationId], references: [id])
+  registrationId   String            @unique @db.ObjectId
+  updated_by       users             @relation(fields: [updated_by_id], references: [id])
+  updated_by_id    String            @unique @db.ObjectId
+}
+
+model verification_tokens {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  token String @unique
+}
+
+model admin_logs {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  user    users  @relation(fields: [usersId], references: [id])
+  usersId String @db.ObjectId
+}

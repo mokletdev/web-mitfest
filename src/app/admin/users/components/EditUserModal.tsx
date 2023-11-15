@@ -1,22 +1,24 @@
-import type { Dispatch, SetStateAction } from "react";
+import { updateUserAction } from "../actions";
+import { users } from "@prisma/client";
+import { Dispatch, SetStateAction } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { createAnnouncementAction } from "../actions";
-import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { success } from "@/utils/toast";
 
-interface CreateAnnouncementModalProps {
+interface EditUserModalProps {
+  user: users;
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function CreateAnnouncementModal({
+export default function EditUserModal({
+  user,
   showModal,
   setShowModal,
-}: CreateAnnouncementModalProps) {
+}: EditUserModalProps) {
   const router = useRouter();
-  const { data: session } = useSession();
+
   if (!showModal) return null;
 
   return (
@@ -25,7 +27,7 @@ export default function CreateAnnouncementModal({
         <div className="relative mx-auto my-6 w-[48rem] max-w-3xl">
           <div className="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
             <div className="border-blueGray-200 flex items-start justify-between rounded-t border-b border-solid p-5">
-              <h3 className="text-3xl font-semibold">Create Announcement</h3>
+              <h3 className="text-3xl font-semibold">Edit User</h3>
               <button
                 className="z-[999] float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black outline-none focus:outline-none"
                 onClick={() => setShowModal(false)}
@@ -36,11 +38,44 @@ export default function CreateAnnouncementModal({
               </button>
             </div>
             <div className="relative flex-auto p-6">
-              <textarea
-                id="content"
-                defaultValue={""}
-                className="text-blueGray-500 my-4 min-w-full border-2 p-2 text-lg leading-relaxed"
-              ></textarea>
+              <div className="mb-4 flex flex-col gap-2">
+                <label htmlFor="name" className="font-bold">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  defaultValue={user.email}
+                  className="border px-4 py-2"
+                />
+              </div>
+              <div className="mb-4 flex flex-col gap-2">
+                <label htmlFor="name" className="font-bold">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  defaultValue={user.name}
+                  className="border px-4 py-2"
+                />
+              </div>
+              <div className="mb-4 flex flex-col gap-2">
+                <label htmlFor="name" className="font-bold">
+                  New Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  className="border px-4 py-2"
+                />
+              </div>
             </div>
             <div className="border-blueGray-200 flex items-center justify-end rounded-b border-t border-solid p-6">
               <button
@@ -48,19 +83,23 @@ export default function CreateAnnouncementModal({
                 type="button"
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  createAnnouncementAction({
-                    content:
-                      (document.getElementById("content") as HTMLInputElement)
+                  updateUserAction(user.id, {
+                    email:
+                      (document.getElementById("email") as HTMLInputElement)
                         .value || "",
-                    v: 0,
-                    user_id: session?.user?.id as string,
+                    name:
+                      (document.getElementById("name") as HTMLInputElement)
+                        .value || "",
+                    password:
+                      (document.getElementById("password") as HTMLInputElement)
+                        .value || null,
                   }).then(() => {
                     success(toastId, router);
                     setShowModal(false);
                   });
                 }}
               >
-                Add
+                Edit
               </button>
             </div>
           </div>
