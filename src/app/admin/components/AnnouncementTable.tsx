@@ -63,7 +63,9 @@ export default function AnnoouncementTable({
                     <div className="flex items-center text-sm">
                       <div>
                         <p className="font-semibold">
-                          {item.content.slice(0, 30) + "..."}
+                          {item.content.length > 30
+                            ? item.content.slice(0, 30) + "..."
+                            : item.content}
                         </p>
                       </div>
                     </div>
