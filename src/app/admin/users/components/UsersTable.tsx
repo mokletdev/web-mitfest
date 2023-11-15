@@ -22,8 +22,6 @@ export default function UsersTable({ users }: UsersTableProps) {
     v: 0,
     role: "Admin",
     is_verified: true,
-    created_registration_id: "",
-    updated_registration_id: [],
   });
   const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
   const [showEditModal, setShowEditModal] = useState<boolean>(false);
