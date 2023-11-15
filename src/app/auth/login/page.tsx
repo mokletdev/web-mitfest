@@ -6,8 +6,10 @@ import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+  const router = useRouter();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -41,7 +43,13 @@ export default function Login() {
         type: "error",
       });
     } else {
-      toast.update(toastId, { render: "Login sukses!", type: "success" });
+      router.push("/admin");
+      toast.update(toastId, {
+        render: "Login sukses!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
     }
   };
 
