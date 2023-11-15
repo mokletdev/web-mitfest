@@ -52,7 +52,7 @@ model users {
   is_verified   Boolean         @default(false)
   announcements announcements[]
   registrations registrations?
-  competitions  competitions?
+  competitions  competition_registrations?
   admin_logs    admin_logs[]
 }
 
@@ -89,10 +89,10 @@ model registrations {
   is_verified       Boolean            @default(false)
   user              users              @relation(fields: [user_id], references: [id])
   user_id           String             @unique @db.ObjectId
-  competitions      competitions?
+  competitions      competition_registrations?
 }
 
-model competitions {
+model competition_registrations {
   id               String            @id @default(auto()) @map("_id") @db.ObjectId
   firstSubmission  String?
   secondSubmission String?
