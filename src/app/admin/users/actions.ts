@@ -1,12 +1,36 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
+import { encryptData } from "@/utils/encryption";
+import { createUser, deleteUser, updateUser } from "@/utils/queries/user.query";
+import { Prisma } from "@prisma/client";
 
-export async function updateUserStatus(id: string, is_verified: boolean) {
+export async function updateUserAction(
+  id: string,
+  data: Prisma.usersUpdateInput,
+) {
   try {
-    await prisma.users.update({
-      where: { id },
-      data: { is_verified: !is_verified },
+    if (data.password) {
+      await updateUser(id, {
+        ...data,
+        password: encryptData(data.password as string),
+      });
+    } else {
+      await updateUser(id, data);
+    }
+  } catch (error) {}
+}
+
+export async function createUserAction(data: Prisma.usersCreateInput) {
+  try {
+    await createUser({
+      ...data,
+      password: encryptData(data.password as string),
     });
+  } catch (error) {}
+}
+
+export async function deleteUserAction(id: string) {
+  try {
+    await deleteUser(id);
   } catch (error) {}
 }

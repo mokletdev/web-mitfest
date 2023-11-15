@@ -18,7 +18,6 @@ const encryptionIV = crypto
   .digest("hex")
   .substring(0, 16);
 
-// Encrypt data
 export function encryptData(data: string) {
   const cipher = crypto.createCipheriv(ENCRYPTION_ALGORITHM, key, encryptionIV);
   return Buffer.from(
@@ -26,7 +25,6 @@ export function encryptData(data: string) {
   ).toString("base64");
 }
 
-// Decrypt data
 export function compareData(incomingData: string, encryptedData: string) {
   const buff = Buffer.from(encryptedData, "base64");
   const decipher = crypto.createDecipheriv(

@@ -61,3 +61,13 @@ export async function authenticate(email: string, password?: string) {
   }
   return res;
 }
+
+export async function updateUser(id: string, data: Prisma.usersUpdateInput) {
+  const update = await prisma.users.update({ where: { id }, data });
+  return update;
+}
+
+export async function deleteUser(id: string) {
+  const deleteUser = await prisma.users.delete({ where: { id } });
+  return deleteUser;
+}

@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { announcements } from "@prisma/client";
+import { success } from "@/utils/toast";
 
 interface EditAnnouncementModalProps {
   showModal: boolean;
@@ -58,6 +59,7 @@ export default function EditAnnouncementModal({
                       autoClose: 3000,
                     });
                     router.refresh();
+                    setShowModal(false);
                   });
                 }}
               >
@@ -74,13 +76,8 @@ export default function EditAnnouncementModal({
                     (document.getElementById("content") as HTMLInputElement)
                       .value || "",
                   ).then(() => {
-                    toast.update(toastId, {
-                      render: "Sukses",
-                      type: "success",
-                      isLoading: false,
-                      autoClose: 3000,
-                    });
-                    router.refresh();
+                    success(toastId, router);
+                    setShowModal(false);
                   });
                 }}
               >
