@@ -7,12 +7,14 @@ import { useRouter } from "next/navigation";
 import { success } from "@/utils/toast";
 
 interface EditUserModalProps {
+  id: string;
   user: users;
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function EditUserModal({
+  id,
   user,
   showModal,
   setShowModal,
@@ -83,7 +85,7 @@ export default function EditUserModal({
                 type="button"
                 onClick={() => {
                   const toastId = toast.loading("Loading...");
-                  updateUserAction(user.id, {
+                  updateUserAction(id, {
                     email:
                       (document.getElementById("email") as HTMLInputElement)
                         .value || "",
