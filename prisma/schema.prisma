@@ -43,13 +43,13 @@ enum ParticipantStatus {
 }
 
 model users {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  v             Int             @map("__v")
-  email         String          @unique
+  id            String                     @id @default(auto()) @map("_id") @db.ObjectId
+  v             Int                        @map("__v")
+  email         String                     @unique
   name          String
   password      String?
-  role          Role            @default(User)
-  is_verified   Boolean         @default(false)
+  role          Role                       @default(User)
+  is_verified   Boolean                    @default(false)
   announcements announcements[]
   registrations registrations?
   competitions  competition_registrations?
@@ -75,9 +75,9 @@ type team_members {
 }
 
 model registrations {
-  id                String             @id @default(auto()) @map("_id") @db.ObjectId
-  v                 Int                @map("__v")
-  email             String             @unique
+  id                String                     @id @default(auto()) @map("_id") @db.ObjectId
+  v                 Int                        @map("__v")
+  email             String                     @unique
   team_name         String
   leader_name       String
   leader_wa_number  String
@@ -85,10 +85,10 @@ model registrations {
   team_members      team_members[]
   transaction_proof String
   competition       Competition
-  status            RegistrationStatus @default(in_review)
-  is_verified       Boolean            @default(false)
-  user              users              @relation(fields: [user_id], references: [id])
-  user_id           String             @unique @db.ObjectId
+  status            RegistrationStatus         @default(in_review)
+  is_verified       Boolean                    @default(false)
+  user              users                      @relation(fields: [user_id], references: [id])
+  user_id           String                     @unique @db.ObjectId
   competitions      competition_registrations?
 }
 
@@ -105,8 +105,9 @@ model competition_registrations {
 }
 
 model verification_tokens {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  token String @unique
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  token      String   @unique
+  expires_at DateTime @db.Date
 }
 
 model admin_logs {
