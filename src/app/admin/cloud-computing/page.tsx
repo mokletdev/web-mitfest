@@ -7,7 +7,7 @@ import {
 import AnnouncementTable from "../components/AnnouncementTable";
 
 export default async function cyberSecurity() {
-  const announcements = await findAnnounceByType("cloud_computing");
+  const announcements = (await findAnnounceByType("cloud_computing")).reverse();
 
   return (
     <React.Fragment>

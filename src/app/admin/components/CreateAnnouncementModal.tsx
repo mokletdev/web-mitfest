@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { createAnnouncementAction } from "../cyber-security/actions";
+import { createAnnouncementAction } from "../actions";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";

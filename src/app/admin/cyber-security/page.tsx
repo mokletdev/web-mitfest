@@ -7,7 +7,7 @@ import {
 import AnnouncementTable from "../components/AnnouncementTable";
 
 export default async function cyberSecurity() {
-  const announcements = await findAnnounceByType("cyber_security");
+  const announcements = (await findAnnounceByType("cyber_security")).reverse();
 
   return (
     <React.Fragment>
