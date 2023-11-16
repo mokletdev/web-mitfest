@@ -1,14 +1,18 @@
-import { registrationsWithCreatedByAndUpdatedBy } from "@/types/prismaRelations";
+"use client";
+import { registrationsWithRelations } from "@/types/prismaRelations";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { competitionType } from "@/utils/normalizeCompetitionType";
 
 interface RegistrationsTableProps {
-  registrations: registrationsWithCreatedByAndUpdatedBy[];
+  registrations: registrationsWithRelations[];
 }
 
 export default function RegistrationsTable({
   registrations,
 }: RegistrationsTableProps) {
+  const router = useRouter();
   return (
     <React.Fragment>
       <table className="whitespace-no-wrap w-full">
@@ -27,7 +31,8 @@ export default function RegistrationsTable({
           {registrations.map((registration, i) => (
             <tr
               key={i}
-              className="text-gray-700 transition-all hover:bg-gray-400"
+              className="text-gray-700 transition-all hover:cursor-pointer hover:bg-gray-400"
+              onClick={() => router.push(`detail/${registration.id}`)}
             >
               <td className="px-4 py-3">
                 <div className="flex items-center text-sm">
@@ -67,7 +72,9 @@ export default function RegistrationsTable({
               <td className="px-4 py-3">
                 <div className="flex items-center text-sm">
                   <div>
-                    <p className="font-semibold">{registration.competition}</p>
+                    <p className="font-semibold">
+                      {competitionType[registration.competition_type] || "None"}
+                    </p>
                   </div>
                 </div>
               </td>

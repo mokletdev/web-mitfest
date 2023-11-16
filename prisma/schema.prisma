@@ -43,18 +43,18 @@ enum ParticipantStatus {
 }
 
 model users {
-  id                                 String                      @id @default(auto()) @map("_id") @db.ObjectId
-  v                                  Int                         @map("__v")
-  email                              String                      @unique
-  name                               String
-  password                           String?
-  role                               Role                        @default(User)
-  is_verified                        Boolean                     @default(false)
-  announcements                      announcements[]
-  updated_competitions_registrations competition_registrations[]
-  admin_logs                         admin_logs[]
-  updated_registrations              registrations[]             @relation("RegistrationUpdatedBy")
-  created_registrations              registrations?              @relation("RegistrationCreatedBy")
+  id                               String                    @id @default(auto()) @map("_id") @db.ObjectId
+  v                                Int                       @map("__v")
+  email                            String                    @unique
+  name                             String
+  password                         String?
+  role                             Role                      @default(User)
+  is_verified                      Boolean                   @default(false)
+  announcements                    announcements[]
+  updated_competitions_submissions competition_submissions[]
+  admin_logs                       admin_logs[]
+  updated_registrations            registrations[]           @relation("RegistrationUpdatedBy")
+  created_registrations            registrations?            @relation("RegistrationCreatedBy")
 }
 
 model announcements {
@@ -76,29 +76,28 @@ type team_members {
 }
 
 model registrations {
-  id                        String                     @id @default(auto()) @map("_id") @db.ObjectId
-  v                         Int                        @map("__v")
-  team_name                 String
-  leader_name               String
-  leader_wa_number          String
-  instance_name             String
-  team_members              team_members[]
-  transaction_proof         String
-  competition               Competition
-  status                    RegistrationStatus         @default(in_review)
-  updated_by                users?                     @relation("RegistrationUpdatedBy", fields: [updated_by_id], references: [id])
-  updated_by_id             String?                    @db.ObjectId
-  competition_registrations competition_registrations?
-  user                      users                      @relation("RegistrationCreatedBy", fields: [user_id], references: [id])
-  user_id                   String                     @unique @db.ObjectId
+  id                     String                   @id @default(auto()) @map("_id") @db.ObjectId
+  v                      Int                      @map("__v")
+  team_name              String
+  leader_name            String
+  leader_wa_number       String
+  instance_name          String
+  team_members           team_members[]
+  competition_type       Competition
+  transaction_proof      String
+  status                 RegistrationStatus       @default(in_review)
+  updated_by             users?                   @relation("RegistrationUpdatedBy", fields: [updated_by_id], references: [id])
+  updated_by_id          String?                  @db.ObjectId
+  competition_submission competition_submissions?
+  user                   users                    @relation("RegistrationCreatedBy", fields: [user_id], references: [id])
+  user_id                String                   @unique @db.ObjectId
 }
 
-model competition_registrations {
+model competition_submissions {
   id               String            @id @default(auto()) @map("_id") @db.ObjectId
   firstSubmission  String?
   secondSubmission String?
   status           ParticipantStatus @default(participant)
-  type             Competition
   registration     registrations     @relation(fields: [registrationId], references: [id])
   registrationId   String            @unique @db.ObjectId
   updated_by       users             @relation(fields: [updated_by_id], references: [id])

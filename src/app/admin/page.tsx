@@ -8,14 +8,18 @@ import { getRegistrationsCount } from "@/utils/queries/registration.query";
 export default async function Admin() {
   const announcements = (await findAnnounceByType("all")).reverse();
   const participantCount = {
-    mobileLegend: await getRegistrationsCount({ competition: "mobile_legend" }),
-    webDesign: await getRegistrationsCount({ competition: "web_design" }),
-    businessPlan: await getRegistrationsCount({ competition: "business_plan" }),
+    mobileLegend: await getRegistrationsCount({
+      competition_type: "mobile_legend",
+    }),
+    webDesign: await getRegistrationsCount({ competition_type: "web_design" }),
+    businessPlan: await getRegistrationsCount({
+      competition_type: "business_plan",
+    }),
     cyberSecurity: await getRegistrationsCount({
-      competition: "cyber_security",
+      competition_type: "cyber_security",
     }),
     cloudComputing: await getRegistrationsCount({
-      competition: "cloud_computing",
+      competition_type: "cloud_computing",
     }),
   };
 
