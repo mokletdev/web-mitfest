@@ -1,8 +1,9 @@
-import { registrationsWithCreatedBy } from "@/types/prismaRelations";
+import { registrationsWithCreatedByAndUpdatedBy } from "@/types/prismaRelations";
+import Link from "next/link";
 import React from "react";
 
 interface RegistrationsTableProps {
-  registrations: registrationsWithCreatedBy[];
+  registrations: registrationsWithCreatedByAndUpdatedBy[];
 }
 
 export default function RegistrationsTable({
@@ -10,13 +11,6 @@ export default function RegistrationsTable({
 }: RegistrationsTableProps) {
   return (
     <React.Fragment>
-      <button
-        className="mb-1 mr-1 rounded bg-emerald-500 px-3 py-1 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:bg-emerald-600 hover:shadow-lg focus:outline-none active:bg-emerald-700"
-        type="button"
-        // onClick={() => add()}
-      >
-        Add New
-      </button>
       <table className="whitespace-no-wrap w-full">
         <thead>
           <tr className="border-b bg-gray-300 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
@@ -26,7 +20,7 @@ export default function RegistrationsTable({
             <th className="px-4 py-3">Transaction Proof</th>
             <th className="px-4 py-3">Competition</th>
             <th className="px-4 py-3">Status</th>
-            <th className="px-4 py-3">Updated By</th>
+            <th className="px-4 py-3">Last Updated By</th>
           </tr>
         </thead>
         <tbody className="divide-y bg-gray-200">
@@ -61,9 +55,12 @@ export default function RegistrationsTable({
               <td className="px-4 py-3">
                 <div className="flex items-center text-sm">
                   <div>
-                    <p className="font-semibold">
+                    <a
+                      href={registration.transaction_proof}
+                      className="font-semibold text-blue-500"
+                    >
                       {registration.transaction_proof}
-                    </p>
+                    </a>
                   </div>
                 </div>
               </td>
@@ -74,10 +71,25 @@ export default function RegistrationsTable({
                   </div>
                 </div>
               </td>
+              <td className="px-4 py-3 text-xs">
+                <span
+                  className={`rounded-full ${
+                    registration.status == "approved"
+                      ? "bg-green-700 text-green-100"
+                      : registration.status == "in_review"
+                        ? "bg-yellow-500 text-yellow-100"
+                        : "bg-red-700 text-red-100"
+                  } px-2 py-1 font-semibold leading-tight`}
+                >
+                  {`${registration.status}`}
+                </span>
+              </td>
               <td className="px-4 py-3">
                 <div className="flex items-center text-sm">
                   <div>
-                    <p className="font-semibold">{registration.status}</p>
+                    <p className="font-semibold">
+                      {registration.updated_by?.name || "None"}
+                    </p>
                   </div>
                 </div>
               </td>

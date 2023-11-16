@@ -2,7 +2,9 @@ import { prisma } from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 
 export async function getAllRegistrations() {
-  const registrations = await prisma.registrations.findMany({});
+  const registrations = await prisma.registrations.findMany({
+    include: { user: true, updated_by: true },
+  });
   return registrations;
 }
 
