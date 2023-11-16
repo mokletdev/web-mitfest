@@ -43,18 +43,18 @@ enum ParticipantStatus {
 }
 
 model users {
-  id                      String                     @id @default(auto()) @map("_id") @db.ObjectId
-  v                       Int                        @map("__v")
-  email                   String                     @unique
-  name                    String
-  password                String?
-  role                    Role                       @default(User)
-  is_verified             Boolean                    @default(false)
-  announcements           announcements[]
-  competitions            competition_registrations?
-  admin_logs              admin_logs[]
-  updated_registrations   registrations[]            @relation("RegistrationUpdatedBy")
-  created_registrations   registrations?             @relation("RegistrationCreatedBy")
+  id                                 String                      @id @default(auto()) @map("_id") @db.ObjectId
+  v                                  Int                         @map("__v")
+  email                              String                      @unique
+  name                               String
+  password                           String?
+  role                               Role                        @default(User)
+  is_verified                        Boolean                     @default(false)
+  announcements                      announcements[]
+  updated_competitions_registrations competition_registrations[]
+  admin_logs                         admin_logs[]
+  updated_registrations              registrations[]             @relation("RegistrationUpdatedBy")
+  created_registrations              registrations?              @relation("RegistrationCreatedBy")
 }
 
 model announcements {
@@ -64,7 +64,7 @@ model announcements {
   date    DateTime         @default(now()) @db.Date
   type    AnnouncementType @default(all)
   user    users            @relation(fields: [user_id], references: [id])
-  user_id String           @unique @db.ObjectId
+  user_id String           @db.ObjectId
 }
 
 type team_members {
@@ -102,7 +102,7 @@ model competition_registrations {
   registration     registrations     @relation(fields: [registrationId], references: [id])
   registrationId   String            @unique @db.ObjectId
   updated_by       users             @relation(fields: [updated_by_id], references: [id])
-  updated_by_id    String            @unique @db.ObjectId
+  updated_by_id    String            @db.ObjectId
 }
 
 model verification_tokens {
@@ -112,7 +112,9 @@ model verification_tokens {
 }
 
 model admin_logs {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  user    users  @relation(fields: [usersId], references: [id])
-  usersId String @db.ObjectId
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  activity String
+  date     DateTime @default(now()) @db.Date
+  user     users    @relation(fields: [usersId], references: [id])
+  usersId  String   @db.ObjectId
 }

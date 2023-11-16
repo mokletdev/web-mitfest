@@ -1,9 +1,7 @@
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@prisma/client";
+import { Prisma, $Enums } from "@prisma/client";
 
-export async function findAnnounceByType(
-  type: Prisma.EnumAnnouncementTypeFilter,
-) {
+export async function findAnnounceByType(type: $Enums.AnnouncementType) {
   const announcements = await prisma.announcements.findMany({
     where: { type },
     include: { user: true },

@@ -1,19 +1,22 @@
 import type { Dispatch, SetStateAction } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { createAnnouncementAction } from "../actions";
+import { createAnnouncementAction } from "../cyber-security/actions";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { success } from "@/utils/toast";
+import { $Enums } from "@prisma/client";
 
 interface CreateAnnouncementModalProps {
   showModal: boolean;
   setShowModal: Dispatch<SetStateAction<boolean>>;
+  type: $Enums.AnnouncementType;
 }
 
 export default function CreateAnnouncementModal({
   showModal,
   setShowModal,
+  type,
 }: CreateAnnouncementModalProps) {
   const router = useRouter();
   const { data: session } = useSession();
@@ -54,6 +57,7 @@ export default function CreateAnnouncementModal({
                         .value || "",
                     v: 0,
                     user_id: session?.user?.id as string,
+                    type,
                   }).then(() => {
                     success(toastId, router);
                     setShowModal(false);

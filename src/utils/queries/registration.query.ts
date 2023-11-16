@@ -14,7 +14,7 @@ export async function getRegistrationsCount(
 }
 
 export async function createRegistration(
-  data: Prisma.registrationsCreateInput,
+  data: Prisma.registrationsUncheckedCreateInput,
 ) {
   const create = await prisma.registrations.create({ data });
   return create;
