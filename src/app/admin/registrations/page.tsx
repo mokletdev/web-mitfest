@@ -20,3 +20,5 @@ export default async function RegistrationsPage() {
     </React.Fragment>
   );
 }
+
+export const revalidate = 0;
