@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        black: "#121212",
+        black: "#171717",
         white: "#fff",
         "gray-50": "#F6F6F6",
         "gray-100": "#E5E5E5",
@@ -20,7 +20,7 @@ const config: Config = {
         "primary-200": "#FF897E",
         "primary-300": "#FD5849",
         "primary-400": "#E42413",
-        "primary-500": "#E42413",
+        "primary-500": "#B10F00",
         "primary-600": "#7E0A00",
         "primary-700": "#4B0600",
       },
