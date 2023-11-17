@@ -54,7 +54,7 @@ export default function Login() {
   };
 
   return (
-    <section className="flex h-screen items-center justify-center bg-black">
+    <section className="flex h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
         <div className="mb-6 flex justify-center md:justify-start">
           <h1 className="text-primary-500 text-2xl font-bold">Logo</h1>
@@ -65,10 +65,7 @@ export default function Login() {
           </h1>
           <span className="font-normal text-neutral-500">
             Pengguna baru di MITFest?{" "}
-            <Link
-              href="/auth/register"
-              className="font-semibold text-white hover:underline"
-            >
+            <Link href="/auth/register" className="text-white hover:underline">
               Daftar
             </Link>
           </span>
@@ -92,7 +89,7 @@ export default function Login() {
             />
             <label
               htmlFor="email"
-              className="absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
             >
               Email
             </label>
@@ -108,14 +105,14 @@ export default function Login() {
             />
             <label
               htmlFor="email"
-              className="absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
             >
               Password
             </label>
           </div>
           <div>
             <Link
-              className="text-sm font-semibold text-white hover:underline"
+              className="text-sm text-white hover:underline"
               href="/auth/forgot-password"
             >
               Lupa kata sandi?
