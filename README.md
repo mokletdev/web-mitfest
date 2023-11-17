@@ -4,6 +4,7 @@
 
 ```sh
 npm install
+npx prisma generate
 ```
 
 #### Run Development
