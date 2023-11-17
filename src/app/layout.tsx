@@ -1,12 +1,12 @@
 import "./globals.css";
 import { NextAuthProvider } from "./components/SessionProvider";
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Raleway } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 
-const roboto = Roboto({
+const raleway = Raleway({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
 });
@@ -26,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head></head>
-      <body className={"max-w-screen-2xl overflow-x-hidden" + roboto.className}>
+      <body
+        className={"max-w-screen-2xl overflow-x-hidden " + raleway.className}
+      >
         <NextAuthProvider>
           <ToastContainer />
           <NextTopLoader color="#b52930" />
