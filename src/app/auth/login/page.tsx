@@ -54,7 +54,7 @@ export default function Login() {
   };
 
   return (
-    <section className="flex h-screen items-center justify-center bg-black">
+    <section className="flex h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
         <div className="mb-6 flex justify-center md:justify-start">
           <h1 className="text-primary-500 text-2xl font-bold">Logo</h1>
@@ -65,10 +65,7 @@ export default function Login() {
           </h1>
           <span className="font-normal text-neutral-500">
             Pengguna baru di MITFest?{" "}
-            <Link
-              href="/auth/register"
-              className="text-white hover:underline"
-            >
+            <Link href="/auth/register" className="text-white hover:underline">
               Daftar
             </Link>
           </span>

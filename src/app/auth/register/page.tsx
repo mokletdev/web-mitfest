@@ -52,7 +52,7 @@ export default function Login() {
   };
 
   return (
-    <section className="flex h-screen items-center justify-center bg-black">
+    <section className="flex h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
         <div className="mb-6 flex justify-center md:justify-start">
           <h1 className="text-primary-500 text-2xl font-bold">Logo</h1>
@@ -65,7 +65,7 @@ export default function Login() {
             Sudah memiliki akun?{" "}
             <Link
               href="/auth/login"
-              className="font-semibold text-white hover:underline"
+              className="text-white hover:underline"
             >
               Masuk
             </Link>
