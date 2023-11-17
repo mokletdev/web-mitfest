@@ -67,7 +67,7 @@ export default function Login() {
             Pengguna baru di MITFest?{" "}
             <Link
               href="/auth/register"
-              className="font-semibold text-white hover:underline"
+              className="text-white hover:underline"
             >
               Daftar
             </Link>
@@ -115,7 +115,7 @@ export default function Login() {
           </div>
           <div>
             <Link
-              className="text-sm font-semibold text-white hover:underline"
+              className="text-sm text-white hover:underline"
               href="/auth/forgot-password"
             >
               Lupa kata sandi?
