@@ -130,7 +130,7 @@ export default function Login() {
               <hr className="h-px w-full border-0 bg-neutral-500" />
             </div>
             <button
-              onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+              onClick={() => signIn("google", { callbackUrl: "/admin" })}
               className="flex w-full justify-center gap-2 self-center rounded bg-gray-200 py-2 text-sm font-bold text-black transition duration-200 hover:bg-gray-300"
             >
               <img
