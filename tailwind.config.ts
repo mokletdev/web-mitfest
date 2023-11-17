@@ -4,12 +4,25 @@ const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        telkomlogo:
-          "https://drive.google.com/file/d/1ygZM0ANA6QR3e9l-MODJ5NNNNvOUZB3i/view?usp=drive_link",
+      colors: {
+        black: "#121212",
+        white: "#fff",
+        "gray-50": "#F6F6F6",
+        "gray-100": "#E5E5E5",
+        "gray-200": "#CBCBCB",
+        "gray-300": "#B2B2B2",
+        "gray-400": "#989898",
+        "gray-500": "#7F7F7F",
+        "gray-600": "#656363",
+        "gray-700": "#1F1F1F",
+        "primary-50": "#FFE9E7",
+        "primary-100": "#FFB9B3",
+        "primary-200": "#FF897E",
+        "primary-300": "#FD5849",
+        "primary-400": "#E42413",
+        "primary-500": "#E42413",
+        "primary-600": "#7E0A00",
+        "primary-700": "#4B0600",
       },
     },
   },

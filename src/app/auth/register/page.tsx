@@ -1,19 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import { toast } from "react-toastify";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Prisma } from "@prisma/client";
 
 export default function Login() {
   const router = useRouter();
-  const [formValues, setFormValues] = useState({
-    email: "",
-    password: "",
-  });
+  const [formValues, setFormValues] =
+    useState<Prisma.usersUncheckedCreateInput>({
+      email: "",
+      password: "",
+      name: "",
+      v: 0,
+    });
   const [loading, setLoading] = useState<boolean>(false);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -24,26 +27,21 @@ export default function Login() {
     e.preventDefault();
     const toastId = toast.loading("Loading...");
     setLoading(true);
-    const res = await signIn("credentials", {
-      redirect: false,
-      email: formValues.email,
-      password: formValues.password,
-      callbackUrl: "/admin",
+    const res = await fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify(formValues),
     });
 
-    if (res?.error) {
+    if (!res.ok) {
       setLoading(false);
       toast.update(toastId, {
-        render:
-          res.error == "CredentialsSignin"
-            ? "Email/Password Salah"
-            : "Internal server error",
+        render: "Error",
         autoClose: 3000,
         isLoading: false,
         type: "error",
       });
     } else {
-      router.push("/admin");
+      router.push("/verify");
       toast.update(toastId, {
         render: "Login sukses!",
         type: "success",
@@ -61,15 +59,15 @@ export default function Login() {
         </div>
         <div className="mb-6 flex flex-col justify-center gap-2 md:justify-start">
           <h1 className="text-xl font-bold text-white">
-            Selamat Datang di MITFest
+            Daftar Sekarang dan Raih Prestasi
           </h1>
           <span className="font-normal text-neutral-500">
-            Pengguna baru di MITFest?{" "}
+            Sudah memiliki akun?{" "}
             <Link
-              href="/auth/register"
+              href="/auth/login"
               className="font-semibold text-white hover:underline"
             >
-              Daftar
+              Masuk
             </Link>
           </span>
         </div>
@@ -80,6 +78,23 @@ export default function Login() {
           className="group space-y-4"
           noValidate
         >
+          <div className="relative">
+            <input
+              name="name"
+              type="text"
+              onChange={handleChange}
+              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+              placeholder=" "
+              pattern="[a-zA-Z\s]+"
+              required
+            />
+            <label
+              htmlFor="name"
+              className="absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+            >
+              Name
+            </label>
+          </div>
           <div className="relative">
             <input
               name="email"
@@ -113,14 +128,6 @@ export default function Login() {
               Password
             </label>
           </div>
-          <div>
-            <Link
-              className="text-sm font-semibold text-white hover:underline"
-              href="/auth/forgot-password"
-            >
-              Lupa kata sandi?
-            </Link>
-          </div>
           <div className="flex flex-col space-y-4">
             <button
               type="submit"
@@ -128,7 +135,7 @@ export default function Login() {
               disabled={loading}
             >
               <div>
-                Masuk
+                Daftar
                 <div
                   className={`${
                     loading ? "inline-block" : "hidden"
