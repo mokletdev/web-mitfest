@@ -7,7 +7,7 @@ export default function Root() {
   return (
     <React.Fragment>
       <Navbar />
-      <main className="w-screen bg-black">
+      <main className="w-screen bg-black relative">
         <Beranda />
       </main>
     </React.Fragment>
