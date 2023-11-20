@@ -1,13 +1,13 @@
+import { FaUser } from "react-icons/fa";
 import React from "react";
 import {
   findAnnounceByType,
   getAllAnnounce,
 } from "@/utils/queries/announcement.query";
-
 import AnnouncementTable from "../components/AnnouncementTable";
 
 export default async function cyberSecurity() {
-  const announcements = (await findAnnounceByType("cyber_security")).reverse();
+  const announcements = (await findAnnounceByType("cloud_computing")).reverse();
 
   return (
     <React.Fragment>
@@ -19,7 +19,7 @@ export default async function cyberSecurity() {
           <div className="w-full overflow-x-auto">
             <AnnouncementTable
               announcements={announcements}
-              type="cyber_security"
+              type="cloud_computing"
             />
           </div>
         </div>

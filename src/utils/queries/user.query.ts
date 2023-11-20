@@ -1,41 +1,42 @@
-import { connectMongo } from "../mongoose";
-import User from "@/models/User.model";
-import type { User as TUser } from "@/models/User.model";
 import { compareData } from "../encryption";
-import type { ObjectId } from "mongoose";
+import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
+import type { users } from "@prisma/client";
+import type { ObjectId } from "bson";
 
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
+export async function findUserByEmail(email: string) {
+  const user = await prisma.users.findUnique({ where: { email } });
+  return user;
 }
 
-export function findUserByEmail(email: string) {
-  return connectAndQuery(async () => await User.findOne({ email }));
+export async function findUserById(id: ObjectId) {
+  const user = await prisma.users.findUnique({ where: { id: id.toString() } });
+  return user;
 }
 
-export function findUserById(id: ObjectId) {
-  return connectAndQuery(async () => await User.findById(id));
+export async function getAllUsers() {
+  const users = await prisma.users.findMany({});
+  return users;
 }
 
-export function getAllUsers() {
-  return connectAndQuery(async () => await User.find({}));
+export async function getAllAdmins() {
+  const admins = await prisma.users.findMany({ where: { role: "Admin" } });
+  return admins;
 }
 
-export function getAllAdmins() {
-  return connectAndQuery(async () => await User.find({ role: "Admin" }));
+export async function getAllParticipants() {
+  const participants = await prisma.users.findMany({ where: { role: "User" } });
+  return participants;
 }
 
-export function getAllParticipants() {
-  return connectAndQuery(async () => await User.find({ role: "User" }));
-}
-
-export function createUser(user: TUser) {
-  return connectAndQuery(async () => await User.create(user));
+export async function createUser(data: Prisma.usersCreateInput) {
+  const create = await prisma.users.create({ data });
+  return create;
 }
 
 type authenticate = {
   status: "SUCCESS" | "NO_PASSWORD" | "INVALID";
-  user?: TUser;
+  user?: users;
 };
 
 export async function authenticate(email: string, password: string) {
@@ -46,17 +47,25 @@ export async function authenticate(email: string, password: string) {
   };
 
   if (findUser) {
-    if (findUser) {
-      if (!password) res.status = "NO_PASSWORD";
+    if (!findUser.password) res.status = "NO_PASSWORD";
+    else {
+      const validateUser = compareData(password, findUser.password!);
+      if (!validateUser) res.status = "INVALID";
       else {
-        const validateUser = compareData(password, findUser.password!);
-        if (!validateUser) res.status = "INVALID";
-        else {
-          res.status = "SUCCESS";
-          res.user = findUser;
-        }
+        res.status = "SUCCESS";
+        res.user = findUser;
       }
-    } else res.status = "INVALID";
-  }
+    }
+  } else res.status = "INVALID";
   return res;
+}
+
+export async function updateUser(id: string, data: Prisma.usersUpdateInput) {
+  const update = await prisma.users.update({ where: { id }, data });
+  return update;
+}
+
+export async function deleteUser(id: string) {
+  const deleteUser = await prisma.users.delete({ where: { id } });
+  return deleteUser;
 }

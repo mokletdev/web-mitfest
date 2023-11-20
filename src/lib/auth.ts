@@ -1,4 +1,4 @@
-import type { NextAuthOptions } from "next-auth";
+import type { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import {
@@ -32,9 +32,9 @@ declare module "next-auth/jwt" {
   }
 }
 
-export const authOptions: NextAuthOptions = {
+export const authOptions: AuthOptions = {
   pages: {
-    // signIn: "/auth/login",
+    signIn: "/auth/login",
   },
   session: {
     strategy: "jwt",
@@ -57,11 +57,11 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         let findUser = await authenticate(
           credentials?.email || "",
-          credentials?.password || ""
+          credentials?.password || "",
         );
-        if (findUser.status != "SUCCESS") return null;
+        if (findUser.status !== "SUCCESS") return null;
         const user = {
-          id: String(findUser.user?._id),
+          id: String(findUser.user?.id),
           email: findUser.user?.email,
           role: findUser.user?.role || "User",
         };
@@ -75,6 +75,12 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    async redirect({ url, baseUrl }) {
+      const redirectUrl = url.startsWith("/")
+        ? new URL(url, baseUrl).toString()
+        : url;
+      return redirectUrl;
+    },
     async signIn({ user }) {
       if (user.email) {
         let findUser = await findUserByEmail(user.email);
@@ -84,6 +90,8 @@ export const authOptions: NextAuthOptions = {
             name: user?.name || "",
             is_verified: true,
             role: "User",
+            v: 0,
+            password: "",
           });
         }
       }
@@ -94,7 +102,7 @@ export const authOptions: NextAuthOptions = {
         let findUser = await findUserByEmail(token.email!);
         token.name = findUser?.name || token?.name;
         token.role = findUser?.role || "User";
-        token.id = findUser?._id;
+        token.id = findUser?.id || "";
       }
       return token;
     },
@@ -102,7 +110,7 @@ export const authOptions: NextAuthOptions = {
       if (session.user) {
         let findUser = await findUserByEmail(session.user?.email!);
         session.user.role = findUser?.role || "User";
-        session.user.id = findUser?._id;
+        session.user.id = findUser?.id || "";
       }
       return session;
     },

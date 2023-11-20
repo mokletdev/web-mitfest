@@ -1,38 +1,40 @@
-import { connectMongo } from "../mongoose";
-import Announcement from "@/models/Announcement.model";
-import type { Announcement as TAnnouncement } from "@/models/Announcement.model";
-import { ObjectId, UpdateQuery } from "mongoose";
+import { prisma } from "@/lib/prisma";
+import { Prisma, $Enums } from "@prisma/client";
 
-async function connectAndQuery(queryFn: () => Promise<any>) {
-  await connectMongo();
-  return queryFn();
+export async function findAnnounceByType(type: $Enums.AnnouncementType) {
+  const announcements = await prisma.announcements.findMany({
+    where: { type },
+    include: { user: true },
+  });
+  return announcements;
 }
 
-export function findAnnounceByType(type: TAnnouncement["type"]) {
-  return connectAndQuery(
-    async () => await Announcement.find({ type }).populate("user_id")
-  );
+export async function getAllAnnounce() {
+  const announcements = await prisma.announcements.findMany({
+    include: { user: true },
+  });
+  return announcements;
 }
 
-export function getAllAnnounce() {
-  return connectAndQuery(
-    async () => await Announcement.find({}).populate("user_id")
-  );
-}
-
-export function updateAnnouncement(
-  id: string | ObjectId,
-  updateQuery: UpdateQuery<any>
+export async function updateAnnouncement(
+  id: string,
+  data: Prisma.announcementsUncheckedUpdateInput,
 ) {
-  return connectAndQuery(
-    async () => await Announcement.findByIdAndUpdate(id, updateQuery)
-  );
+  const updateQuery = await prisma.announcements.update({
+    where: { id },
+    data,
+  });
+  return updateQuery;
 }
 
-export function deleteAnnouncement(id: string | ObjectId) {
-  return connectAndQuery(async () => await Announcement.findByIdAndDelete(id));
+export async function deleteAnnouncement(id: string) {
+  const deleteQuery = await prisma.announcements.delete({ where: { id } });
+  return deleteQuery;
 }
 
-export function createAnnouncement(announcement: TAnnouncement) {
-  return connectAndQuery(async () => await Announcement.create(announcement));
+export async function createAnnouncement(
+  data: Prisma.announcementsUncheckedCreateInput,
+) {
+  const createQuery = await prisma.announcements.create({ data });
+  return createQuery;
 }
