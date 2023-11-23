@@ -1,6 +1,5 @@
 import stream, { Readable } from "stream";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { google } = require("googleapis");
+const { google } = require("googleapis"); // eslint-disable-line
 
 /**
  * Browse the link below to see the complete object returned for folder/file creation and search
@@ -26,13 +25,13 @@ export class GoogleDriveService {
     clientId: string,
     clientSecret: string,
     redirectUri: string,
-    refreshToken: string
+    refreshToken: string,
   ) {
     this.driveClient = this.createDriveClient(
       clientId,
       clientSecret,
       redirectUri,
-      refreshToken
+      refreshToken,
     );
   }
 
@@ -40,7 +39,7 @@ export class GoogleDriveService {
     clientId: string,
     clientSecret: string,
     redirectUri: string,
-    refreshToken: string
+    refreshToken: string,
   ) {
     const client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
 
@@ -75,7 +74,7 @@ export class GoogleDriveService {
           }
 
           return resolve(res.data.files ? res.data.files[0] : null);
-        }
+        },
       );
     });
   }
@@ -84,7 +83,7 @@ export class GoogleDriveService {
     fileName: string,
     fileStream: Buffer,
     fileMimeType: string | undefined,
-    folderId?: string
+    folderId?: string,
   ) {
     const newStream = new Readable({
       read() {
@@ -119,20 +118,20 @@ export async function uploadFile(
   filename: string,
   mimeType: string | undefined,
   stream: Buffer,
-  folderId: string
+  folderId: string,
 ): Promise<driveFile> {
   const googleDriveService = new GoogleDriveService(
     driveClientId,
     driveClientSecret,
     driveRedirectUri,
-    driveRefreshToken
+    driveRefreshToken,
   );
 
   const file = await googleDriveService.saveFile(
     filename,
     stream,
     mimeType,
-    folderId
+    folderId,
   );
 
   const result = { url: `https://drive.google.com/open?id=${file.data.id}` };
