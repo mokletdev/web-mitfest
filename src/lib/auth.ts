@@ -16,8 +16,9 @@ declare module "next-auth" {
   interface Session {
     user?: {
       id: string;
-      role?: string;
+      role: "User" | "Admin" | "SuperAdmin";
       email: string;
+      verified: boolean;
       someExoticUserProperty?: string;
     } & DefaultSession["user"];
   }
@@ -28,7 +29,8 @@ declare module "next-auth/jwt" {
   interface JWT extends DefaultJWT {
     id: string;
     email: string;
-    role: string;
+    verified: boolean;
+    role: "User" | "Admin" | "SuperAdmin";
   }
 }
 
@@ -64,6 +66,7 @@ export const authOptions: AuthOptions = {
           id: String(findUser.user?.id),
           email: findUser.user?.email,
           role: findUser.user?.role || "User",
+          verified: findUser.user?.is_verified,
         };
         return user;
       },
@@ -103,6 +106,7 @@ export const authOptions: AuthOptions = {
         token.name = findUser?.name || token?.name;
         token.role = findUser?.role || "User";
         token.id = findUser?.id || "";
+        token.verified = Boolean(findUser?.is_verified);
       }
       return token;
     },
@@ -111,6 +115,7 @@ export const authOptions: AuthOptions = {
         let findUser = await findUserByEmail(session.user?.email!);
         session.user.role = findUser?.role || "User";
         session.user.id = findUser?.id || "";
+        session.user.verified = Boolean(findUser?.is_verified);
       }
       return session;
     },
