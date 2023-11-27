@@ -22,7 +22,7 @@ export default function RootLayout({
       <Navbar nav={nav} setNav={setNav} name={session?.user?.name || ""} />
       <div>
         <div className="flex w-full overflow-hidden bg-white pb-6 pt-16">
-          <Sidebar nav={nav} />
+          <Sidebar nav={nav} session={session} />
           <div
             className={`bg-gray-900 opacity-50 ${
               nav ? "" : "hidden"
