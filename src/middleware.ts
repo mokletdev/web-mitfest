@@ -5,7 +5,10 @@ import { NextResponse } from "next/server";
 
 export default withAuth(
   function middleware(req) {
-    if (!req.nextauth.token?.verified)
+    if (
+      req.nextUrl.pathname.startsWith("/dashboard") &&
+      !req.nextauth.token?.verified
+    )
       return NextResponse.rewrite(new URL("/error/verify", req.url));
   },
   {
