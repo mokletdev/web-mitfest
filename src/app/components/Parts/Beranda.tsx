@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Beranda() {
   return (
     <section
-      className="relative mx-auto flex h-screen w-full max-w-[1148px] items-center justify-center px-5"
+      className="relative mx-auto flex h-screen w-full max-w-[1148px] items-center justify-center px-5 text-white"
       id="beranda"
     >
       <header className="mx-auto block w-full">
