@@ -3,6 +3,22 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    screens: {
+      sm: "420px",
+      // => @media (min-width: 420px) { ... }
+
+      md: "652px",
+      // => @media (min-width: 652px) { ... }
+
+      lg: "820px",
+      // => @media (min-width: 820px) { ... }
+
+      xl: "1322px",
+      // => @media (min-width: 1322px) { ... }
+
+      "2xl": "1440px",
+      // => @media (min-width: 1440px) { ... }
+    },
     extend: {
       colors: {
         black: "#171717",
@@ -23,6 +39,16 @@ const config: Config = {
         "primary-500": "#B10F00",
         "primary-600": "#7E0A00",
         "primary-700": "#4B0600",
+      },
+      dropShadow: {
+        "glow-white": [
+          "0 0px 40px rgba(255, 255, 255, 0.25)",
+          "0 0px 10px rgba(255, 255,255, 0.1)",
+        ],
+        "glow-red": [
+          "0 0px 40px rgba(177, 15, 0, 0.45)",
+          "0 0px 20px rgba(177, 15, 0, 0.1)",
+        ],
       },
     },
   },
