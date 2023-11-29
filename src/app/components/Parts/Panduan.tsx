@@ -40,7 +40,7 @@ export default function Panduan() {
 
   return (
     <section
-      className="relative mx-auto flex w-full max-w-[1148px] flex-col items-center justify-between gap-[42px] px-5 py-[82px] text-white sm:gap-[52px] xl:flex-row"
+      className="relative mx-auto flex w-full max-w-[1148px] flex-col items-center justify-between gap-[42px] px-5 py-[82px] text-white sm:items-start sm:gap-[52px] xl:flex-row"
       id="panduan"
     >
       <div className="block">
