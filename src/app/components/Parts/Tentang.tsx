@@ -2,10 +2,11 @@ export default function Tentang() {
   return (
     <section
       id="tentang"
-      className="relative mx-auto flex w-full max-w-[1148px] items-center justify-between gap-[132px] px-5 py-[82px] text-white"
+      className="relative mx-auto flex w-full max-w-[1148px] flex-col items-start justify-between gap-[42px] px-5 py-[82px] text-white sm:gap-[52px] xl:flex-row xl:gap-[132px]"
     >
       <div className="relative">
         <svg
+          className="w-full xl:h-[330px] xl:w-[431px]"
           width="431"
           height="330"
           viewBox="0 0 431 330"
@@ -632,10 +633,10 @@ export default function Tentang() {
         </svg>
       </div>
       <div>
-        <h3 className="drop-shadow-glow-white mb-7 text-5xl">
+        <h3 className="drop-shadow-glow-white mb-7 text-[32px] sm:text-5xl">
           Telusuri dan Kembangkan Potensimu
         </h3>
-        <p className="text-gray-400">
+        <p className="text-sm text-gray-400 sm:text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           vestibulum, ligula ac convallis vehicula, purus lectus volutpat
           lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros
