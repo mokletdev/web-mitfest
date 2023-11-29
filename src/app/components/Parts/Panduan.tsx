@@ -72,7 +72,7 @@ export default function Panduan() {
               </div>
               <p
                 className={`overflow-y-hidden pl-[76px] text-gray-500 transition-all duration-300 ${
-                  activeStage === i ? "h-12" : "h-0"
+                  activeStage === i ? "max-h-24" : "max-h-0"
                 }`}
               >
                 {stage.description}
