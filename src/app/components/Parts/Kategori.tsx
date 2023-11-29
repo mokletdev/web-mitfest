@@ -7,7 +7,7 @@ export default function Kategori() {
       id="kategori"
     >
       <div className="block w-full max-w-full xl:max-w-[35%]">
-        <h3 className="mb-7 text-[32px] drop-shadow-glow-white sm:text-5xl">
+        <h3 className="mb-7 text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
           Berbagai Kategori Menarik
         </h3>
         <p className="mb-[48px] text-sm text-gray-400 sm:text-base">
@@ -311,7 +311,7 @@ export default function Kategori() {
             </svg>
           </div>
           <div className="inline-block w-[200px]">
-            <h6 className="mb-2 text-xl">E-sport Moba</h6>
+            <h6 className="mb-2 text-xl">Mobile Legends</h6>
             <p className="text-gray-400">Berkelompok</p>
           </div>
         </div>
