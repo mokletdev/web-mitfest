@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Kontak() {
   return (
-    <section className="relative mx-auto flex w-full max-w-[1148px] flex-col items-center justify-center gap-[42px] px-5 py-[82px] text-white sm:items-start sm:gap-[52px]">
+    <section className="relative mx-auto flex w-full max-w-[1148px] flex-col items-center justify-center gap-[36px] px-5 py-[82px] text-white sm:items-start sm:gap-[48px]">
       <h1 className="text-center text-[52px] leading-tight drop-shadow-glow-white md:text-[78px]">
         Hubungi Kami Jika Ada Pertanyaan atau Masalah
       </h1>
