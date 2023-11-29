@@ -8,7 +8,7 @@ export default function Beranda() {
   return (
     <>
       <svg
-        className="drop-shadow-glow-white animate-on-and-off pointer-events-none absolute left-0 top-0 z-10 h-screen w-screen opacity-20"
+        className="animate-on-and-off pointer-events-none absolute left-0 top-0 z-10 h-screen w-screen opacity-20 drop-shadow-glow-white"
         viewBox="0 0 658 458"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ export default function Beranda() {
         id="beranda"
       >
         <header className="mx-auto block w-full">
-          <h1 className="drop-shadow-glow-white mb-7 text-center text-[52px] leading-tight md:text-[78px] lg:mb-[22px]">
+          <h1 className="mb-7 text-center text-[52px] leading-tight drop-shadow-glow-white md:text-[78px] lg:mb-[22px]">
             Bergabung dan Siapkan Diri untuk Masa Depan
           </h1>
           <p className="mb-12 text-center text-sm text-gray-400 md:text-base lg:mb-[52px]">
@@ -49,9 +49,30 @@ export default function Beranda() {
           <div className="flex w-full justify-center">
             <Link
               href={"/auth/register"}
-              className="inline-block rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600"
+              className="group inline-flex items-center gap-1 rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600"
             >
-              Daftar Sekarang
+              Daftar Sekarang{" "}
+              <svg
+                className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-2"
+                viewBox="0 0 19 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.3225 4.44727L15.875 8.99977L11.3225 13.5523"
+                  stroke="white"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M3.125 9H15.7475"
+                  stroke="white"
+                  strokeMiterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
           </div>
         </header>
