@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import Navbar from "./components/Parts/Navbar";
 import Beranda from "./components/Parts/Beranda";
@@ -6,6 +5,7 @@ import Tentang from "./components/Parts/Tentang";
 import Kategori from "./components/Parts/Kategori";
 import Panduan from "./components/Parts/Panduan";
 import FAQ from "./components/Parts/FAQ";
+import Kontak from "./components/Parts/Kontak";
 
 export default function Root() {
   return (
@@ -17,6 +17,7 @@ export default function Root() {
         <Kategori />
         <Panduan />
         <FAQ />
+        <Kontak />
       </main>
     </React.Fragment>
   );
