@@ -3,8 +3,6 @@ import useMousePosition from "@/app/hooks/useMousePosition";
 import Link from "next/link";
 
 export default function Beranda() {
-  const { x, y } = useMousePosition();
-
   return (
     <>
       <svg
