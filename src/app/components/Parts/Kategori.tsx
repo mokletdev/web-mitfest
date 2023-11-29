@@ -7,7 +7,7 @@ export default function Kategori() {
       id="kategori"
     >
       <div className="block w-full max-w-full xl:max-w-[35%]">
-        <h3 className="drop-shadow-glow-white mb-7 text-[32px] sm:text-5xl">
+        <h3 className="mb-7 text-[32px] drop-shadow-glow-white sm:text-5xl">
           Berbagai Kategori Menarik
         </h3>
         <p className="mb-[48px] text-sm text-gray-400 sm:text-base">
@@ -24,7 +24,13 @@ export default function Kategori() {
         </Link>
       </div>
       <div className="flex w-full max-w-full flex-wrap items-center justify-between lg:max-w-[65%]">
-        <div className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-gray-500 bg-gray-700 px-[22px] py-6 lg:w-auto">
+        <div
+          className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-transparent bg-gray-700 px-[22px] py-6 lg:w-auto"
+          style={{
+            background:
+              "linear-gradient(rgb(31 31 31), rgb(31 31 31)) padding-box, linear-gradient(to bottom right, rgba(93, 93, 93, 100), rgba(255, 255, 255, 0)) border-box",
+          }}
+        >
           <div className="rounded-xl bg-gray-600 p-[14px]">
             <svg
               className="!relative !h-[24px] !w-[24px]"
@@ -81,7 +87,13 @@ export default function Kategori() {
             <p className="text-gray-400">Individu atau berkelompok</p>
           </div>
         </div>
-        <div className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-gray-500 bg-gray-700 px-[22px] py-6 lg:w-auto">
+        <div
+          className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-transparent bg-gray-700 px-[22px] py-6 lg:w-auto"
+          style={{
+            background:
+              "linear-gradient(rgb(31 31 31), rgb(31 31 31)) padding-box, linear-gradient(to bottom right, rgba(93, 93, 93, 100), rgba(255, 255, 255, 0)) border-box",
+          }}
+        >
           <div className="rounded-xl bg-gray-600 p-[14px]">
             <svg
               className="!relative !h-[24px] !w-[24px]"
@@ -138,7 +150,13 @@ export default function Kategori() {
             <p className="text-gray-400">Individu atau berkelompok</p>
           </div>
         </div>
-        <div className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-gray-500 bg-gray-700 px-[22px] py-6 lg:w-auto">
+        <div
+          className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-transparent bg-gray-700 px-[22px] py-6 lg:w-auto"
+          style={{
+            background:
+              "linear-gradient(rgb(31 31 31), rgb(31 31 31)) padding-box, linear-gradient(to bottom right, rgba(93, 93, 93, 100), rgba(255, 255, 255, 0)) border-box",
+          }}
+        >
           <div className="rounded-xl bg-gray-600 p-[14px]">
             <svg
               className="!relative !h-[24px] !w-[24px]"
@@ -176,7 +194,13 @@ export default function Kategori() {
             <p className="text-gray-400">Individu atau berkelompok</p>
           </div>
         </div>
-        <div className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-gray-500 bg-gray-700 px-[22px] py-6 lg:w-auto">
+        <div
+          className="mb-[26px] flex w-full items-start gap-3 rounded-[20px] border border-solid border-transparent bg-gray-700 px-[22px] py-6 lg:w-auto"
+          style={{
+            background:
+              "linear-gradient(rgb(31 31 31), rgb(31 31 31)) padding-box, linear-gradient(to bottom right, rgba(93, 93, 93, 100), rgba(255, 255, 255, 0)) border-box",
+          }}
+        >
           <div className="rounded-xl bg-gray-600 p-[14px]">
             <svg
               className="!relative !h-[24px] !w-[24px]"
@@ -222,7 +246,13 @@ export default function Kategori() {
             <p className="text-gray-400">Individu</p>
           </div>
         </div>
-        <div className="flex w-full items-start gap-3 rounded-[20px] border border-solid border-gray-500 bg-gray-700 px-[22px] py-6 lg:w-auto">
+        <div
+          className="flex w-full items-start gap-3 rounded-[20px] border border-solid border-transparent bg-gray-700 px-[22px] py-6 lg:w-auto"
+          style={{
+            background:
+              "linear-gradient(rgb(31 31 31), rgb(31 31 31)) padding-box, linear-gradient(to bottom right, rgba(93, 93, 93, 100), rgba(255, 255, 255, 0)) border-box",
+          }}
+        >
           <div className="rounded-xl bg-gray-600 p-[14px]">
             <svg
               className="!relative !h-[24px] !w-[24px]"
