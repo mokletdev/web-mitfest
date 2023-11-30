@@ -59,7 +59,7 @@ export default function FAQ() {
                     strokeLinejoin="round"
                   />
                   <path
-                    className={`overflow-hidden transition-all duration-300 ${
+                    className={`overflow-hidden ${
                       activeQuestion === i ? "opacity-0" : "opacity-100"
                     }`}
                     d="M21 32.0479V11.0479"
@@ -106,7 +106,7 @@ export default function FAQ() {
                     strokeLinejoin="round"
                   />
                   <path
-                    className={`overflow-hidden transition-all duration-300 ${
+                    className={`overflow-hidden ${
                       activeQuestion === i + 1 ? "opacity-0" : "opacity-100"
                     }`}
                     d="M21 32.0479V11.0479"
