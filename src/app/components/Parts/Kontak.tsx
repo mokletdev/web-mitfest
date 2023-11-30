@@ -8,7 +8,7 @@ export default function Kontak() {
       </h1>
       <div className="flex w-full justify-center">
         <Link
-          href={"/auth/register"}
+          href={"https://wa.me/"}
           className="group inline-flex items-center gap-1 rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600"
         >
           Hubungi Kami{" "}
