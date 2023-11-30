@@ -40,7 +40,7 @@ export default function Beranda() {
           <h1 className="mb-7 text-center text-[52px] leading-tight drop-shadow-glow-white md:text-[78px] lg:mb-[22px]">
             Bergabung dan Siapkan Diri untuk Masa Depan
           </h1>
-          <p className="mb-12 text-center text-sm text-gray-400 md:text-base lg:mb-[52px]">
+          <p className="mb-12 text-center text-base text-gray-400 lg:mb-[52px]">
             Jelajahi berbagai kategori kompetisi, temukan bakat-bakat unik, dan
             raih prestasi.
           </p>

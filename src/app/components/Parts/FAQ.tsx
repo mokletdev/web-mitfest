@@ -59,7 +59,7 @@ export default function FAQ() {
                     strokeLinejoin="round"
                   />
                   <path
-                    className={`overflow-hidden transition-all duration-300 ${
+                    className={`overflow-hidden ${
                       activeQuestion === i ? "opacity-0" : "opacity-100"
                     }`}
                     d="M21 32.0479V11.0479"
@@ -74,7 +74,7 @@ export default function FAQ() {
                 </h6>
               </button>
               <p
-                className={`overflow-y-hidden pl-[74px] text-sm text-gray-500 transition-all duration-300 sm:text-base ${
+                className={`overflow-y-hidden pl-[74px] text-base text-gray-500 transition-all duration-300 ${
                   activeQuestion === i ? "max-h-[500px]" : "max-h-0"
                 }`}
               >
@@ -106,7 +106,7 @@ export default function FAQ() {
                     strokeLinejoin="round"
                   />
                   <path
-                    className={`overflow-hidden transition-all duration-300 ${
+                    className={`overflow-hidden ${
                       activeQuestion === i + 1 ? "opacity-0" : "opacity-100"
                     }`}
                     d="M21 32.0479V11.0479"
@@ -121,7 +121,7 @@ export default function FAQ() {
                 </h6>
               </button>
               <p
-                className={`overflow-y-hidden pl-[74px] text-sm text-gray-500 transition-all duration-300 sm:text-base ${
+                className={`overflow-y-hidden pl-[74px] text-base text-gray-500 transition-all duration-300 ${
                   activeQuestion === i + 1 ? "max-h-[500px]" : "max-h-0"
                 }`}
               >

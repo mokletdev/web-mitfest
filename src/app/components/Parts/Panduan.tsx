@@ -40,7 +40,7 @@ export default function Panduan() {
 
   return (
     <section
-      className="relative mx-auto flex w-full max-w-[1148px] flex-col items-center justify-between gap-[42px] px-5 py-[82px] text-white sm:gap-[52px] xl:flex-row"
+      className="relative mx-auto flex w-full max-w-[1148px] flex-col items-center justify-between gap-[42px] px-5 py-[82px] text-white sm:items-start sm:gap-[52px] xl:flex-row"
       id="panduan"
     >
       <div className="block">
@@ -72,7 +72,7 @@ export default function Panduan() {
               </div>
               <p
                 className={`overflow-y-hidden pl-[76px] text-gray-500 transition-all duration-300 ${
-                  activeStage === i ? "h-12" : "h-0"
+                  activeStage === i ? "max-h-24" : "max-h-0"
                 }`}
               >
                 {stage.description}
