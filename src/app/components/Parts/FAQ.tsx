@@ -74,7 +74,7 @@ export default function FAQ() {
                 </h6>
               </button>
               <p
-                className={`overflow-y-hidden pl-[74px] text-sm text-gray-500 transition-all duration-300 sm:text-base ${
+                className={`overflow-y-hidden pl-[74px] text-base text-gray-500 transition-all duration-300 ${
                   activeQuestion === i ? "max-h-[500px]" : "max-h-0"
                 }`}
               >
@@ -121,7 +121,7 @@ export default function FAQ() {
                 </h6>
               </button>
               <p
-                className={`overflow-y-hidden pl-[74px] text-sm text-gray-500 transition-all duration-300 sm:text-base ${
+                className={`overflow-y-hidden pl-[74px] text-base text-gray-500 transition-all duration-300 ${
                   activeQuestion === i + 1 ? "max-h-[500px]" : "max-h-0"
                 }`}
               >

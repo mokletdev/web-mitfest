@@ -10,7 +10,7 @@ export default function Kategori() {
         <h3 className="mb-7 text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
           Berbagai Kategori Menarik
         </h3>
-        <p className="mb-[48px] text-sm text-gray-400 sm:text-base">
+        <p className="mb-[48px] text-base text-gray-400">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           vestibulum, ligula ac convallis vehicula, purus lectus volutpat
           lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros, in

@@ -605,7 +605,7 @@ export default function Tentang() {
           </defs>
         </svg>
         <svg
-          className="drop-shadow-glow-white animate-on-and-off pointer-events-none absolute left-0 top-0 z-10 w-full"
+          className="animate-on-and-off pointer-events-none absolute left-0 top-0 z-10 w-full drop-shadow-glow-white"
           viewBox="0 0 658 458"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -633,10 +633,10 @@ export default function Tentang() {
         </svg>
       </div>
       <div>
-        <h3 className="drop-shadow-glow-white mb-7 text-[32px] sm:text-[48px] leading-[68px]">
+        <h3 className="mb-7 text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
           Telusuri dan Kembangkan Potensimu
         </h3>
-        <p className="text-sm text-gray-400 sm:text-base">
+        <p className="text-base text-gray-400">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           vestibulum, ligula ac convallis vehicula, purus lectus volutpat
           lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros
