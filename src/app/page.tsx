@@ -6,6 +6,7 @@ import Kategori from "./components/Parts/Kategori";
 import Panduan from "./components/Parts/Panduan";
 import FAQ from "./components/Parts/FAQ";
 import Kontak from "./components/Parts/Kontak";
+import Footer from "./components/Parts/Footer";
 
 export default function Root() {
   return (
@@ -18,6 +19,7 @@ export default function Root() {
         <Panduan />
         <FAQ />
         <Kontak />
+        <Footer />
       </main>
     </React.Fragment>
   );
