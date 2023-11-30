@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function FAQ() {
-  const [activeQuestion, setActiveQuestion] = useState(0);
+  const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
   const faqs = [
     {
       question: "Lorem ipsum dolor sit amet consectetur",
@@ -42,7 +42,11 @@ export default function FAQ() {
             >
               <button
                 className="mb-3 flex w-full items-center gap-8"
-                onClick={() => setActiveQuestion(i)}
+                onClick={() =>
+                  activeQuestion !== i
+                    ? setActiveQuestion(i)
+                    : setActiveQuestion(null)
+                }
               >
                 <svg
                   width="42"
@@ -89,7 +93,11 @@ export default function FAQ() {
             >
               <button
                 className="mb-3 flex w-full items-center gap-8"
-                onClick={() => setActiveQuestion(i + 1)}
+                onClick={() =>
+                  activeQuestion !== i + 1
+                    ? setActiveQuestion(i + 1)
+                    : setActiveQuestion(null)
+                }
               >
                 <svg
                   width="42"
