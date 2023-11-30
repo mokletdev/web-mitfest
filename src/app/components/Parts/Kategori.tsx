@@ -7,7 +7,7 @@ export default function Kategori() {
       id="kategori"
     >
       <div className="block w-full max-w-full xl:max-w-[35%]">
-        <h3 className="mb-7 text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
+        <h3 className="mb-7 text-[32px] leading-10 drop-shadow-glow-white sm:text-[48px] sm:leading-[68px]">
           Berbagai Kategori Menarik
         </h3>
         <p className="mb-[48px] text-base text-gray-400">
@@ -24,7 +24,7 @@ export default function Kategori() {
         </Link>
       </div>
       <div className="flex w-full max-w-full flex-col items-start justify-between gap-[26px] lg:flex-row lg:gap-0 xl:max-w-[65%]">
-        <div className="flex w-full lg:w-[48%] flex-col gap-[26px]">
+        <div className="flex w-full flex-col gap-[26px] lg:w-[48%]">
           <div
             className="flex w-full items-start gap-3 rounded-[20px] border border-solid border-transparent bg-gray-700 px-[22px] py-6 xl:w-auto"
             style={{
@@ -196,7 +196,7 @@ export default function Kategori() {
             </div>
           </div>
         </div>
-        <div className="flex w-full lg:w-[48%] flex-col gap-[26px]">
+        <div className="flex w-full flex-col gap-[26px] lg:w-[48%]">
           <div
             className="flex w-full items-start gap-3 rounded-[20px] border border-solid border-transparent bg-gray-700 px-[22px] py-6 xl:w-auto"
             style={{

@@ -141,7 +141,7 @@ export default function FAQ() {
       className="relative mx-auto w-full max-w-[1148px] px-5 py-[82px] text-white"
       id="faq"
     >
-      <h3 className="mb-[52px] text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
+      <h3 className="mb-[52px] text-[32px] leading-10 drop-shadow-glow-white sm:text-[48px] sm:leading-[68px]">
         Pertanyaan yang Sering Diajukan
       </h3>
       <div className="flex w-full flex-col justify-between">{renderFaqs()}</div>

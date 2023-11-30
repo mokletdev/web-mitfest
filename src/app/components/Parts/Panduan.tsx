@@ -44,7 +44,7 @@ export default function Panduan() {
       id="panduan"
     >
       <div className="block">
-        <h3 className="mb-[52px] text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
+        <h3 className="mb-[52px] text-[32px] leading-10 drop-shadow-glow-white sm:text-[48px] sm:leading-[68px]">
           Daftar dengan Mudah
         </h3>
         <ul className="flex flex-col gap-[22px]">
