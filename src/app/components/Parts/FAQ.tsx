@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function FAQ() {
-  const [activeQuestion, setActiveQuestion] = useState(0);
+  const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
   const faqs = [
     {
       question: "Lorem ipsum dolor sit amet consectetur",
@@ -42,7 +42,11 @@ export default function FAQ() {
             >
               <button
                 className="mb-3 flex w-full items-center gap-8"
-                onClick={() => setActiveQuestion(i)}
+                onClick={() =>
+                  activeQuestion !== i
+                    ? setActiveQuestion(i)
+                    : setActiveQuestion(null)
+                }
               >
                 <svg
                   width="42"
@@ -89,7 +93,11 @@ export default function FAQ() {
             >
               <button
                 className="mb-3 flex w-full items-center gap-8"
-                onClick={() => setActiveQuestion(i + 1)}
+                onClick={() =>
+                  activeQuestion !== i + 1
+                    ? setActiveQuestion(i + 1)
+                    : setActiveQuestion(null)
+                }
               >
                 <svg
                   width="42"
@@ -141,7 +149,7 @@ export default function FAQ() {
       className="relative mx-auto w-full max-w-[1148px] px-5 py-[82px] text-white"
       id="faq"
     >
-      <h3 className="mb-[52px] text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
+      <h3 className="mb-[52px] text-[32px] leading-10 drop-shadow-glow-white sm:text-[48px] sm:leading-[68px]">
         Pertanyaan yang Sering Diajukan
       </h3>
       <div className="flex w-full flex-col justify-between">{renderFaqs()}</div>

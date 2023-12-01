@@ -633,7 +633,7 @@ export default function Tentang() {
         </svg>
       </div>
       <div>
-        <h3 className="mb-7 text-[32px] leading-[68px] drop-shadow-glow-white sm:text-[48px]">
+        <h3 className="mb-7 text-[32px] leading-10 drop-shadow-glow-white sm:text-[48px] sm:leading-[68px]">
           Telusuri dan Kembangkan Potensimu
         </h3>
         <p className="text-base text-gray-400">
