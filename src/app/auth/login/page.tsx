@@ -56,14 +56,14 @@ export default function Login() {
   return (
     <section className="flex h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
-        <div className="mb-6 flex justify-center md:justify-start">
-          <h1 className="text-primary-500 text-2xl font-bold">Logo</h1>
+        <div className="mb-[52px] flex justify-center md:justify-start">
+          <h1 className="text-2xl font-bold text-white">Logo</h1>
         </div>
         <div className="mb-6 flex flex-col justify-center gap-2 md:justify-start">
-          <h1 className="text-xl font-bold text-white">
+          <h6 className="mb-3 text-[32px] leading-[40px] text-white">
             Selamat Datang di MITFest
-          </h1>
-          <span className="font-normal text-neutral-500">
+          </h6>
+          <span className="text-neutral-500">
             Pengguna baru di MITFest?{" "}
             <Link href="/auth/register" className="text-white hover:underline">
               Daftar
@@ -118,10 +118,10 @@ export default function Login() {
               Lupa kata sandi?
             </Link>
           </div>
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col gap-8">
             <button
               type="submit"
-              className="bg-primary-500 border-primary-400 hover:bg-primary-600 disabled:bg-primary-700 mt-4 w-full rounded border py-2 text-gray-50 transition duration-200 disabled:text-gray-200 group-invalid:pointer-events-none group-invalid:opacity-30"
+              className="mt-4 w-full rounded-full border border-primary-400 bg-primary-500 py-2 text-gray-50 transition duration-200 hover:bg-primary-600 disabled:bg-primary-700 disabled:text-gray-200 group-invalid:pointer-events-none group-invalid:opacity-30"
               disabled={loading}
             >
               <div>
@@ -138,10 +138,61 @@ export default function Login() {
                 </div>
               </div>
             </button>
+            <div className="relative w-full">
+              <svg
+                className="absolute left-0 top-1/2 -translate-y-1/2"
+                width="185"
+                height="2"
+                viewBox="0 0 185 2"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 1H185" stroke="url(#paint0_linear_1094_9415)" />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_1094_9415"
+                    x1="0"
+                    y1="1"
+                    x2="185"
+                    y2="1"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#8E8E8E" stopOpacity="0" />
+                    <stop offset="1" stopColor="#8E8E8E" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <p className="absolute left-1/2 top-1/2 z-[100] h-[22px] w-[50px] -translate-x-1/2 -translate-y-1/2 bg-black text-center text-sm text-white">
+                About
+              </p>
+              <svg
+                className="absolute right-0 top-1/2 -translate-y-1/2 rotate-180"
+                width="185"
+                height="2"
+                viewBox="0 0 185 2"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 1H185" stroke="url(#paint0_linear_1094_9415)" />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_1094_9415"
+                    x1="0"
+                    y1="1"
+                    x2="185"
+                    y2="1"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#8E8E8E" stopOpacity="0" />
+                    <stop offset="1" stopColor="#8E8E8E" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
             <button
               onClick={() => signIn("google", { callbackUrl: "/admin" })}
               type="button"
-              className="bg-primary-700 border-primary-500 flex w-full items-center justify-center gap-2 self-center rounded border py-2 text-sm text-white transition duration-200"
+              className="flex w-full items-center justify-center gap-2 self-center rounded-full border border-gray-600 bg-black px-7 py-2 text-sm text-white transition duration-300 hover:bg-gray-700"
             >
               <svg
                 width="24"

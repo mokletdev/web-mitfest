@@ -112,7 +112,7 @@ export default function Navbar() {
             Daftar
           </Link>
           <Link
-            href={"/auth/register"}
+            href={"/auth/login"}
             className="inline-block rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600"
           >
             Masuk
