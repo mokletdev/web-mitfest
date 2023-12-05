@@ -636,7 +636,7 @@ export default function Tentang() {
         <h3 className="mb-7 text-[32px] leading-10 drop-shadow-glow-white sm:text-[48px] sm:leading-[68px]">
           Telusuri dan Kembangkan Potensimu
         </h3>
-        <p className="text-base text-gray-400">
+        <p className="text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           vestibulum, ligula ac convallis vehicula, purus lectus volutpat
           lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros

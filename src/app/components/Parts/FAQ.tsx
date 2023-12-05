@@ -78,7 +78,7 @@ export default function FAQ() {
                 </h6>
               </button>
               <p
-                className={`overflow-y-hidden pl-[74px] text-base text-gray-500 transition-all duration-300 ${
+                className={`overflow-y-hidden pl-[74px] text-base transition-all duration-300 ${
                   activeQuestion === i ? "max-h-[500px]" : "max-h-0"
                 }`}
               >
