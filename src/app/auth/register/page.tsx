@@ -153,7 +153,7 @@ export default function Login() {
                 </defs>
               </svg>
               <p className="absolute left-1/2 top-1/2 z-[100] h-[22px] w-[50px] -translate-x-1/2 -translate-y-1/2 bg-black text-center text-sm text-white">
-                About
+                Atau
               </p>
               <svg
                 className="absolute right-0 top-1/2 -translate-y-1/2 rotate-180"
