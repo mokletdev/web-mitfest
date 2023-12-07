@@ -54,7 +54,7 @@ export default function Login() {
   };
 
   return (
-    <section className="min- flex h-screen w-screen justify-center bg-black">
+    <section className="flex min-h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
         <div className="mb-[52px] flex justify-center text-left md:justify-start">
           <h1 className="w-full text-2xl font-bold text-white">Logo</h1>
@@ -121,7 +121,7 @@ export default function Login() {
           <div className="flex flex-col gap-8">
             <button
               type="submit"
-              className="mt-4 w-full rounded-full border border-primary-400 bg-primary-500 py-2 text-gray-50 transition duration-200 hover:bg-primary-600 disabled:bg-primary-700 disabled:text-gray-200 group-invalid:pointer-events-none group-invalid:opacity-30 sm:py-4"
+              className="mt-4 w-full rounded-full border border-primary-400 bg-primary-500 py-4 text-gray-50 transition duration-200 hover:bg-primary-600 disabled:bg-primary-700 disabled:text-gray-200 group-invalid:pointer-events-none group-invalid:opacity-30 sm:py-2"
               disabled={loading}
             >
               <div>
@@ -192,7 +192,7 @@ export default function Login() {
             <button
               onClick={() => signIn("google", { callbackUrl: "/admin" })}
               type="button"
-              className="flex w-full items-center justify-center gap-2 self-center rounded-full border border-gray-600 bg-black px-7 py-2 text-sm text-white transition duration-300 hover:bg-gray-700 sm:py-4"
+              className="flex w-full items-center justify-center gap-2 self-center rounded-full border border-gray-600 bg-black px-7 py-4 text-sm text-white transition duration-300 hover:bg-gray-700 sm:py-2"
             >
               <svg
                 width="24"
