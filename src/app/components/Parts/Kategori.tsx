@@ -10,7 +10,7 @@ export default function Kategori() {
         <h3 className="mb-7 text-[32px] leading-10 drop-shadow-glow-white sm:text-[48px] sm:leading-[68px]">
           Berbagai Kategori Menarik
         </h3>
-        <p className="mb-[48px] text-base text-gray-400">
+        <p className="mb-[48px] text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           vestibulum, ligula ac convallis vehicula, purus lectus volutpat
           lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros, in
@@ -85,7 +85,7 @@ export default function Kategori() {
             </div>
             <div className="inline-block w-[200px]">
               <h6 className="mb-2 text-xl">Web Design</h6>
-              <p className="text-gray-400">Individu atau berkelompok</p>
+              <p>Individu atau berkelompok</p>
             </div>
           </div>
           <div
@@ -148,7 +148,7 @@ export default function Kategori() {
             </div>
             <div className="inline-block w-[200px]">
               <h6 className="mb-2 text-xl">Business Plan</h6>
-              <p className="text-gray-400">Individu atau berkelompok</p>
+              <p>Individu atau berkelompok</p>
             </div>
           </div>
           <div
@@ -192,7 +192,7 @@ export default function Kategori() {
             </div>
             <div className="inline-block w-[200px]">
               <h6 className="mb-2 text-xl">Cyber Security</h6>
-              <p className="text-gray-400">Individu atau berkelompok</p>
+              <p>Individu atau berkelompok</p>
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function Kategori() {
             </div>
             <div className="inline-block w-[200px]">
               <h6 className="mb-2 text-xl">Cloud Computing</h6>
-              <p className="text-gray-400">Individu</p>
+              <p>Individu</p>
             </div>
           </div>
           <div
@@ -315,7 +315,7 @@ export default function Kategori() {
             </div>
             <div className="inline-block w-[200px]">
               <h6 className="mb-2 text-xl">Mobile Legends</h6>
-              <p className="text-gray-400">Berkelompok</p>
+              <p>Berkelompok</p>
             </div>
           </div>
         </div>

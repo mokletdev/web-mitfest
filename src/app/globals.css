@@ -46,3 +46,7 @@ select:-webkit-autofill:focus {
     @apply opacity-40;
   }
 }
+
+p {
+  @apply text-gray-500;
+}
