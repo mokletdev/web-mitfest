@@ -4,9 +4,9 @@ export default function Tentang() {
       id="tentang"
       className="relative mx-auto flex w-full max-w-[1148px] flex-col items-start justify-between gap-[42px] px-5 py-[82px] text-white sm:gap-[52px] xl:flex-row xl:gap-[132px]"
     >
-      <div className="relative">
+      <div className="relative z-[100]">
         <svg
-          className="w-full xl:h-[330px] xl:w-[431px]"
+          className="z-10 w-full xl:h-[330px] xl:w-[431px]"
           width="431"
           height="330"
           viewBox="0 0 431 330"
@@ -605,7 +605,7 @@ export default function Tentang() {
           </defs>
         </svg>
         <svg
-          className="animate-on-and-off pointer-events-none absolute left-0 top-0 z-10 w-full drop-shadow-glow-white"
+          className="animate-on-and-off pointer-events-none absolute left-0 top-0 w-full -z-10 drop-shadow-glow-white"
           viewBox="0 0 658 458"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
