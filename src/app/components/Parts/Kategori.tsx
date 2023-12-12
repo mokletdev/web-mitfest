@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "../Button";
+import { LinkButton } from "../Button";
 
 export default function Kategori() {
   return (
@@ -17,9 +17,9 @@ export default function Kategori() {
           lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros, in
           finibus justo.
         </p>
-        <Button href={"/guidebook"} variant="red">
+        <LinkButton href={"/guidebook"} variant="red">
           Unduh Buku Panduan
-        </Button>
+        </LinkButton>
       </div>
       <div className="flex w-full max-w-full flex-col items-start justify-between gap-[26px] lg:flex-row lg:gap-0 xl:max-w-[65%]">
         <div className="flex w-full flex-col gap-[26px] lg:w-[48%]">

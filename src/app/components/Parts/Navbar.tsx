@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Button from "../Button";
+import { LinkButton } from "../Button";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("beranda");
@@ -106,12 +106,12 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="hidden w-56 items-center justify-between md:flex">
-          <Button href={"/auth/register"} variant="dark">
+          <LinkButton href={"/auth/register"} variant="dark">
             Daftar
-          </Button>
-          <Button href={"/auth/login"} variant="red">
+          </LinkButton>
+          <LinkButton href={"/auth/login"} variant="red">
             Masuk
-          </Button>
+          </LinkButton>
         </div>
       </nav>
       {/* Mobile Sidebar */}

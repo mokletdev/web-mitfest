@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "../Button";
+import { LinkButton } from "../Button";
 
 export default function Kontak() {
   return (
@@ -8,9 +8,9 @@ export default function Kontak() {
         Hubungi Kami Jika Ada Pertanyaan atau Masalah
       </h1>
       <div className="flex w-full justify-center">
-        <Button href={"https://wa.me/"} withArrow variant="red">
+        <LinkButton href={"https://wa.me/"} withArrow variant="red">
           Hubungi Kami{" "}
-        </Button>
+        </LinkButton>
       </div>
     </section>
   );

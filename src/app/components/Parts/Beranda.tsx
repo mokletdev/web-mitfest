@@ -1,7 +1,7 @@
 "use client";
 import useMousePosition from "@/app/hooks/useMousePosition";
 import Link from "next/link";
-import Button from "../Button";
+import { LinkButton } from "../Button";
 
 export default function Beranda() {
   return (
@@ -46,9 +46,9 @@ export default function Beranda() {
             raih prestasi.
           </p>
           <div className="flex w-full justify-center">
-            <Button href={"/auth/register"} withArrow variant="red">
+            <LinkButton href={"/auth/register"} withArrow variant="red">
               Daftar Sekarang{" "}
-            </Button>
+            </LinkButton>
           </div>
         </header>
       </section>
