@@ -16,7 +16,7 @@
     "bson": "^6.2.0",
     "dotenv-cli": "^7.3.0",
     "googleapis": "^129.0.0",
-    "next": "14.0.3",
+    "next": "14.0.4",
     "next-auth": "^4.24.5",
     "next-seo": "^6.4.0",
     "nextjs-toploader": "^1.6.4",
@@ -38,7 +38,7 @@
     "eslint-config-next": "14.0.3",
     "postcss": "^8",
     "prettier-plugin-tailwindcss": "^0.5.7",
-    "prisma": "^5.6.0",
+    "prisma": "^5.7.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
