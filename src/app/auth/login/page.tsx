@@ -192,7 +192,7 @@ export default function Login() {
               </svg>
             </div>
             <FormButton
-              onClick={() => signIn("google", { callbackUrl: "/admin" })}
+              onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
               type="button"
               className="w-full justify-center"
             >

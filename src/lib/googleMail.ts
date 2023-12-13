@@ -10,7 +10,7 @@ const getGmailService = () => {
   const oAuth2Client = new google.auth.OAuth2(
     clientId,
     clientSecret,
-    redirectUri
+    redirectUri,
   );
   oAuth2Client.setCredentials({ refresh_token: refreshToken });
   const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
@@ -43,7 +43,7 @@ export const sendMail = async (options: any) => {
   return data;
 };
 
-type mailMetaData = {
+export type mailMetaData = {
   to: string;
   subject: string;
   text?: string;

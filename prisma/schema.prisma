@@ -42,6 +42,11 @@ enum ParticipantStatus {
   finalist
 }
 
+enum TokenType {
+  verify
+  forgot_password
+}
+
 model users {
   id                               String                    @id @default(auto()) @map("_id") @db.ObjectId
   v                                Int                       @map("__v")
@@ -55,6 +60,7 @@ model users {
   admin_logs                       admin_logs[]
   updated_registrations            registrations[]           @relation("RegistrationUpdatedBy")
   created_registrations            registrations?            @relation("RegistrationCreatedBy")
+  created_tokens                   verification_tokens[]     @relation("TokenCreatedBy")
 }
 
 model announcements {
@@ -105,9 +111,12 @@ model competition_submissions {
 }
 
 model verification_tokens {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  token      String   @unique
-  expires_at DateTime @db.Date
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  token      String    @unique
+  type       TokenType
+  expires_at DateTime  @db.Date
+  user       users     @relation("TokenCreatedBy", fields: [user_id], references: [id])
+  user_id    String    @db.ObjectId
 }
 
 model admin_logs {

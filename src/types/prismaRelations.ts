@@ -7,3 +7,7 @@ export type announcementWithUser = Prisma.announcementsGetPayload<{
 export type registrationsWithRelations = Prisma.registrationsGetPayload<{
   include: { user: true; updated_by: true; competition_submission: true };
 }>;
+
+export type tokensWithWithRelations = Prisma.verification_tokensGetPayload<{
+  include: { user: true };
+}>;
