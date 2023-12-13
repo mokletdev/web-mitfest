@@ -1,15 +1,16 @@
 "use client";
 
 import { toast } from "react-toastify";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { Prisma } from "@prisma/client";
 import { FormButton } from "@/app/components/Button";
 
 export default function Login() {
+  const { data: session } = useSession();
   const router = useRouter();
   const [formValues, setFormValues] =
     useState<Prisma.usersUncheckedCreateInput>({
@@ -51,6 +52,8 @@ export default function Login() {
       });
     }
   };
+
+  if (session?.user) return redirect("/dashboard");
 
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">

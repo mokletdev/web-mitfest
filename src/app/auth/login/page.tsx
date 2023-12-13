@@ -6,10 +6,11 @@ import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
 import type { ChangeEvent } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { FormButton } from "@/app/components/Button";
 
 export default function Login() {
+  const { data: session } = useSession();
   const router = useRouter();
   const [formValues, setFormValues] = useState({
     email: "",
@@ -53,6 +54,8 @@ export default function Login() {
       });
     }
   };
+
+  if (session?.user) return redirect("/dashboard");
 
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">

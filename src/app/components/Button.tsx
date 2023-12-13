@@ -25,7 +25,7 @@ export function LinkButton({
     return (
       <Link
         href={href}
-        className={`group inline-flex items-center gap-1 rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600 ${className}`}
+        className={`group inline-flex items-center gap-1 rounded-full border border-primary-400 bg-primary-500 px-7 py-4 text-white transition duration-300 hover:bg-primary-600 sm:py-2 ${className}`}
       >
         {children}
         {withArrow && (
@@ -58,7 +58,7 @@ export function LinkButton({
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center gap-1 rounded-full border border-gray-600 bg-black px-7 py-2 text-white transition duration-300 hover:bg-gray-700 ${className}`}
+      className={`group inline-flex items-center gap-1 rounded-full border border-gray-600 bg-black px-7 py-4 text-white transition duration-300 hover:bg-gray-700 sm:py-2 ${className}`}
     >
       {children}
       {withArrow && (
@@ -110,7 +110,7 @@ export function FormButton({
       <button
         onClick={onClick}
         type={type}
-        className={`group inline-flex items-center gap-1 rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600 disabled:bg-primary-700 disabled:text-gray-200 ${className}`}
+        className={`group inline-flex items-center gap-1 rounded-full border border-primary-400 bg-primary-500 px-7 py-4 text-white transition duration-300 hover:bg-primary-600 disabled:bg-primary-700 disabled:text-gray-200 sm:py-2 ${className}`}
         disabled={disabled}
       >
         {children}
@@ -145,7 +145,7 @@ export function FormButton({
     <button
       onClick={onClick}
       type={type}
-      className={`group inline-flex items-center gap-1 rounded-full border border-gray-600 bg-black px-7 py-2 text-white transition duration-300 hover:bg-gray-700 disabled:bg-primary-700 disabled:text-gray-200 ${className}`}
+      className={`group inline-flex items-center gap-1 rounded-full border border-gray-600 bg-black px-7 py-4 text-white transition duration-300 hover:bg-gray-700 disabled:bg-primary-700 disabled:text-gray-200 sm:py-2 ${className}`}
       disabled={disabled}
     >
       {children}
