@@ -555,7 +555,7 @@ export default function Panduan() {
           </defs>
         </svg>
         <svg
-          className="animate-on-and-off pointer-events-none absolute left-[55%] top-1/2 -z-10 w-full -translate-x-1/2 -translate-y-1/2 drop-shadow-glow-white xl:h-[900px] xl:w-[576px]"
+          className="animate-on-and-off pointer-events-none absolute left-[55%] top-1/2 -z-10 w-full -translate-x-1/2 -translate-y-1/2 drop-shadow-glow-white xl:h-[900px] xl:w-[200%]"
           viewBox="0 0 379 544"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,7 @@
 "use client";
 import useMousePosition from "@/app/hooks/useMousePosition";
 import Link from "next/link";
+import { LinkButton } from "../Button";
 
 export default function Beranda() {
   return (
@@ -45,33 +46,9 @@ export default function Beranda() {
             raih prestasi.
           </p>
           <div className="flex w-full justify-center">
-            <Link
-              href={"/auth/register"}
-              className="group inline-flex items-center gap-1 rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600"
-            >
+            <LinkButton href={"/auth/register"} withArrow variant="red">
               Daftar Sekarang{" "}
-              <svg
-                className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-2"
-                viewBox="0 0 19 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.3225 4.44727L15.875 8.99977L11.3225 13.5523"
-                  stroke="white"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M3.125 9H15.7475"
-                  stroke="white"
-                  strokeMiterlimit="10"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
+            </LinkButton>
           </div>
         </header>
       </section>

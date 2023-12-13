@@ -7,6 +7,7 @@ import { useState } from "react";
 import type { ChangeEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FormButton } from "@/app/components/Button";
 
 export default function Login() {
   const router = useRouter();
@@ -119,10 +120,11 @@ export default function Login() {
             </Link>
           </div>
           <div className="flex flex-col gap-8">
-            <button
+            <FormButton
               type="submit"
-              className="mt-4 w-full rounded-full border border-primary-400 bg-primary-500 py-4 text-gray-50 transition duration-200 hover:bg-primary-600 disabled:bg-primary-700 disabled:text-gray-200 group-invalid:pointer-events-none group-invalid:opacity-30 sm:py-2"
+              className="w-full justify-center group-invalid:pointer-events-none group-invalid:opacity-30"
               disabled={loading}
+              variant="red"
             >
               <div>
                 Masuk
@@ -137,7 +139,7 @@ export default function Login() {
                   </span>
                 </div>
               </div>
-            </button>
+            </FormButton>
             <div className="relative w-full">
               <svg
                 className="absolute left-0 top-1/2 -translate-y-1/2"
@@ -189,10 +191,10 @@ export default function Login() {
                 </defs>
               </svg>
             </div>
-            <button
+            <FormButton
               onClick={() => signIn("google", { callbackUrl: "/admin" })}
               type="button"
-              className="flex w-full items-center justify-center gap-2 self-center rounded-full border border-gray-600 bg-black px-7 py-4 text-sm text-white transition duration-300 hover:bg-gray-700 sm:py-2"
+              className="w-full justify-center"
             >
               <svg
                 width="24"
@@ -209,7 +211,7 @@ export default function Login() {
                 />
               </svg>
               Masuk dengan Google
-            </button>
+            </FormButton>
           </div>
         </form>
       </div>

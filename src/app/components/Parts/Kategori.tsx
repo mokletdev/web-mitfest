@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LinkButton } from "../Button";
 
 export default function Kategori() {
   return (
@@ -16,12 +17,9 @@ export default function Kategori() {
           lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros, in
           finibus justo.
         </p>
-        <Link
-          href={"/guidebook"}
-          className="inline-block rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600"
-        >
+        <LinkButton href={"/guidebook"} variant="red">
           Unduh Buku Panduan
-        </Link>
+        </LinkButton>
       </div>
       <div className="flex w-full max-w-full flex-col items-start justify-between gap-[26px] lg:flex-row lg:gap-0 xl:max-w-[65%]">
         <div className="flex w-full flex-col gap-[26px] lg:w-[48%]">
