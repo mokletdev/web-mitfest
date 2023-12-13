@@ -1,7 +1,7 @@
 import { LinkButton } from "@/app/components/Button";
 import React from "react";
 
-export default function Root() {
+export default function ErrorVerify() {
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
