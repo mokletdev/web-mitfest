@@ -2,8 +2,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LinkButton } from "../Button";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
+  const { data: session } = useSession();
   const [activeSection, setActiveSection] = useState("beranda");
   const [sideActive, setSideActive] = useState(false);
   const links = [
@@ -105,13 +107,26 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="hidden w-56 items-center justify-between md:flex">
-          <LinkButton href={"/auth/register"} variant="dark">
-            Daftar
-          </LinkButton>
-          <LinkButton href={"/auth/login"} variant="red">
-            Masuk
-          </LinkButton>
+        <div
+          className="hidden w-56 items-center justify-between md:flex"
+          style={{ justifyContent: session?.user ? "end" : "space-between" }}
+        >
+          {session?.user ? (
+            <>
+              <LinkButton href={"/dashboard"} variant="red">
+                Dashboard
+              </LinkButton>
+            </>
+          ) : (
+            <>
+              <LinkButton href={"/auth/register"} variant="dark">
+                Daftar
+              </LinkButton>
+              <LinkButton href={"/auth/login"} variant="red">
+                Masuk
+              </LinkButton>
+            </>
+          )}
         </div>
       </nav>
       {/* Mobile Sidebar */}
@@ -166,18 +181,22 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="flex w-full items-center justify-between md:hidden">
-            <Link
-              href={"/auth/register"}
-              className="inline-block rounded-full border border-gray-600 bg-black px-7 py-2 text-white transition duration-300 hover:bg-gray-700"
-            >
-              Daftar
-            </Link>
-            <Link
-              href={"/auth/register"}
-              className="inline-block rounded-full border border-primary-400 bg-primary-500 px-7 py-2 text-white transition duration-300 hover:bg-primary-600"
-            >
-              Masuk
-            </Link>
+            {session?.user ? (
+              <>
+                <LinkButton href={"/dashboard"} variant="red">
+                  Dashboard
+                </LinkButton>
+              </>
+            ) : (
+              <>
+                <LinkButton href={"/auth/register"} variant="dark">
+                  Daftar
+                </LinkButton>
+                <LinkButton href={"/auth/login"} variant="red">
+                  Masuk
+                </LinkButton>
+              </>
+            )}
           </div>
         </div>
       </aside>
