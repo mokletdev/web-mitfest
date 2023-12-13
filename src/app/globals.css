@@ -17,28 +17,36 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-.animate-red-blob {
-  animation: red-blob-anim 10s infinite;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes red-blob-anim {
-  0% {
-    transform: translate(-50%, -50%);
-  }
+::-webkit-scrollbar-track {
+  background: #171717;
+}
 
-  25% {
-    transform: translate(-75%, -55%);
+::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+
+.animate-on-and-off {
+  animation: on-and-off 5s infinite;
+}
+
+@keyframes on-and-off {
+  0% {
+    @apply opacity-40;
   }
 
   50% {
-    transform: translate(-45%, -35%);
-  }
-
-  75% {
-    transform: translate(-25%, -55%);
+    @apply opacity-5;
   }
 
   100% {
-    transform: translate(-50%, -50%);
+    @apply opacity-40;
   }
+}
+
+p {
+  @apply text-gray-500;
 }
