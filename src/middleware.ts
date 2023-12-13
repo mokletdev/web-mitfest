@@ -9,7 +9,7 @@ export default withAuth(
       req.nextUrl.pathname.startsWith("/dashboard") &&
       !req.nextauth.token?.verified
     )
-      return NextResponse.rewrite(new URL("/auth/error/verify", req.url));
+      return NextResponse.rewrite(new URL("/auth/confirmation", req.url));
   },
   {
     callbacks: {
