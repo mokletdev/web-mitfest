@@ -29,7 +29,7 @@ export default function Login() {
       redirect: false,
       email: formValues.email,
       password: formValues.password,
-      callbackUrl: "/admin",
+      callbackUrl: "/dashboard",
     });
 
     if (res?.error) {
@@ -44,7 +44,7 @@ export default function Login() {
         type: "error",
       });
     } else {
-      router.push("/admin");
+      router.push("/dashboard");
       toast.update(toastId, {
         render: "Login sukses!",
         type: "success",
