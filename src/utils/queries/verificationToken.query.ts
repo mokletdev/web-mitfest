@@ -18,3 +18,17 @@ export async function createToken(type: TokenType, user_id: string) {
 
   return create;
 }
+
+export async function findToken(token: string) {
+  const findToken = await prisma.verification_tokens.findUnique({
+    where: { token },
+  });
+  return findToken;
+}
+
+export async function deleteToken(token: string) {
+  const deleteToken = await prisma.verification_tokens.delete({
+    where: { token },
+  });
+  return deleteToken;
+}
