@@ -1,5 +1,7 @@
 "use client";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Sidebar({
   isActive,
@@ -8,6 +10,8 @@ export default function Sidebar({
   isActive: boolean;
   path: string[];
 }) {
+  const [competitionOpen, setCompetitionOpen] = useState(false);
+
   return (
     <aside
       id="sidebar"
@@ -62,7 +66,15 @@ export default function Sidebar({
                 </Link>
               </li>
               <li>
-                <button className="group flex w-full items-center justify-between rounded-lg px-[10px] py-3 text-base text-white transition-all duration-300 hover:bg-primary-500">
+                <button
+                  onClick={() => setCompetitionOpen(!competitionOpen)}
+                  className="group flex w-full items-center justify-between rounded-lg px-[10px] py-3 text-base text-white transition-all duration-300 hover:bg-primary-500"
+                  style={{
+                    backgroundColor: path[1]
+                      ? "rgb(177 15 0 / var(--tw-bg-opacity))"
+                      : "",
+                  }}
+                >
                   <div className="flex items-center">
                     <svg
                       className="h-6 w-6 stroke-current transition duration-75"
@@ -107,7 +119,9 @@ export default function Sidebar({
                     <span className="ml-3">Kompetisi</span>
                   </div>
                   <svg
-                    className="rotate-180"
+                    className={`${
+                      competitionOpen ? "rotate-0" : "rotate-180"
+                    } transition-all duration-300`}
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -124,10 +138,159 @@ export default function Sidebar({
                     />
                   </svg>
                 </button>
+                <ul
+                  className="ml-6 mt-3 flex flex-col overflow-hidden border-l-2 border-primary-500 pl-3 text-white transition-all duration-300"
+                  style={{
+                    maxHeight: competitionOpen ? "999px" : "0",
+                  }}
+                >
+                  <Link
+                    href={"/dashboard/cyber-security"}
+                    className="rounded-lg px-[14px] py-[10px] transition-all duration-300 hover:bg-primary-500"
+                    style={{
+                      backgroundColor: path.includes("cyber-security")
+                        ? "rgb(177 15 0 / var(--tw-bg-opacity))"
+                        : "",
+                    }}
+                  >
+                    Cyber Security
+                  </Link>
+                  <Link
+                    href={"/dashboard/cloud-computing"}
+                    className="rounded-lg px-[14px] py-[10px] transition-all duration-300 hover:bg-primary-500"
+                    style={{
+                      backgroundColor: path.includes("cloud-computing")
+                        ? "rgb(177 15 0 / var(--tw-bg-opacity))"
+                        : "",
+                    }}
+                  >
+                    Cloud Computing
+                  </Link>
+                  <Link
+                    href={"/dashboard/web-design"}
+                    className="rounded-lg px-[14px] py-[10px] transition-all duration-300 hover:bg-primary-500"
+                    style={{
+                      backgroundColor: path.includes("web-design")
+                        ? "rgb(177 15 0 / var(--tw-bg-opacity))"
+                        : "",
+                    }}
+                  >
+                    Web Design
+                  </Link>
+                  <Link
+                    href={"/dashboard/business-plan"}
+                    className="rounded-lg px-[14px] py-[10px] transition-all duration-300 hover:bg-primary-500"
+                    style={{
+                      backgroundColor: path.includes("business-plan")
+                        ? "rgb(177 15 0 / var(--tw-bg-opacity))"
+                        : "",
+                    }}
+                  >
+                    Business Plan
+                  </Link>
+                  <Link
+                    href={"/dashboard/esport-ml"}
+                    className="rounded-lg px-[14px] py-[10px] transition-all duration-300 hover:bg-primary-500"
+                    style={{
+                      backgroundColor: path.includes("esport-ml")
+                        ? "rgb(177 15 0 / var(--tw-bg-opacity))"
+                        : "",
+                    }}
+                  >
+                    E-sport Mobile Legends
+                  </Link>
+                </ul>
               </li>
             </ul>
           </div>
         </div>
+        <ul className="flex flex-col gap-2 py-6">
+          <li>
+            <a
+              href="https://wa.me/"
+              className="group flex items-center rounded-lg px-[10px] py-3 text-base text-white transition-all duration-300 hover:bg-primary-500"
+            >
+              <svg
+                className="h-6 w-6 stroke-current transition duration-75"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H16C20 2 22 4 22 8V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19Z"
+                  stroke="white"
+                  strokeWidth="1.2"
+                  stroke-miterlimit="10"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M15.9965 11H16.0054"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M11.9945 11H12.0035"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M7.99451 11H8.00349"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="ml-3">Hubungi kami</span>
+            </a>
+          </li>
+          <li>
+            <button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="group flex items-center rounded-lg px-[10px] py-3 text-base text-white transition-all duration-300 hover:bg-primary-500"
+            >
+              <svg
+                className="h-6 w-6 stroke-current transition duration-75"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.90039 7.55999C9.21039 3.95999 11.0604 2.48999 15.1104 2.48999H15.2404C19.7104 2.48999 21.5004 4.27999 21.5004 8.74999V15.27C21.5004 19.74 19.7104 21.53 15.2404 21.53H15.1104C11.0904 21.53 9.24039 20.08 8.91039 16.54"
+                  stroke="white"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M14.9991 12H3.61914"
+                  stroke="white"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M5.85 8.65002L2.5 12L5.85 15.35"
+                  stroke="white"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+
+              <span className="ml-3">Logout</span>
+            </button>
+          </li>
+        </ul>
       </div>
     </aside>
   );
