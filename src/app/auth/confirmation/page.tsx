@@ -50,7 +50,8 @@ export default function ErrorVerify() {
         </div>
         <div className="mb-6 flex flex-col justify-center md:justify-start">
           <h6 className="mb-3 text-center text-[28px] leading-[36px] text-white sm:text-[32px] sm:leading-[40px]">
-            Periksa email, klik tautan untuk memverifikasi akun
+            Periksa email, klik tautan untuk memverifikasi akun. Email akan
+            valid hingga 24 jam.
           </h6>
           <LinkButton
             href="/"

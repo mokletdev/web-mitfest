@@ -53,7 +53,7 @@ export default function RootLayout({
                           href={"/" + pathname.slice(0, i + 1).join("/")}
                           key={i}
                         >
-                          {path}
+                          {path.replace(/-/g, " ").trim()}
                         </Link>
                       </li>
                     </React.Fragment>

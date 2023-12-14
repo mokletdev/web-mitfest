@@ -31,7 +31,7 @@ export default function RegistrationsTable({
           {registrations.map((registration, i) => (
             <tr
               key={i}
-              className="text-gray-700 transition-all hover:cursor-pointer hover:bg-gray-400"
+              className="text-gray-700 transition-all hover:cursor-pointer hover:bg-gray-300"
               onClick={() => router.push(`detail/${registration.id}`)}
             >
               <td className="px-4 py-3">

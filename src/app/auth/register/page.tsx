@@ -19,6 +19,7 @@ export default function Login() {
       name: "",
       v: 0,
     });
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -45,8 +46,14 @@ export default function Login() {
     } else {
       router.push("/auth/login");
       toast.update(toastId, {
-        render: "Daftar sukses!",
+        render: "Berhasil mendaftar!",
         type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
+      toast.update(toastId, {
+        render: "Silahkan konfirmasi akun anda!",
+        type: "warning",
         isLoading: false,
         autoClose: 3000,
       });
@@ -129,12 +136,31 @@ export default function Login() {
               Password
             </label>
           </div>
+          <div className="relative">
+            <input
+              name="confirm_password"
+              type="password"
+              onChange={(event) => {
+                const { value } = event.target;
+                setPasswordConfirmation(value);
+              }}
+              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="confirm_password"
+              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+            >
+              Confirm Password
+            </label>
+          </div>
           <div className="flex flex-col gap-8">
             <FormButton
               type="submit"
               className="mt-4 w-full justify-center group-invalid:pointer-events-none group-invalid:opacity-30"
               variant="red"
-              disabled={loading}
+              disabled={loading || formValues.password !== passwordConfirmation}
             >
               <div>
                 Daftar

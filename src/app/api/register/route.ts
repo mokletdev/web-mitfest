@@ -10,7 +10,11 @@ export async function POST(req: Request) {
     const { email, password, name, v }: Prisma.usersUncheckedCreateInput =
       await req.json();
     const checkUser = await findUserByEmail(email);
-    if (checkUser) return Response.json({ status: 403, message: "forbidden" });
+    if (checkUser)
+      return Response.json({
+        status: 403,
+        message: "Email sudah terdaftar",
+      });
     const createAccount = await createUser({
       email,
       password: encryptData(password as string),
