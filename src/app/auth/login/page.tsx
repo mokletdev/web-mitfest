@@ -45,7 +45,6 @@ export default function Login() {
         type: "error",
       });
     } else {
-      router.push("/dashboard");
       toast.update(toastId, {
         render: "Login sukses!",
         type: "success",
