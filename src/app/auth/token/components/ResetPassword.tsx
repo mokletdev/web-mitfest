@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { useState } from "react";
@@ -7,11 +5,7 @@ import type { ChangeEvent } from "react";
 import { redirect, useRouter } from "next/navigation";
 import { FormButton } from "@/app/components/Button";
 
-export default function ForgotPassword({
-  params,
-}: {
-  params: { code: string };
-}) {
+export default function ResetPassword() {
   const router = useRouter();
   const [formValues, setFormValues] = useState({
     new_password: "",
@@ -30,7 +24,6 @@ export default function ForgotPassword({
     // Send email logic here
     redirect("/auth/confirmation");
   };
-
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">

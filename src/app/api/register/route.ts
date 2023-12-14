@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     //send email
     const htmlMail = verify(
       name,
-      `${process.env.NEXTAUTH_URL}auth/verify?code=${token.token}`,
+      `${process.env.NEXTAUTH_URL}auth/token?code=${token.token}`,
     );
     const mailMetaData: mailMetaData = {
       subject: "Verifikasi akun MITFest",
