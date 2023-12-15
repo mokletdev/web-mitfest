@@ -11,8 +11,9 @@ export default function Token() {
   const searchParams = useSearchParams();
 
   const code = searchParams.get("code");
-  if (code == null) return <InvalidToken />;
-  const [tokenState, setTokenState] = useState(<Loading />);
+  const [tokenState, setTokenState] = useState(
+    code == null ? <InvalidToken /> : <Loading />,
+  );
 
   useEffect(() => {
     const validate = setTimeout(async () => {
@@ -30,7 +31,7 @@ export default function Token() {
     }, 2000);
 
     return () => clearTimeout(validate);
-  }, []);
+  }, [code]);
 
   return tokenState;
 }
