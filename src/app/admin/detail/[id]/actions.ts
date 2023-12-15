@@ -1,6 +1,5 @@
 "use server";
 
-import { ChangeEvent } from "react";
 import { updateRegistration } from "@/utils/queries/registration.query";
 import Prisma from "@prisma/client";
 

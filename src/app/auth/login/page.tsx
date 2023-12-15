@@ -54,9 +54,11 @@ export default function Login() {
     }
   };
 
-  if (session?.user && session?.user?.role === "User")
-    return redirect("/dashboard");
-  else if (session?.user && session?.user?.role !== "User")
+  if (session?.user?.role === "User") return redirect("/dashboard");
+  else if (
+    session?.user?.role === "Admin" ||
+    session?.user?.role === "SuperAdmin"
+  )
     return redirect("/admin");
 
   return (
