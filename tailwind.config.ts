@@ -22,6 +22,7 @@ const config: Config = {
     extend: {
       colors: {
         black: "#171717",
+        "black-dashboard": "#0C0C0C",
         white: "#fff",
         "gray-50": "#F6F6F6",
         "gray-100": "#E5E5E5",
