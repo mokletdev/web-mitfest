@@ -16,7 +16,9 @@ export default function DashbordLayout({
   return (
     <>
       <Sidebar isActive={isActive} path={pathname} />
-      <main className="bg-black-dashboard">{children}</main>
+      <main className="bg-black-dashboard min-h-screen w-screen text-white lg:pl-64">
+        {children}
+      </main>
     </>
   );
 }
