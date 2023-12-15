@@ -54,7 +54,10 @@ export default function Login() {
     }
   };
 
-  if (session?.user) return redirect("/dashboard");
+  if (session?.user && session?.user?.role === "User")
+    return redirect("/dashboard");
+  else if (session?.user && session?.user?.role !== "User")
+    return redirect("/admin");
 
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">
@@ -193,7 +196,7 @@ export default function Login() {
               </svg>
             </div>
             <FormButton
-              onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+              onClick={() => signIn("google", { callbackUrl: "/auth/login" })}
               type="button"
               className="w-full justify-center"
             >

@@ -19,7 +19,7 @@ export default function Verify() {
                 d="M29.75 35.875H12.25C7 35.875 3.5 33.25 3.5 27.125V14.875C3.5 8.75 7 6.125 12.25 6.125H29.75C35 6.125 38.5 8.75 38.5 14.875V27.125C38.5 33.25 35 35.875 29.75 35.875Z"
                 stroke="white"
                 strokeWidth="2"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
@@ -27,7 +27,7 @@ export default function Verify() {
                 d="M29.75 15.75L24.2725 20.125C22.47 21.56 19.5125 21.56 17.71 20.125L12.25 15.75"
                 stroke="white"
                 strokeWidth="2"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
