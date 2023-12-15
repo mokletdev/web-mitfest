@@ -45,12 +45,10 @@ export async function updateCompetitionSubmissionAction(
   registrationId: string,
 ) {
   try {
-    await updateCompetitionSubmission(submissionId, {
+    return await updateCompetitionSubmission(submissionId, {
       status,
       updated_by_id,
       registrationId,
     });
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 }

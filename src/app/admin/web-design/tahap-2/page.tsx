@@ -6,7 +6,7 @@ export default async function Tahap() {
   const participants = (
     await findRegistrations({
       competition_type: "web_design",
-      status: "approved",
+      competition_submission: { status: { in: ["semifinalist", "finalist"] } },
     })
   ).reverse();
 
@@ -17,7 +17,7 @@ export default async function Tahap() {
           <h1 className="text-xl font-bold">
             Web Desain{" "}
             <span className="rounded-md bg-red-500 p-1 text-white">
-              Tahap 1
+              Tahap 2
             </span>
           </h1>
         </div>
@@ -25,8 +25,8 @@ export default async function Tahap() {
           <div className="w-full overflow-x-auto">
             <ParticipantsTable
               participants={participants}
-              submission="firstSubmission"
-              status="semifinalist"
+              submission="secondSubmission"
+              status="finalist"
             />
           </div>
         </div>
