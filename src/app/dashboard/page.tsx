@@ -2,7 +2,6 @@ import Image from "next/image";
 import { LinkButton } from "../components/Button";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import Header from "./components/Header";
 import CalendarIcon from "@/app/components/Icons/Calendar";
 import ArrowIcon from "../components/Icons/Arrow";
 import { FormButton } from "../components/Button";
@@ -17,10 +16,6 @@ export default async function DashboardPage() {
 
   return (
     <>
-      <Header
-        title={`Selamat Datang, ${session?.user?.name}👋🏻`}
-        name={session?.user?.name!}
-      />
       <section id="announcements" className="p-6">
         <LinkButton href="/guidebook" className="mb-4">
           Unduh Buku Panduan
@@ -52,7 +47,7 @@ export default async function DashboardPage() {
                 </dl>
                 <div className="max-w-[80%]">
                   <p
-                    className="pl-12"
+                    className="pl-12 text-white"
                     dangerouslySetInnerHTML={{ __html: announcement.content }}
                   ></p>
                 </div>

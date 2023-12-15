@@ -3,12 +3,16 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 import ArrowIcon from "@/app/components/Icons/Arrow";
+import type { Dispatch, SetStateAction } from "react";
+import XIcon from "@/app/components/Icons/X";
 
 export default function Sidebar({
   isActive,
+  setIsActive,
   path,
 }: {
   isActive: boolean;
+  setIsActive: Dispatch<SetStateAction<boolean>>;
   path: string[];
 }) {
   const [competitionOpen, setCompetitionOpen] = useState(false);
@@ -17,12 +21,18 @@ export default function Sidebar({
     <aside
       id="sidebar"
       className={`fixed ${
-        isActive ? "w-64" : "w-0 opacity-0"
-      } left-0 top-0 z-20 flex h-full flex-shrink-0 flex-col transition-all duration-300 lg:w-64 lg:opacity-100`}
+        isActive ? "left-0" : "-left-full"
+      } top-0 z-20 flex h-full min-h-screen flex-shrink-0 flex-col transition-all duration-300 md:left-0 lg:w-64 lg:opacity-100`}
       aria-label="Sidebar"
     >
       <div className="relative flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-black px-6 pt-0">
         <div className="flex justify-center py-6 text-left md:justify-start">
+          <button
+            className="mb-[72px] block h-6 w-6"
+            onClick={() => setIsActive(false)}
+          >
+            <XIcon />
+          </button>
           <h1 className="w-full text-2xl font-bold text-white">Logo</h1>
         </div>
         <div className="flex flex-1 flex-col overflow-y-auto pb-4">
