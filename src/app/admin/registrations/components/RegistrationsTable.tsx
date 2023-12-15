@@ -29,10 +29,10 @@ export default function RegistrationsTable({
         </thead>
         <tbody className="divide-y bg-gray-200">
           {registrations.map((registration, i) => (
-            <Link
+            <tr
               key={i}
-              className="table-row text-gray-700 transition-all hover:cursor-pointer hover:bg-gray-300"
-              href={`/admin/detail/${registration.id}`}
+              className="text-gray-700 transition-all hover:cursor-pointer hover:bg-gray-300"
+              onClick={() => router.push(`/admin/detail/${registration.id}`)}
             >
               <td className="px-4 py-3">
                 <div className="flex items-center text-sm">
@@ -100,7 +100,7 @@ export default function RegistrationsTable({
                   </div>
                 </div>
               </td>
-            </Link>
+            </tr>
           ))}
         </tbody>
       </table>
