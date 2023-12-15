@@ -26,7 +26,7 @@ export default function Footer() {
   const socialMedias = [
     {
       name: "Instagram",
-      href: "https://www.instagram.com/meticmoklet",
+      href: "https://www.instagram.com/mit_fest",
     },
   ];
 
@@ -44,7 +44,9 @@ export default function Footer() {
         ))}
       </ul>
       <div className="flex w-full flex-col items-start justify-between gap-9 pt-14 sm:flex-row sm:items-center sm:gap-0">
-        <small className="text-base text-white">© METIC Moklet 2023.</small>
+        <small className="text-base text-white">
+          2023 &copy; MITFest All Rights Reserved
+        </small>
         <div className="flex items-center gap-[22px] sm:gap-10">
           {socialMedias.map((socialMedia, i) => (
             <a

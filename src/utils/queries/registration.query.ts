@@ -16,6 +16,18 @@ export async function getRegistrationsCount(
   return count;
 }
 
+export async function findRegistrations(where: Prisma.registrationsWhereInput) {
+  const registrations = await prisma.registrations.findMany({
+    where,
+    include: {
+      user: true,
+      updated_by: true,
+      competition_submission: { include: { updated_by: true } },
+    },
+  });
+  return registrations;
+}
+
 export async function createRegistration(
   data: Prisma.registrationsUncheckedCreateInput,
 ) {

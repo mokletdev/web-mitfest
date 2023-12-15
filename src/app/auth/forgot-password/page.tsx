@@ -45,8 +45,8 @@ export default function ForgotPassword() {
             <path
               d="M15 19.92L8.48003 13.4C7.71003 12.63 7.71003 11.37 8.48003 10.6L15 4.08002"
               stroke="#8E8E8E"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
               stroke-linecap="round"
               stroke-linejoin="round"
             />

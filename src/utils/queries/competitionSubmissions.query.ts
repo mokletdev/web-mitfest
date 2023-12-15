@@ -15,3 +15,15 @@ export async function createCompetitionRegistration(
   const create = await prisma.competition_submissions.create({ data });
   return create;
 }
+
+export async function updateCompetitionSubmission(
+  id: string,
+  data: Prisma.competition_submissionsUncheckedUpdateInput,
+) {
+  const updateQuery = await prisma.competition_submissions.upsert({
+    where: { registrationId: data.registrationId as string },
+    update: data,
+    create: data as Prisma.competition_submissionsUncheckedCreateInput,
+  });
+  return updateQuery;
+}

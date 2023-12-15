@@ -45,7 +45,6 @@ export default function Login() {
         type: "error",
       });
     } else {
-      router.push("/dashboard");
       toast.update(toastId, {
         render: "Login sukses!",
         type: "success",
@@ -55,7 +54,12 @@ export default function Login() {
     }
   };
 
-  if (session?.user) return redirect("/dashboard");
+  if (session?.user?.role === "User") return redirect("/dashboard");
+  else if (
+    session?.user?.role === "Admin" ||
+    session?.user?.role === "SuperAdmin"
+  )
+    return redirect("/admin");
 
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">
@@ -88,7 +92,6 @@ export default function Login() {
               onChange={handleChange}
               className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
               placeholder=" "
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               required
             />
             <label
@@ -195,7 +198,7 @@ export default function Login() {
               </svg>
             </div>
             <FormButton
-              onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+              onClick={() => signIn("google", { callbackUrl: "/auth/login" })}
               type="button"
               className="w-full justify-center"
             >

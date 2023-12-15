@@ -4,6 +4,7 @@ import {
   deleteAnnouncement,
   updateAnnouncement,
 } from "@/utils/queries/announcement.query";
+import { updateCompetitionSubmission } from "@/utils/queries/competitionSubmissions.query";
 import { $Enums } from "@prisma/client";
 
 export async function updateAnnouncementAction(
@@ -35,4 +36,19 @@ export async function createAnnouncementAction(announcement: {
   try {
     await createAnnouncement(announcement);
   } catch (error) {}
+}
+
+export async function updateCompetitionSubmissionAction(
+  submissionId: string,
+  status: $Enums.ParticipantStatus,
+  updated_by_id: string,
+  registrationId: string,
+) {
+  try {
+    return await updateCompetitionSubmission(submissionId, {
+      status,
+      updated_by_id,
+      registrationId,
+    });
+  } catch (err) {}
 }

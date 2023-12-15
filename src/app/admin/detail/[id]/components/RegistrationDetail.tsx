@@ -94,7 +94,7 @@ export default function RegistrationDetail({
             </div>
             <div className="group relative z-0 mb-6 w-full">
               <Link
-                href={`https://wa.me/${registration?.leader_wa_number}}`}
+                href={`https://wa.me/${registration?.leader_wa_number}`}
                 className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-blue-600 hover:underline focus:border-blue-600 focus:outline-none focus:ring-0"
               >
                 {registration?.leader_wa_number}

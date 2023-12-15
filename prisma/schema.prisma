@@ -106,8 +106,8 @@ model competition_submissions {
   status           ParticipantStatus @default(participant)
   registration     registrations     @relation(fields: [registrationId], references: [id])
   registrationId   String            @unique @db.ObjectId
-  updated_by       users             @relation(fields: [updated_by_id], references: [id])
-  updated_by_id    String            @db.ObjectId
+  updated_by       users?            @relation(fields: [updated_by_id], references: [id])
+  updated_by_id    String?           @db.ObjectId
 }
 
 model verification_tokens {
