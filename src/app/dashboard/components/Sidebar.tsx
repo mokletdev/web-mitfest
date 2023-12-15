@@ -33,7 +33,7 @@ export default function Sidebar({
                   className="group flex items-center rounded-lg px-[10px] py-3 text-base text-white transition-all duration-300 hover:bg-primary-500"
                   style={{
                     backgroundColor:
-                      path[0] === "dashboard"
+                      path[0] === "dashboard" && !path[1]
                         ? "rgb(177 15 0 / var(--tw-bg-opacity))"
                         : "",
                   }}
@@ -254,7 +254,7 @@ export default function Sidebar({
           <li>
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="group flex items-center rounded-lg px-[10px] py-3 text-base text-white transition-all duration-300 hover:bg-primary-500"
+              className="group flex w-full items-center rounded-lg px-[10px] py-3 text-base text-white transition-all duration-300 hover:bg-primary-500"
             >
               <svg
                 className="h-6 w-6 stroke-current transition duration-75"
