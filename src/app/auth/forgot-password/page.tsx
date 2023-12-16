@@ -72,7 +72,7 @@ export default function ForgotPassword() {
         </button>
         <div className="mb-6 flex flex-col justify-center gap-2 md:justify-start">
           <h6 className="mb-3 text-[28px] leading-[36px] text-white sm:text-[32px] sm:leading-[40px]">
-            Lupa Kata Sandhi
+            Lupa Kata Sandi
           </h6>
           <span className="text-neutral-500">
             Masukkan email Akun untuk melakukan reset kata sandi
