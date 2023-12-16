@@ -99,6 +99,24 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+        <script
+          src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+          defer
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.OneSignalDeferred = window.OneSignalDeferred || [];
+              OneSignalDeferred.push(function(OneSignal) {
+                OneSignal.init({
+                  appId: "ac0d3be0-6c4b-42cc-b821-7b2d90e8a078",
+                  safari_web_id: "web.onesignal.auto.54eebb47-16d1-4f2f-8c9e-9bb7522bb051",
+                  notifyButton: {
+                    enable: true,
+                  },
+                });
+              });`,
+          }}
+        ></script>
       </head>
       <body
         className={"max-w-screen-2xl overflow-x-hidden " + raleway.className}
