@@ -8,6 +8,7 @@ import type { ChangeEvent } from "react";
 import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 import { FormButton } from "@/app/components/Button";
+import Logo from "@/app/components/Logo";
 
 export default function Login() {
   const { data: session } = useSession();
@@ -64,9 +65,9 @@ export default function Login() {
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
-        <div className="mb-[52px] flex justify-center text-left md:justify-start">
-          <h1 className="w-full text-2xl font-bold text-white">Logo</h1>
-        </div>
+        <Link href={"/"} className="mb-[52px]">
+          <Logo />
+        </Link>
         <div className="mb-6 flex flex-col justify-center gap-2 md:justify-start">
           <h6 className="mb-3 text-[28px] leading-[36px] text-white sm:text-[32px] sm:leading-[40px]">
             Selamat Datang di MITFest
