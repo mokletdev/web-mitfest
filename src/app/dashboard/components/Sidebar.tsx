@@ -6,6 +6,7 @@ import ArrowIcon from "@/app/components/Icons/Arrow";
 import type { Dispatch, SetStateAction } from "react";
 import XIcon from "@/app/components/Icons/X";
 import Logo from "@/app/components/Logo";
+import Image from "next/image";
 
 export default function Sidebar({
   isActive,
@@ -35,7 +36,12 @@ export default function Sidebar({
             <XIcon />
           </button>
           <Link href={"/"}>
-            <Logo />
+            <Image
+              src="/Logo-Landscape-Primary-Transparent.png"
+              alt="Logo"
+              width={180}
+              height={60}
+            />
           </Link>
         </div>
         <div className="flex flex-1 flex-col overflow-y-auto pb-4">
@@ -139,7 +145,7 @@ export default function Sidebar({
                   />
                 </button>
                 <ul
-                  className="ml-6 mt-3 flex flex-col overflow-hidden border-l-2 border-primary-500 pl-3 text-sm text-white transition-all duration-300"
+                  className="ml-6 mt-3 flex flex-col gap-1 overflow-hidden border-l-2 border-primary-500 pl-3 text-sm text-white transition-all duration-300"
                   style={{
                     maxHeight: competitionOpen ? "999px" : "0",
                   }}
