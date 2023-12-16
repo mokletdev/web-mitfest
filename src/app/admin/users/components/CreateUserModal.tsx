@@ -62,13 +62,13 @@ export default function CreateUserModal({
               </div>
               <div className="mb-4 flex flex-col gap-2">
                 <label htmlFor="name" className="font-bold">
-                  Password
+                  Kata Sandi
                 </label>
                 <input
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="Password"
+                  placeholder="Kata Sandi"
                   className="border px-4 py-2"
                 />
               </div>

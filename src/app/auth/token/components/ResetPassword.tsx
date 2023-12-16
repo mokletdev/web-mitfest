@@ -4,8 +4,9 @@ import { useState } from "react";
 import type { ChangeEvent } from "react";
 import { redirect, useRouter } from "next/navigation";
 import { FormButton } from "@/app/components/Button";
+import { resetPasswordAction } from "../action";
 
-export default function ResetPassword() {
+export default function ResetPassword({ token }: { token: string }) {
   const router = useRouter();
   const [formValues, setFormValues] = useState({
     new_password: "",
@@ -21,15 +22,32 @@ export default function ResetPassword() {
     e.preventDefault();
     const toastId = toast.loading("Loading...");
     setLoading(true);
-    // Send email logic here
-    redirect("/auth/confirmation");
+
+    const reset = await resetPasswordAction(token, formValues.new_password);
+    if (reset) {
+      toast.update(toastId, {
+        render: "Berhasil mengubah kata sandi",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
+      router.push("/auth/login");
+    } else {
+      toast.update(toastId, {
+        render: "Halaman mungkin sudah tidak berlaku!",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
+      router.refresh();
+    }
   };
   return (
     <section className="flex min-h-screen w-screen items-center justify-center bg-black">
       <div className="w-full max-w-md space-y-10 rounded p-6">
         <div className="mb-6 flex flex-col justify-center gap-2 md:justify-start">
           <h6 className="mb-3 text-[28px] leading-[36px] text-white sm:text-[32px] sm:leading-[40px]">
-            Buat Password Baru
+            Buat Kata Sandi Baru
           </h6>
           <span className="text-neutral-500">
             Masukkan kata sandi baru yang aman dan mudah diingat

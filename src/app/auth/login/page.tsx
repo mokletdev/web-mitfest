@@ -40,7 +40,7 @@ export default function Login() {
       toast.update(toastId, {
         render:
           res.error == "CredentialsSignin"
-            ? "Email/Password Salah"
+            ? "Email/Kata Sandi Salah"
             : "Internal server error",
         autoClose: 3000,
         isLoading: false,
@@ -98,7 +98,7 @@ export default function Login() {
             name="password"
             type="password"
             handleChange={handleChange}
-            placeholder="Password"
+            placeholder="Kata Sandi"
             required
           />
           <div>

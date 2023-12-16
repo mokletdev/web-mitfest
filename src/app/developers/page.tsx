@@ -42,7 +42,7 @@ export default function Developers() {
             <li>
               <Link
                 target="_blank"
-                href="https://ben.is-a.dev"
+                href="https://xnaufallnr.vercel.app/"
                 className="relative inline-flex items-center gap-2 text-white transition duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
               >
                 Naufal Nabil Ramadhan <FaArrowUpRightFromSquare />

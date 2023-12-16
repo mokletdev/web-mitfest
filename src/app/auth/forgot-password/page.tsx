@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { ChangeEvent } from "react";
 import { redirect, useRouter } from "next/navigation";
 import { FormButton } from "@/app/components/Button";
+import { forgotPasswordAction } from "./action";
 
 export default function ForgotPassword() {
   const router = useRouter();
@@ -22,8 +23,25 @@ export default function ForgotPassword() {
     e.preventDefault();
     const toastId = toast.loading("Loading...");
     setLoading(true);
-    // Send email logic here
-    redirect("/auth/confirmation");
+    const user = await forgotPasswordAction(formValues.email);
+    if (!user) {
+      setLoading(false);
+      toast.update(toastId, {
+        render: "Pengguna tidak ditemukan!",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
+    } else {
+      setLoading(false);
+      toast.update(toastId, {
+        render: "Sukses!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
+      toast.success("Ikuti instruksi pada email untuk melanjutkan!");
+    }
   };
 
   return (
