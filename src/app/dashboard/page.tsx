@@ -33,9 +33,12 @@ export default async function DashboardPage() {
           </div>
           <div className="flex w-full flex-col gap-[42px]">
             {announcements.map((announcement, i) => (
-              <div key={i} className="flex w-full items-center">
-                <dl className="w-full max-w-[20%] border-r border-gray-500 text-gray-500">
-                  <dd className="flex flex-col gap-2 text-base font-medium leading-6">
+              <div
+                key={i}
+                className="flex w-full flex-col md:flex-row md:items-center"
+              >
+                <dl className="w-full text-gray-500 md:max-w-[20%] md:border-r md:border-gray-500">
+                  <dd className="flex flex-row gap-[18px] text-base font-medium leading-6 md:flex-col md:gap-2">
                     <time>{stringifyDate(announcement.date)}</time>
                     <time>
                       {stringifyTime(
@@ -45,9 +48,9 @@ export default async function DashboardPage() {
                     </time>
                   </dd>
                 </dl>
-                <div className="max-w-[80%]">
+                <div className="w-full md:max-w-[80%]">
                   <p
-                    className="pl-12 text-white"
+                    className="pl-0 text-white md:pl-12"
                     dangerouslySetInnerHTML={{ __html: announcement.content }}
                   ></p>
                 </div>
