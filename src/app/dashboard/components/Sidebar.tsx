@@ -26,14 +26,14 @@ export default function Sidebar({
       aria-label="Sidebar"
     >
       <div className="relative flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-black px-6 pt-0">
-        <div className="flex justify-center py-6 text-left md:justify-start">
+        <div className="flex items-center gap-[18px] py-6 text-left">
           <button
-            className="mb-[72px] block h-6 w-6"
+            className="block h-6 w-6 md:hidden"
             onClick={() => setIsActive(false)}
           >
             <XIcon />
           </button>
-          <h1 className="w-full text-2xl font-bold text-white">Logo</h1>
+          <h1 className="text-2xl font-bold text-white">Logo</h1>
         </div>
         <div className="flex flex-1 flex-col overflow-y-auto pb-4">
           <div className="flex-1 space-y-1">
