@@ -1,12 +1,8 @@
-import Image from "next/image";
 import { LinkButton } from "../components/Button";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { getAllAnnounce } from "@/utils/queries/announcement.query";
 import { convertTimezone, stringifyDate, stringifyTime } from "@/utils/date";
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authOptions);
   const announcements = (await getAllAnnounce())
     .filter((announcement) => announcement.type === "all")
     .sort((a, b) => b.date.getTime() - a.date.getTime());

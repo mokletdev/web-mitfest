@@ -5,6 +5,7 @@ import { LinkButton } from "../Button";
 import { useSession } from "next-auth/react";
 import XIcon from "../Icons/X";
 import HamburgerIcon from "../Icons/Hamburger";
+import Logo from "../Logo";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -58,52 +59,56 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed left-1/2 z-[999] mx-auto flex w-full max-w-[1148px] -translate-x-1/2 items-center justify-between bg-transparent px-5 py-4 backdrop-blur-lg">
-        <div className="flex items-center gap-[18px]">
-          <button
-            className="block h-6 w-6 xl:hidden"
-            onClick={() => setSideActive(true)}
+      <nav className="fixed z-[999] w-full bg-transparent backdrop-blur-lg">
+        <div className="mx-auto flex w-full max-w-[1148px] items-center justify-between px-5 py-4">
+          <div className="flex items-center gap-[18px]">
+            <button
+              className="block h-6 w-6 xl:hidden"
+              onClick={() => setSideActive(true)}
+            >
+              <HamburgerIcon />
+            </button>
+            <Link href={"/"} className="w-56">
+              <Logo />
+            </Link>
+          </div>
+          <ul className="hidden items-center gap-[52px] xl:flex">
+            {links.map((link, i) => (
+              <li key={i}>
+                <Link
+                  href={link.href}
+                  className={`relative text-white transition duration-300 after:absolute after:-bottom-2 after:left-1/2 after:h-[2px] after:origin-center after:-translate-x-1/2 after:bg-white after:transition-all after:duration-300 hover:after:w-4/5 ${
+                    activeSection === link.title.toLowerCase()
+                      ? "after:w-4/5"
+                      : "after:w-0"
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div
+            className="hidden w-56 items-center justify-between md:flex"
+            style={{ justifyContent: session?.user ? "end" : "space-between" }}
           >
-            <HamburgerIcon />
-          </button>
-          <span className="w-56 text-2xl font-bold text-white">Logo</span>
-        </div>
-        <ul className="hidden items-center gap-[52px] xl:flex">
-          {links.map((link, i) => (
-            <li key={i}>
-              <Link
-                href={link.href}
-                className={`relative text-white transition duration-300 after:absolute after:-bottom-2 after:left-1/2 after:h-[2px] after:origin-center after:-translate-x-1/2 after:bg-white after:transition-all after:duration-300 hover:after:w-4/5 ${
-                  activeSection === link.title.toLowerCase()
-                    ? "after:w-4/5"
-                    : "after:w-0"
-                }`}
-              >
-                {link.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div
-          className="hidden w-56 items-center justify-between md:flex"
-          style={{ justifyContent: session?.user ? "end" : "space-between" }}
-        >
-          {session?.user ? (
-            <>
-              <LinkButton href={"/dashboard"} variant="red">
-                Dashboard
-              </LinkButton>
-            </>
-          ) : (
-            <>
-              <LinkButton href={"/auth/register"} variant="dark">
-                Daftar
-              </LinkButton>
-              <LinkButton href={"/auth/login"} variant="red">
-                Masuk
-              </LinkButton>
-            </>
-          )}
+            {session?.user ? (
+              <>
+                <LinkButton href={"/dashboard"} variant="red">
+                  Dashboard
+                </LinkButton>
+              </>
+            ) : (
+              <>
+                <LinkButton href={"/auth/register"} variant="dark">
+                  Daftar
+                </LinkButton>
+                <LinkButton href={"/auth/login"} variant="red">
+                  Masuk
+                </LinkButton>
+              </>
+            )}
+          </div>
         </div>
       </nav>
       {/* Mobile Sidebar */}

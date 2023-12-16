@@ -5,6 +5,7 @@ import { useState } from "react";
 import ArrowIcon from "@/app/components/Icons/Arrow";
 import type { Dispatch, SetStateAction } from "react";
 import XIcon from "@/app/components/Icons/X";
+import Logo from "@/app/components/Logo";
 
 export default function Sidebar({
   isActive,
@@ -33,7 +34,9 @@ export default function Sidebar({
           >
             <XIcon />
           </button>
-          <h1 className="text-2xl font-bold text-white">Logo</h1>
+          <Link href={"/"}>
+            <Logo />
+          </Link>
         </div>
         <div className="flex flex-1 flex-col overflow-y-auto pb-4">
           <div className="flex-1 space-y-1">
