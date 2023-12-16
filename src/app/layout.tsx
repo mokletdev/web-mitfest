@@ -110,25 +110,22 @@ export default function RootLayout({
                 OneSignal.init({
                   appId: "ac0d3be0-6c4b-42cc-b821-7b2d90e8a078",
                   safari_web_id: "web.onesignal.auto.54eebb47-16d1-4f2f-8c9e-9bb7522bb051",
-                  colors: { 
-                    'circle.background': '#b10f00',
-                    'circle.foreground': 'white',
-                    'badge.background': '#b10f00',
-                    'badge.foreground': 'white',
-                    'badge.bordercolor': 'white',
-                    'pulse.color': 'white',
-                    'dialog.button.background.hovering': '#650800',
-                    'dialog.button.background.active': '#650800',
-                    'dialog.button.background': '#b10f00',
-                    'dialog.button.foreground': 'white'
-                  },
                   notifyButton: {
                     enable: true,
                     displayPredicate: function() {
-                      return OneSignal.isPushNotificationsEnabled()
-                          .then(function(isPushEnabled) {
-                              return !isPushEnabled;
-                          });
+                      return !OneSignal.Notifications.permission
+                    },
+                    colors: { 
+                      'circle.background': '#b10f00',
+                      'circle.foreground': 'white',
+                      'badge.background': '#b10f00',
+                      'badge.foreground': 'white',
+                      'badge.bordercolor': 'white',
+                      'pulse.color': 'white',
+                      'dialog.button.background.hovering': '#650800',
+                      'dialog.button.background.active': '#650800',
+                      'dialog.button.background': '#b10f00',
+                      'dialog.button.foreground': 'white'
                     },
                   },
                 });
