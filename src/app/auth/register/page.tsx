@@ -52,10 +52,7 @@ export default function Login() {
         isLoading: false,
         autoClose: 3000,
       });
-      toast.update(toastId, {
-        render: "Silahkan konfirmasi akun anda!",
-        type: "warning",
-        isLoading: false,
+      toast.warning("Silahkan konfirmasi akun anda!", {
         autoClose: 3000,
       });
     }
