@@ -17,6 +17,7 @@ export default function Token() {
 
   useEffect(() => {
     const validate = setTimeout(async () => {
+      if (!code == null) return;
       const data = await fetch("/auth/token/validate", {
         method: "POST",
         body: JSON.stringify({ token: code }),
@@ -26,7 +27,7 @@ export default function Token() {
       else if (data.type == "verify") {
         setTokenState(<Verify />);
       } else if (data.type == "forgot_password") {
-        setTokenState(<ResetPassword />);
+        setTokenState(<ResetPassword token={code!} />);
       }
     }, 2000);
 

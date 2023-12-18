@@ -9,6 +9,7 @@ import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 import { FormButton } from "@/app/components/Button";
 import Logo from "@/app/components/Logo";
+import { TextInput } from "@/app/components/Form";
 
 export default function Login() {
   const { data: session } = useSession();
@@ -39,7 +40,7 @@ export default function Login() {
       toast.update(toastId, {
         render:
           res.error == "CredentialsSignin"
-            ? "Email/Password Salah"
+            ? "Email/Kata Sandi Salah"
             : "Internal server error",
         autoClose: 3000,
         isLoading: false,
@@ -86,38 +87,20 @@ export default function Login() {
           className="group space-y-4"
           noValidate
         >
-          <div className="relative">
-            <input
-              name="email"
-              type="email"
-              onChange={handleChange}
-              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
-              placeholder=" "
-              required
-            />
-            <label
-              htmlFor="email"
-              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
-            >
-              Email
-            </label>
-          </div>
-          <div className="relative">
-            <input
-              name="password"
-              type="password"
-              onChange={handleChange}
-              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black"
-              placeholder=" "
-              required
-            />
-            <label
-              htmlFor="email"
-              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
-            >
-              Password
-            </label>
-          </div>
+          <TextInput
+            name="email"
+            type="email"
+            handleChange={handleChange}
+            placeholder="Email"
+            required
+          />
+          <TextInput
+            name="password"
+            type="password"
+            handleChange={handleChange}
+            placeholder="Kata Sandi"
+            required
+          />
           <div>
             <Link
               className="text-sm text-white hover:underline"
