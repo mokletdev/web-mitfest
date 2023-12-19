@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { ChangeEvent } from "react";
 import { redirect, useRouter } from "next/navigation";
 import { FormButton } from "@/app/components/Button";
+import { forgotPasswordAction } from "./action";
 
 export default function ForgotPassword() {
   const router = useRouter();
@@ -22,8 +23,25 @@ export default function ForgotPassword() {
     e.preventDefault();
     const toastId = toast.loading("Loading...");
     setLoading(true);
-    // Send email logic here
-    redirect("/auth/confirmation");
+    const user = await forgotPasswordAction(formValues.email);
+    if (!user) {
+      setLoading(false);
+      toast.update(toastId, {
+        render: "Pengguna tidak ditemukan!",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
+    } else {
+      setLoading(false);
+      toast.update(toastId, {
+        render: "Sukses!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
+      toast.success("Ikuti instruksi pada email untuk melanjutkan!");
+    }
   };
 
   return (
@@ -54,10 +72,10 @@ export default function ForgotPassword() {
         </button>
         <div className="mb-6 flex flex-col justify-center gap-2 md:justify-start">
           <h6 className="mb-3 text-[28px] leading-[36px] text-white sm:text-[32px] sm:leading-[40px]">
-            Masukkan email
+            Lupa Kata Sandi
           </h6>
           <span className="text-neutral-500">
-            Harap berikan alamat email yang lupa password.
+            Masukkan email Akun untuk melakukan reset kata sandi
           </span>
         </div>
         <form

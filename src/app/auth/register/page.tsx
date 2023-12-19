@@ -9,6 +9,7 @@ import { redirect, useRouter } from "next/navigation";
 import { Prisma } from "@prisma/client";
 import { FormButton } from "@/app/components/Button";
 import Logo from "@/app/components/Logo";
+import { TextInput } from "@/app/components/Form";
 
 export default function Login() {
   const { data: session } = useSession();
@@ -84,75 +85,38 @@ export default function Login() {
           className="group space-y-4"
           noValidate
         >
-          <div className="relative">
-            <input
-              name="name"
-              type="text"
-              onChange={handleChange}
-              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
-              placeholder=" "
-              pattern="[A-Za-z\s]+"
-              required
-            />
-            <label
-              htmlFor="name"
-              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
-            >
-              Nama
-            </label>
-          </div>
-          <div className="relative">
-            <input
-              name="email"
-              type="email"
-              onChange={handleChange}
-              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
-              placeholder=" "
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              required
-            />
-            <label
-              htmlFor="email"
-              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
-            >
-              Email
-            </label>
-          </div>
-          <div className="relative">
-            <input
-              name="password"
-              type="password"
-              onChange={handleChange}
-              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black"
-              placeholder=" "
-              required
-            />
-            <label
-              htmlFor="email"
-              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
-            >
-              Password
-            </label>
-          </div>
-          <div className="relative">
-            <input
-              name="confirm_password"
-              type="password"
-              onChange={(event) => {
-                const { value } = event.target;
-                setPasswordConfirmation(value);
-              }}
-              className="peer block w-full appearance-none rounded-lg border border-neutral-500 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-white autofill:hover:bg-black focus:border-black focus:ring-0 autofill:focus:bg-black autofill:active:bg-black"
-              placeholder=" "
-              required
-            />
-            <label
-              htmlFor="confirm_password"
-              className="pointer-events-none absolute start-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-black px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-white rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
-            >
-              Confirm Password
-            </label>
-          </div>
+          <TextInput
+            name="name"
+            type="text"
+            handleChange={handleChange}
+            placeholder="Nama"
+            required
+            pattern="[A-Za-z\s]+"
+          />
+          <TextInput
+            name="email"
+            type="email"
+            handleChange={handleChange}
+            placeholder="Email"
+            required
+          />
+          <TextInput
+            name="password"
+            type="password"
+            handleChange={handleChange}
+            placeholder="Password"
+            required
+          />
+          <TextInput
+            name="confirm_password"
+            type="password"
+            handleChange={(event) => {
+              const { value } = event.target;
+              setPasswordConfirmation(value);
+            }}
+            placeholder="Confirm Password"
+            required
+          />
           <div className="flex flex-col gap-8">
             <FormButton
               type="submit"
@@ -227,9 +191,8 @@ export default function Login() {
             </div>
             <FormButton
               onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-              type="submit"
+              type="button"
               className="w-full justify-center"
-              disabled={loading}
             >
               <svg
                 width="24"

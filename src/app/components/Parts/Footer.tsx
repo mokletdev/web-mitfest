@@ -22,6 +22,10 @@ export default function Footer() {
       title: "FAQ",
       href: "#faq",
     },
+    {
+      title: "Developers",
+      href: "/developers",
+    },
   ];
   const socialMedias = [
     {
