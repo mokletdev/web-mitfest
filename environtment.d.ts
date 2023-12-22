@@ -16,6 +16,7 @@ declare global {
       GOOGLE_REFRESH_TOKEN: string;
       NEXTAUTH_SECRET: string;
       NEXTAUTH_URL: string;
+      DRIVE_FOLDER_ID: string;
       [key: string]: string | undefined;
     }
   }
