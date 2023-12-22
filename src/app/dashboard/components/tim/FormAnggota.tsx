@@ -7,6 +7,7 @@ import React, { useState } from "react";
 interface FormAnggotaProps {
   limit: number;
   wajib: boolean;
+  submit: (submit: number) => void;
 }
 
 interface AnggotaData {
@@ -23,7 +24,7 @@ interface AnggotaDataFiks {
   twibbon_link: string;
 }
 
-const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
+const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
   const [anggota, setAnggota] = useState<AnggotaData[]>([
     { name: "", photo: null, student_card: null, twibbon_link: "" },
   ]);
@@ -56,7 +57,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
       newAnggota.splice(index, 1);
       setAnggota(newAnggota);
     } else {
-        alert("Pendaftart minimal 1 anggota");
+      alert("Pendaftart minimal 1 anggota");
     }
   };
 
@@ -87,9 +88,9 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
 
   const handleSubmit = () => {
     // ke database
+    submit(4);
   };
   var isSubmitDisabled = false;
-
   if (anggota.length < limit && wajib) {
     isSubmitDisabled = true;
   }
@@ -306,7 +307,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
 
                 <div className="flex">
                   <input
-                    className="mb-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px]"
+                    className="mb-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] invalid:border-primary-400 invalid:text-primary-400 hover:border-white hover:text-white hover:placeholder:text-white active:border-white active:text-white active:placeholder:text-white"
                     type="text"
                     name="NamaAnggota"
                     id="NamaAnggota"
@@ -319,7 +320,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
                     Foto Anggota
                   </label>
                   <input
-                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] py-2.5 text-gray-500"
+                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-white bg-black px-[16px] py-2.5 text-white invalid:border-primary-400 invalid:text-primary-400 hover:border-white hover:text-white active:border-white active:text-white"
                     type="file"
                     name="Foto-Anggota"
                     id={`name-${index}`}
@@ -335,7 +336,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
                     Kartu Pelajar
                   </label>
                   <input
-                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] py-2.5 text-gray-500"
+                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-white bg-black px-[16px] py-2.5 text-white invalid:border-primary-400 invalid:text-primary-400 hover:border-white hover:text-white active:border-white active:text-white"
                     type="file"
                     name="kartu-pelajar"
                     id={`name-${index}`}
@@ -349,7 +350,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
                 <div className="block">
                   <label className="mb-[20px] text-gray-400">Twibbon</label>
                   <input
-                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] py-2.5 text-gray-500"
+                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-white bg-black px-[16px] py-2.5 text-white invalid:border-primary-400 invalid:text-primary-400 hover:border-white hover:text-white active:border-white active:text-white"
                     type="file"
                     name="twibbon"
                     id={`name-${index}`}
@@ -373,14 +374,12 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib }) => {
                 Sebelumnya
               </LinkButton>
               <FormButton
-                className="rounded-full border-2 border-primary-400 bg-primary-500 px-7 py-3 text-[16px] text-white hover:bg-primary-400"
+                className="rounded-full border-2 border-primary-400 bg-primary-500 px-7 py-3 text-[16px] text-white hover:border-primary-500 hover:bg-primary-600"
                 type="submit"
                 onClick={handleSubmit}
                 disabled={isSubmitDisabled}
               >
                 Daftar
-                {/* ok*/}
-                {/* iya sedikit mlenceng dari figma gpp kalo emang harus sama kayak figma nanti di revisi kalo di suruh*/}
               </FormButton>
             </div>
           </div>

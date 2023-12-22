@@ -1,24 +1,34 @@
 'use client'
 import React from "react";
-import FormAnggota from "../components/FormAnggota";
-import FormTim from "../components/FormTim";
-import BuktiPembayaran from "../components/BuktiPembayaran";
+import FormAnggota from "../components/tim/FormAnggota";
+import FormTim from "../components/tim/FormTim";
+import BuktiPembayaran from "../components/tim/BuktiPembayaran";
+import BuktiPembayaran2 from "../components/individu/BuktiPembayaran";
 import PilihanBergabung from "../components/PilihanBergabung";
 import Notifikasi from "../components/Notifikasi";
-import { useState } from 'react';
+import FormIndividu from "../components/individu/FormIndividu";
 
-export default function usecybersecurity() {
-    const [currentStep, setCurrentStep] = useState(1);
-    const limit = 4;
-  
+export default function Usecybersecurity() {
+    const [CurrentStep, setCurrentStep] = React.useState(1);
+    const [Pilihan, setPilihan] = React.useState(false);
+    const limit = 2;
+
+    const handleStep = (submit: number) => {
+      setCurrentStep(submit);
+      console.log("parent " + submit);
+    }
+
+    const handlePilihan = (pilihan: boolean) => {
+      setPilihan(pilihan);
+    }
     const renderStep = () => {
-      switch (currentStep) {
+      switch (CurrentStep) {
         case 1:
-          return <PilihanBergabung />;
+          return <PilihanBergabung pilihan={handlePilihan} submit={handleStep}/>;
         case 2:
           return <FormTim />;
         case 3:
-          return <FormAnggota limit={limit} wajib={false} />;
+          return <FormAnggota limit={limit} wajib={false} submit={handleStep} />;
         case 4:
           return <BuktiPembayaran />;
         case 5:
@@ -32,12 +42,6 @@ export default function usecybersecurity() {
   return (
     <div className="relative w-screen">
       {renderStep()}
-      <div>
-      <FormTim />
-      <FormAnggota limit={limit} wajib={false} />
-      <BuktiPembayaran />
-      <Notifikasi />
-      </div>
     </div>
   );
 }

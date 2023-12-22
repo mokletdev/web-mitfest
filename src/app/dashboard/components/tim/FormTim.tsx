@@ -1,3 +1,4 @@
+import { FormButton, LinkButton } from "@/app/components/Button";
 import React from "react";
 
 export default function FormTim() {
@@ -129,40 +130,43 @@ export default function FormTim() {
           </p>
           <div className="block">
             <input
-              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px]"
+              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] hover:border-white hover:text-white invalid:text-primary-400 invalid:border-primary-400 active:text-white active:border-white hover:placeholder:text-white active:placeholder:text-white"
               type="text"
               name="NamaAnggota"
               id="NamaAnggota"
               placeholder="Nama tim"
             />
             <input
-              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px]"
+              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] hover:border-white hover:text-white invalid:text-primary-400 invalid:border-primary-400 active:text-white active:border-white hover:placeholder:text-white active:placeholder:text-white"
               type="text"
               name="instansi"
               id="instansi"
               placeholder="Instansi"
             />
             <input
-              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px]"
+              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] hover:border-white hover:text-white invalid:text-primary-400 invalid:border-primary-400 active:text-white active:border-white hover:placeholder:text-white active:placeholder:text-white"
               type="text"
               name="NamaKetua"
               id="NamaKetua"
               placeholder="Nama Ketua"
             />
             <input
-              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px]"
+              className="mb-[14px] mr-[14px] h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] hover:border-white hover:text-white invalid:text-primary-400 invalid:border-primary-400 active:text-white active:border-white hover:placeholder:text-white active:placeholder:text-white"
               type="text"
               name="No-WhatsApp"
               id="No-WhatsApp"
               placeholder="No. WhatsApp (ketua)"
             />
-            <label className="mb-[20px] text-gray-400">
-                    Kartu Pelajar (Ketua)
-                  </label>
+
+
+              
+                <div className="flex relative">
+
                   <input
-                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-gray-500 bg-black px-[16px] py-2.5 text-gray-500"
+                    className="tb-[14px] mb-[14px] mr-[14px] block h-[54px] w-full rounded-lg border-2 border-white bg-black px-[16px] py-2.5 text-whitw absolute left-0 hover:border-white hover:text-white active:border-white active:text-white invalid:border-primary-400 invalid:text-primary-400"
                     type="file"
-                    name="Foto-Anggota"
+                    name="kartu-pelajar"
+                    id="kartu-pelajar"
                     // id={`name-${index}`}
                     // value={item.name}
                     // onChange={(e) =>
@@ -170,8 +174,34 @@ export default function FormTim() {
                     // }
                     placeholder="Foto Anggota"
                   />
+                  <label htmlFor="kartu-pelajar">Pilih file</label>
+
+                </div>
+
+
+
           </div>
+
+        <div className="mt-[48px] flex justify-end">
+              <LinkButton
+                href=""
+                className="mr-[16px] rounded-full border-2 border-gray-600 bg-black px-7 py-3 text-[16px] text-white"
+              >
+                Sebelumnya
+              </LinkButton>
+              <FormButton
+                className="rounded-full border-2 border-primary-400 bg-primary-500 px-7 py-3 text-[16px] text-white hover:bg-primary-600 hover:border-primary-500"
+                type="submit"
+                // onClick={handleSubmit}
+                // disabled={isSubmitDisabled}
+              >
+                Selanjutnya
+                {/* ok*/}
+                {/* iya sedikit mlenceng dari figma gpp kalo emang harus sama kayak figma nanti di revisi kalo di suruh*/}
+              </FormButton>
+            </div>
         </div>
+
       </section>
       </section>
     </>
