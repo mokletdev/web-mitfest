@@ -84,6 +84,7 @@ export class GoogleDriveService {
     fileStream: Buffer,
     fileMimeType: string | undefined,
     folderId?: string,
+    ownerInfo?: string,
   ) {
     const newStream = new Readable({
       read() {
@@ -96,6 +97,7 @@ export class GoogleDriveService {
         name: fileName,
         mimeType: fileMimeType,
         parents: folderId ? [folderId] : [],
+        description: `This file is owned by ${ownerInfo || "Unknown?"}`,
       },
       media: {
         mimeType: fileMimeType,
@@ -112,6 +114,7 @@ const driveRefreshToken = process.env.GOOGLE_REFRESH_TOKEN;
 
 type driveFile = {
   url: string;
+  id: string;
 };
 
 export async function uploadFile(
@@ -119,6 +122,7 @@ export async function uploadFile(
   mimeType: string | undefined,
   stream: Buffer,
   folderId: string,
+  ownerInfo?: string,
 ): Promise<driveFile> {
   const googleDriveService = new GoogleDriveService(
     driveClientId,
@@ -132,8 +136,12 @@ export async function uploadFile(
     stream,
     mimeType,
     folderId,
+    ownerInfo,
   );
 
-  const result = { url: `https://drive.google.com/open?id=${file.data.id}` };
+  const result = {
+    id: file.data.id,
+    url: `https://drive.google.com/open?id=${file.data.id}`,
+  };
   return result;
 }
