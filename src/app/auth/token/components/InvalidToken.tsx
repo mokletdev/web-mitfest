@@ -19,22 +19,22 @@ export default function InvalidToken() {
                 d="M25 45.8333C36.4583 45.8333 45.8333 36.4583 45.8333 25C45.8333 13.5417 36.4583 4.16667 25 4.16667C13.5417 4.16667 4.16666 13.5417 4.16666 25C4.16666 36.4583 13.5417 45.8333 25 45.8333Z"
                 stroke="white"
                 strokeWidth="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M19.1042 30.8958L30.8958 19.1042"
                 stroke="white"
                 strokeWidth="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M30.8958 30.8958L19.1042 19.1042"
                 stroke="white"
                 strokeWidth="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>

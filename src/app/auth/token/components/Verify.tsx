@@ -20,16 +20,16 @@ export default function Verify() {
                 stroke="white"
                 strokeWidth="2"
                 strokeMiterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M29.75 15.75L24.2725 20.125C22.47 21.56 19.5125 21.56 17.71 20.125L12.25 15.75"
                 stroke="white"
                 strokeWidth="2"
                 strokeMiterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>
