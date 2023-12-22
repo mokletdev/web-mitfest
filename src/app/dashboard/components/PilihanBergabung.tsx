@@ -7,9 +7,9 @@ interface FormPilihan {
   submit: (submit: number) => void;
 }
 
-const PilihanBergabung: React.FC<FormPilihan> = (pilihan, submit) => {
+const PilihanBergabung = ({ pilihan, submit }: FormPilihan) => {
   const handleSubmit = () => {
-    this.props.handleStep(2)
+    submit(2);
   };
   return (
     <>
@@ -56,7 +56,7 @@ const PilihanBergabung: React.FC<FormPilihan> = (pilihan, submit) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M1 0V42" stroke="#656363" stroke-width="1.8" />
+                    <path d="M1 0V42" stroke="#656363" strokeWidth="1.8" />
                   </svg>
                 </div>
               </div>
@@ -83,7 +83,7 @@ const PilihanBergabung: React.FC<FormPilihan> = (pilihan, submit) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M1 0V42" stroke="#656363" stroke-width="1.8" />
+                    <path d="M1 0V42" stroke="#656363" strokeWidth="1.8" />
                   </svg>
                 </div>
               </div>
@@ -110,7 +110,7 @@ const PilihanBergabung: React.FC<FormPilihan> = (pilihan, submit) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M1 0V42" stroke="#656363" stroke-width="1.8" />
+                    <path d="M1 0V42" stroke="#656363" strokeWidth="1.8" />
                   </svg>
                 </div>
               </div>

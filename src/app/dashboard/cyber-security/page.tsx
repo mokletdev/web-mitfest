@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import FormAnggota from "../components/tim/FormAnggota";
 import FormTim from "../components/tim/FormTim";
@@ -9,39 +9,34 @@ import Notifikasi from "../components/Notifikasi";
 import FormIndividu from "../components/individu/FormIndividu";
 
 export default function Usecybersecurity() {
-    const [CurrentStep, setCurrentStep] = React.useState(1);
-    const [Pilihan, setPilihan] = React.useState(false);
-    const limit = 2;
+  const [CurrentStep, setCurrentStep] = React.useState(1);
+  const [Pilihan, setPilihan] = React.useState(false);
+  const limit = 2;
 
-    const handleStep = (submit: number) => {
-      setCurrentStep(submit);
-      console.log("parent " + submit);
+  const handleStep = (submit: number) => {
+    setCurrentStep(submit);
+    console.log("parent " + submit);
+  };
+
+  const handlePilihan = (pilihan: boolean) => {
+    setPilihan(pilihan);
+  };
+  const renderStep = () => {
+    switch (CurrentStep) {
+      case 1:
+        return <PilihanBergabung pilihan={handlePilihan} submit={handleStep} />;
+      case 2:
+        return <FormTim />;
+      case 3:
+        return <FormAnggota limit={limit} wajib={false} submit={handleStep} />;
+      case 4:
+        return <BuktiPembayaran />;
+      case 5:
+        return <Notifikasi />;
+      default:
+        return null;
     }
+  };
 
-    const handlePilihan = (pilihan: boolean) => {
-      setPilihan(pilihan);
-    }
-    const renderStep = () => {
-      switch (CurrentStep) {
-        case 1:
-          return <PilihanBergabung pilihan={handlePilihan} submit={handleStep}/>;
-        case 2:
-          return <FormTim />;
-        case 3:
-          return <FormAnggota limit={limit} wajib={false} submit={handleStep} />;
-        case 4:
-          return <BuktiPembayaran />;
-        case 5:
-          return <Notifikasi />;
-        default:
-          return null;
-      }
-    };
-
-
-  return (
-    <div className="relative w-screen">
-      {renderStep()}
-    </div>
-  );
+  return <div className="relative w-screen">{renderStep()}</div>;
 }

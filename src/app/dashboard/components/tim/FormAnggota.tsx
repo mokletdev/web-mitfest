@@ -140,7 +140,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M1 0V42" stroke="#B10F00" stroke-width="1.8" />
+                    <path d="M1 0V42" stroke="#B10F00" strokeWidth="1.8" />
                   </svg>
                 </div>
               </div>
@@ -167,7 +167,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M1 0V42" stroke="#B10F00" stroke-width="1.8" />
+                    <path d="M1 0V42" stroke="#B10F00" strokeWidth="1.8" />
                   </svg>
                 </div>
               </div>
@@ -194,7 +194,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M1 0V42" stroke="#656363" stroke-width="1.8" />
+                    <path d="M1 0V42" stroke="#656363" strokeWidth="1.8" />
                   </svg>
                 </div>
               </div>
@@ -247,16 +247,16 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     <path
                       d="M6 12H18"
                       stroke="white"
-                      stroke-width="1.2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                     <path
                       d="M12 18V6"
                       stroke="white"
-                      stroke-width="1.2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </button>
@@ -272,9 +272,9 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     <path
                       d="M6 12H18"
                       stroke="white"
-                      stroke-width="1.2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </button>
@@ -297,9 +297,9 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                       <path
                         d="M6 12H18"
                         stroke="white"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>

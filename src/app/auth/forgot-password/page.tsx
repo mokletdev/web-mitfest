@@ -65,8 +65,8 @@ export default function ForgotPassword() {
               stroke="#8E8E8E"
               strokeWidth="1.5"
               strokeMiterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>
