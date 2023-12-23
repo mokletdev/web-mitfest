@@ -326,7 +326,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     id={`name-${index}`}
                     value={item.name}
                     onChange={(e) =>
-                      handlePhotoChange(index, e.target.files[0] ?? null)
+                      handlePhotoChange(index, e.target.files?.[0]! ?? null)
                     }
                     placeholder="Foto Anggota"
                   />
@@ -342,7 +342,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     id={`name-${index}`}
                     value={item.name}
                     onChange={(e) =>
-                      handlePhotoChange(index, e.target.files[0] ?? null)
+                      handlePhotoChange(index, e.target.files?.[0]! ?? null)
                     }
                     placeholder="Kartu Pelajar"
                   />
@@ -356,7 +356,7 @@ const FormAnggota: React.FC<FormAnggotaProps> = ({ limit, wajib, submit }) => {
                     id={`name-${index}`}
                     value={item.name}
                     onChange={(e) =>
-                      handlePhotoChange(index, e.target.files[0] ?? null)
+                      handlePhotoChange(index, e.target.files?.[0]! ?? null)
                     }
                     placeholder="Twibbon"
                   />

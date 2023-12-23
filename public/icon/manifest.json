@@ -5,7 +5,7 @@
   "id": "mitfest.smktelkom-mlg.sch.id",
   "start_url": "/",
   "scope": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#FFF",
   "background_color": "#FFF",
   "icons": [
