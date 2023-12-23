@@ -96,9 +96,12 @@ export default function RootLayout({
           href="/icon/favicon-16x16.png"
         />
         <link rel="manifest" href="/icon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="msapplication-TileColor" content="#171717" />
+        <meta
+          name="msapplication-TileImage"
+          content="/icon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#171717" />
         <script
           src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
           defer
