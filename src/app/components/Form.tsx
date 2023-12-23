@@ -66,7 +66,7 @@ export function FileInput({
   accept,
 }: FileInputProps) {
   const [file, setFile] = useState({
-    name: "Sebuah File.pdf",
+    name: "",
     url: "",
     type: "",
     percentage: 0,
@@ -80,6 +80,7 @@ export function FileInput({
       type: "",
       percentage: 0,
     });
+    changeEvent();
     const fileInput = document.getElementById(
       name + "_handler",
     ) as HTMLInputElement;
@@ -130,6 +131,7 @@ export function FileInput({
           percentage: 0,
         });
       }
+      changeEvent();
       const fileInput = document.getElementById(
         name + "_handler",
       ) as HTMLInputElement;
@@ -140,6 +142,12 @@ export function FileInput({
     formData.append("file", file);
     xhr.open("POST", "/api/file", true);
     xhr.send(formData);
+  }
+
+  function changeEvent() {
+    var event = new Event("input", { bubbles: true });
+    const input = document.getElementById(name) as HTMLInputElement;
+    input.dispatchEvent(event);
   }
 
   return (
@@ -189,6 +197,7 @@ export function FileInput({
       <input
         name={name}
         value={file.url}
+        onChange={handleChange}
         type="hidden"
         required={required}
         id={name}
