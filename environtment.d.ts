@@ -17,6 +17,7 @@ declare global {
       NEXTAUTH_SECRET: string;
       NEXTAUTH_URL: string;
       DRIVE_FOLDER_ID: string;
+      PRIVATE_KEY_SERVICE: string;
       [key: string]: string | undefined;
     }
   }

@@ -1,4 +1,5 @@
 import stream, { Readable } from "stream";
+import { serviceAccountConfig } from "@/config/service-account";
 const { google } = require("googleapis"); // eslint-disable-line
 
 /**
@@ -21,29 +22,15 @@ type SearchResultResponse = {
 export class GoogleDriveService {
   private driveClient;
 
-  public constructor(
-    clientId: string,
-    clientSecret: string,
-    redirectUri: string,
-    refreshToken: string,
-  ) {
-    this.driveClient = this.createDriveClient(
-      clientId,
-      clientSecret,
-      redirectUri,
-      refreshToken,
-    );
+  public constructor(credentials: object) {
+    this.driveClient = this.createDriveClient(credentials);
   }
 
-  createDriveClient(
-    clientId: string,
-    clientSecret: string,
-    redirectUri: string,
-    refreshToken: string,
-  ) {
-    const client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
-
-    client.setCredentials({ refresh_token: refreshToken });
+  createDriveClient(clientId: object) {
+    const client = new google.auth.GoogleAuth({
+      credentials: clientId,
+      scopes: ["https://www.googleapis.com/auth/drive"],
+    });
 
     return google.drive({
       version: "v3",
@@ -124,12 +111,7 @@ export async function uploadFile(
   folderId: string,
   ownerInfo?: string,
 ): Promise<driveFile> {
-  const googleDriveService = new GoogleDriveService(
-    driveClientId,
-    driveClientSecret,
-    driveRedirectUri,
-    driveRefreshToken,
-  );
+  const googleDriveService = new GoogleDriveService(serviceAccountConfig);
 
   const file = await googleDriveService.saveFile(
     filename,

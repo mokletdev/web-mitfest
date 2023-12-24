@@ -88,60 +88,72 @@ export function FileInput({
   }
 
   async function handleFile(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0]!;
+    try {
+      const file = event.target.files?.[0]!;
 
-    if (accept) {
-      const regex = new RegExp(accept.replace(/\*/g, ".*").replace(/\,/g, "|"));
-      if (!regex.test(file.type))
-        return alert(`File type ${file.type} is not allowed`);
-    }
-    setFile({
-      name: file.name,
-      url: "",
-      type: file.type,
-      percentage: 5,
-    });
-    var xhr = new XMLHttpRequest();
-    xhr.responseType = "json";
-    xhr.upload.addEventListener(
-      "progress",
-      function (evt) {
-        if (evt.lengthComputable) {
-          var percentComplete = evt.loaded / evt.total;
-          percentComplete = percentComplete * 100;
+      if (accept) {
+        const regex = new RegExp(
+          accept.replace(/\*/g, ".*").replace(/\,/g, "|"),
+        );
+        if (!regex.test(file.type))
+          return alert(`File type ${file.type} is not allowed`);
+      }
+      setFile({
+        name: file.name,
+        url: "",
+        type: file.type,
+        percentage: 5,
+      });
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = "json";
+      xhr.upload.addEventListener(
+        "progress",
+        function (evt) {
+          if (evt.lengthComputable) {
+            var percentComplete = evt.loaded / evt.total;
+            percentComplete = percentComplete * 100;
+            setFile((value) => {
+              return { ...value, percentage: percentComplete - 20 };
+            });
+          }
+        },
+        false,
+      );
+
+      xhr.onload = () => {
+        if (xhr.response?.status == 200) {
           setFile((value) => {
-            return { ...value, percentage: percentComplete - 20 };
+            return { ...value, url: xhr.response.data.id, percentage: 100 };
+          });
+        } else {
+          alert("Upload error, please try again!");
+          setFile({
+            name: "",
+            url: "",
+            type: "",
+            percentage: 0,
           });
         }
-      },
-      false,
-    );
+        changeEvent();
+        const fileInput = document.getElementById(
+          name + "_handler",
+        ) as HTMLInputElement;
+        fileInput.value = "";
+      };
 
-    xhr.onload = () => {
-      if (xhr.response.status == 200) {
-        setFile((value) => {
-          return { ...value, url: xhr.response.data.id, percentage: 100 };
-        });
-      } else {
-        alert("Upload error, please try again!");
-        setFile({
-          name: "",
-          url: "",
-          type: "",
-          percentage: 0,
-        });
-      }
-      changeEvent();
-      const fileInput = document.getElementById(
-        name + "_handler",
-      ) as HTMLInputElement;
-      fileInput.value = "";
-    };
-
-    var formData = new FormData();
-    formData.append("file", file);
-    xhr.open("POST", "/api/file", true);
-    xhr.send(formData);
+      var formData = new FormData();
+      formData.append("file", file);
+      xhr.open("POST", "/api/file", true);
+      xhr.send(formData);
+    } catch (e) {
+      alert("Upload error, please try again!");
+      setFile({
+        name: "",
+        url: "",
+        type: "",
+        percentage: 0,
+      });
+    }
   }
 
   function changeEvent() {
