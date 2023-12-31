@@ -605,7 +605,7 @@ export default function Tentang() {
           </defs>
         </svg>
         <svg
-          className="animate-on-and-off pointer-events-none absolute left-0 top-0 w-full -z-10 drop-shadow-glow-white"
+          className="animate-on-and-off pointer-events-none absolute left-0 top-0 -z-10 w-full drop-shadow-glow-white"
           viewBox="0 0 658 458"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -637,14 +637,15 @@ export default function Tentang() {
           Telusuri dan Kembangkan Potensimu
         </h3>
         <p className="text-base">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          vestibulum, ligula ac convallis vehicula, purus lectus volutpat
-          lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros
+          MIT Fest 2024 (Moklet IT Festival 2024) adalah sebuah ajang kompetisi
+          yang diselenggarakan oleh METIC (Moklet Education of Technology and
+          Informatics Club). MIT Fest 2024 mengusung tema “Towards golden era
+          Indonesia 2045 through smart cities”.
           <br />
           <br />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          vestibulum, ligula ac convallis vehicula, purus lectus volutpat
-          lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros
+          MIT Fest 2024 diadakan dengan tujuan mendorong dan merayakan
+          kecemerlangan dalam bidang teknologi dan informasi Dengan semangat
+          untuk terus menginspirasi generasi muda.
         </p>
       </div>
     </section>

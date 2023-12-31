@@ -5,22 +5,23 @@ export default function FAQ() {
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
   const faqs = [
     {
-      question: "Lorem ipsum dolor sit amet consectetur",
+      question: "Apakah ada batasan usia untuk berpartisipasi dalam MITFest?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum, ligula ac convallis vehicula, purus lectus volutpat lectus, vel ultrices urna mi vitae lorem.",
     },
     {
-      question: "Lorem ipsum dolor sit amet consectetur",
+      question: "Dapatkah saya mengganti bidang lomba setelah mendaftar?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum, ligula ac convallis vehicula, purus lectus volutpat lectus, vel ultrices urna mi vitae lorem.",
     },
     {
-      question: "Lorem ipsum dolor sit amet consectetur",
+      question:
+        "Apakah tersedia kebijakan refund setelah melakukan pembayaran?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum, ligula ac convallis vehicula, purus lectus volutpat lectus, vel ultrices urna mi vitae lorem.",
     },
     {
-      question: "Lorem ipsum dolor sit amet consectetur",
+      question: "Apakah Mitfest terbuka untuk seluruh siswa di Indonesia?",
       answer:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum, ligula ac convallis vehicula, purus lectus volutpat lectus, vel ultrices urna mi vitae lorem.",
     },

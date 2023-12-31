@@ -5,24 +5,23 @@ export default function Panduan() {
   const [activeStage, setActiveStage] = useState(0);
   const stages = [
     {
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: `Kunjungi Situs Web MITFest`,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et ex quis nisl pretium mollis accumsan ut nisl.",
+        "Temukan informasi lomba dan panduan melalui guidebook di situs web resmi MITFest.",
     },
     {
-      title: "Lorem ipsum dolor sit amet consectetur",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et ex quis nisl pretium mollis accumsan ut nisl.",
+      title: `Tekan Tombol "Daftar" di Navbar`,
+      description: `Klik tombol "Daftar" pada navbar untuk membuat akun dan mendapatkan akses ke dashboard.`,
     },
     {
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Buat Akun dan Isi Formulir Pendaftaran",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et ex quis nisl pretium mollis accumsan ut nisl.",
+        "Pilih kategori lomba yang diinginkan dan isi formulir pendaftaran yang tersedia di dashboard.",
     },
     {
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Tunggu Konfirmasi dari Panitia",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et ex quis nisl pretium mollis accumsan ut nisl.",
+        "Konfirmasi dapat diterima melalui email atau notifikasi di dashboard.",
     },
   ];
 
