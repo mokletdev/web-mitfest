@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { generateSecureToken } from "../verificationToken";
 import { TokenType, users } from "@prisma/client";
 
