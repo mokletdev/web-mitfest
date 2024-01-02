@@ -1,5 +1,5 @@
 import { compareData } from "../encryption";
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 import type { users } from "@prisma/client";
 import type { ObjectId } from "bson";

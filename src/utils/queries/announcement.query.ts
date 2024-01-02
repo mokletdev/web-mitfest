@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { Prisma, $Enums } from "@prisma/client";
 
 export async function findAnnounceByType(type: $Enums.AnnouncementType) {
