@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LinkButton } from "../Button";
+import DownloadIcon from "../Icons/Download";
 
 export default function Kategori() {
   return (
@@ -12,13 +13,12 @@ export default function Kategori() {
           Berbagai Kategori Menarik
         </h3>
         <p className="mb-[48px] text-base">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          vestibulum, ligula ac convallis vehicula, purus lectus volutpat
-          lectus, vel ultrices urna mi vitae lorem. Nam in laoreet eros, in
-          finibus justo.
+          MIT Fest 2024 menyajikan lima sub-kompetisi yang mencakup berbagai
+          aspek dalam dunia digital. Kompetisi ini ditujukan bagi pelajar aktif
+          tingkat SMA/SMK/Sederajat di seluruh Indonesia.
         </p>
         <LinkButton href={"/guidebook"} variant="red">
-          Unduh Buku Panduan
+          <DownloadIcon /> Unduh Buku Panduan
         </LinkButton>
       </div>
       <div className="flex w-full max-w-full flex-col items-start justify-between gap-[26px] lg:flex-row lg:gap-0 xl:max-w-[65%]">

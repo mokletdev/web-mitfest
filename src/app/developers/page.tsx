@@ -1,8 +1,14 @@
 import { LinkButton } from "@/app/components/Button";
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 import { FaCode } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+
+export const metadata: Metadata = {
+  title: "MIT Festival Developers",
+  description: "The developers of the MITFest Official Website project",
+};
 
 export default function Developers() {
   return (
