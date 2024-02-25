@@ -4,7 +4,7 @@ import { getAllRegistrations } from "@/utils/queries/registration.query";
 
 export default async function RegistrationsPage() {
   const registrations = await getAllRegistrations();
-// idk what i just doing, but just doing it, btw someting error in notfound() function 
+// idk what i just doing, but just doing it. b̶t̶w̶ ̶s̶o̶m̶e̶t̶i̶n̶g̶ ̶e̶r̶r̶o̶r̶ ̶i̶n̶ ̶n̶o̶t̶f̶o̶u̶n̶d̶(̶)̶ ̶f̶u̶n̶c̶t̶i̶o̶n̶
   return (
     <React.Fragment>
       <div className="flex flex-col gap-2">
